@@ -109,6 +109,12 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('cooperative-trainings/{id}/delete', 'TVI\CooperativeTrainingController@delete');
     Route::get('cooperative-trainings/{id}/save-as', 'TVI\CooperativeTrainingController@saveAsForm');
     Route::post('cooperative-trainings/save-as', 'TVI\CooperativeTrainingController@saveAs');
+
+    // Trainer routes...
+    Route::resource('trainers', 'TVI\TrainerController');
+    Route::get('trainers/{id}/delete', 'TVI\TrainerController@delete');
+    Route::get('trainers/{id}/save-as', 'TVI\TrainerController@saveAsForm');
+    Route::post('trainers/save-as', 'TVI\TrainerController@saveAs');
 });
 
 // System Admin routes...

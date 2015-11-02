@@ -138,7 +138,7 @@ class ShortTermTrainingController extends Controller
     public function saveAsForm($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
+        $report_dates = ReportDate::where('user_id', '=', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
         $report_date = ReportDate::findOrFail($id);
         return view('tviadmin.short_term_trainings.save_as', array('report_dates' => $report_dates,
                                                                     'report_date' => $report_date,

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\TVI;
 
-use App\Assessment;
-use App\Http\Requests\AssessmentRequest;
+use App\CooperativeTraining;
+use App\Http\Requests\TrainerRequest;
 use App\Occupation;
 use App\ReportDate;
 use App\Sector;
 use App\Subsector;
+use App\Trainer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
-class AssessmentController extends Controller
+class TrainerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,9 +27,9 @@ class AssessmentController extends Controller
     {
         $user = Auth::user();
         $report_dates = ReportDate::where('user_id', '=', $user->id)
-            ->orderBy('petsa', 'desc')
-            ->paginate(10);
-        return view('tviadmin.assessments.index', compact('report_dates'));
+                                    ->orderBy('petsa', 'desc')
+                                    ->paginate(10);
+        return view('tviadmin.trainers.index', compact('report_dates'));
     }
 
     /**
@@ -42,7 +43,7 @@ class AssessmentController extends Controller
         $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
-        return view('tviadmin.assessments.create', array('report_dates' => $report_dates,
+        return view('tviadmin.trainers.create', array('report_dates' => $report_dates,
                                                                     'report_date_id' => Input::get('id'),
                                                                     'sectors' => $sectors,
                                                                     'institution_id' => $user->institution->id));
@@ -54,11 +55,11 @@ class AssessmentController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(AssessmentRequest $request)
+    public function store(TrainerRequest $request)
     {
-        Assessment::create($request->all());
+        Trainer::create($request->all());
         $request->session()->flash('alert-success', 'New record was successfully added!');
-        return redirect('assessments/' . $request->get('report_date_id'));
+        return redirect('trainers/' . $request->get('report_date_id'));
     }
 
     /**
@@ -71,10 +72,10 @@ class AssessmentController extends Controller
     {
         $user = Auth::user();
         $criteria = array('report_date_id' => $id, 'institution_id' => $user->institution->id);
-        $assessments = Assessment::where($criteria)->paginate(10);
+        $trainers = Trainer::where($criteria)->paginate(10);
         $report_date = ReportDate::findOrFail($id);
-        return view('tviadmin.assessments.index2', array('assessments' => $assessments,
-                        'report_date' => $report_date));
+        return view('tviadmin.trainers.index2', array('trainers' => $trainers,
+                                                        'report_date' => $report_date));
     }
 
     /**
@@ -87,12 +88,12 @@ class AssessmentController extends Controller
     {
         $user = Auth::user();
         $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
-        $assessment = Assessment::findOrFail($id);
+        $trainer = Trainer::findOrFail($id);
         $sectors = Sector::all()->lists('name', 'id');
-        $subsectors = Subsector::findOrFail($assessment->occupation->subsector->id)->lists('name', 'id');
-        $occupations = Occupation::findOrFail($assessment->occupation->id)->lists('name', 'id');
+        $subsectors = Subsector::findOrFail($trainer->occupation->subsector->id)->lists('name', 'id');
+        $occupations = Occupation::findOrFail($trainer->occupation->id)->lists('name', 'id');
 
-        return view('tviadmin.assessments.edit', array('assessment' => $assessment,
+        return view('tviadmin.trainers.edit', array('trainer' => $trainer,
                                                         'report_dates' => $report_dates,
                                                         'sectors' => $sectors,
                                                         'subsectors' => $subsectors,
@@ -106,12 +107,12 @@ class AssessmentController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(AssessmentRequest $request, $id)
+    public function update(TrainerRequest $request, $id)
     {
-        $assessment = Assessment::findOrFail($id);
-        $assessment->update($request->all());
+        $trainer = Trainer::findOrFail($id);
+        $trainer->update($request->all());
         $request->session()->flash('alert-success', 'Update was successful!');
-        return redirect('assessments/' . $assessment->report_date->id);
+        return redirect('trainers/' . $trainer->report_date->id);
     }
 
     /**
@@ -122,48 +123,51 @@ class AssessmentController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $assessment = Assessment::findOrFail($id);
-        $report_id = $assessment->report_date->id;
-        $assessment->delete();
+        $trainer = Trainer::findOrFail($id);
+        $report_id = $trainer->report_date->id;
+        $trainer->delete();
         $request->session()->flash('alert-success', 'Deletion was successful!');
-        return redirect('assessments/' . $report_id);
+        return redirect('trainers/' . $report_id);
     }
 
     public function delete($id)
     {
-        $assessment = Assessment::findOrFail($id);
-        return view('tviadmin.assessments.delete', array('assessment' => $assessment));
+        $trainer = Trainer::findOrFail($id);
+        return view('tviadmin.trainers.delete', array('trainer' => $trainer));
     }
 
     public function saveAsForm($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+        $report_dates = ReportDate::where('user_id', '=', $user->id)
+                                        ->orderBy('petsa', 'desc')
+                                        ->lists('petsa', 'id');
         $report_date = ReportDate::findOrFail($id);
-        return view('tviadmin.assessments.save_as', array('report_dates' => $report_dates,
-                                                            'report_date' => $report_date,
-                                                            'institution_id' => $user->institution->id));
+        return view('tviadmin.trainers.save_as', array('report_dates' => $report_dates,
+                                                        'report_date' => $report_date,
+                                                        'institution_id' => $user->institution->id));
     }
 
     public function saveAs(Request $request)
     {
         // retrieve all records as collection
-        $records = Assessment::select(
+        $records = Trainer::select(
             'report_date_id',
             'institution_id',
             'occupation_id',
-            'assessed_regular_male',
-            'assessed_regular_female',
-            'assessed_extension_male',
-            'assessed_extension_female',
-            'assessed_short_term_male',
-            'assessed_short_term_female',
-            'competent_regular_male',
-            'competent_regular_female',
-            'competent_extension_male',
-            'competent_extension_female',
-            'competent_short_term_male',
-            'competent_short_term_female'
+            'full_time_male',
+            'full_time_female',
+            'part_time_male',
+            'part_time_female',
+            'ethiopian_male',
+            'ethiopian_female',
+            'non_ethiopian_male',
+            'non_ethiopian_female',
+            'core_male',
+            'core_female',
+            'took_tm_male',
+            'took_tm_female',
+            'remarks'
         )->where('report_date_id', $request->report_date_id_source)->get();
 
         if(count($records) > 0) {
@@ -173,7 +177,7 @@ class AssessmentController extends Controller
             }
 
             // insert into the table
-            Assessment::insert($records->toArray());
+            Trainer::insert($records->toArray());
 
             // send a flash message
             $request->session()->flash('alert-success', 'Save as operation was successful!');
@@ -182,6 +186,6 @@ class AssessmentController extends Controller
             $request->session()->flash('alert-danger', 'Save as operation failed! No records found from source.');
         }
 
-        return redirect('assessments');
+        return redirect('trainers');
     }
 }
