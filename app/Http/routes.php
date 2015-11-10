@@ -115,6 +115,12 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('trainers/{id}/delete', 'TVI\TrainerController@delete');
     Route::get('trainers/{id}/save-as', 'TVI\TrainerController@saveAsForm');
     Route::post('trainers/save-as', 'TVI\TrainerController@saveAs');
+
+    // Dropout routes...
+    Route::resource('dropouts', 'TVI\DropoutController');
+    Route::get('dropouts/{id}/delete', 'TVI\DropoutController@delete');
+    Route::get('dropouts/{id}/save-as', 'TVI\DropoutController@saveAsForm');
+    Route::post('dropouts/save-as', 'TVI\DropoutController@saveAs');
 });
 
 // System Admin routes...
