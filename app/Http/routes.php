@@ -121,6 +121,12 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('dropouts/{id}/delete', 'TVI\DropoutController@delete');
     Route::get('dropouts/{id}/save-as', 'TVI\DropoutController@saveAsForm');
     Route::post('dropouts/save-as', 'TVI\DropoutController@saveAs');
+
+    // IndustryExtension1 routes...
+    Route::resource('industry-extension-1', 'TVI\IndustryExtension1Controller');
+    Route::get('industry-extension-1/{id}/delete', 'TVI\IndustryExtension1Controller@delete');
+    Route::get('industry-extension-1/{id}/save-as', 'TVI\IndustryExtension1Controller@saveAsForm');
+    Route::post('industry-extension-1/save-as', 'TVI\IndustryExtension1Controller@saveAs');
 });
 
 // System Admin routes...

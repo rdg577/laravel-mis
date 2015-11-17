@@ -14,9 +14,9 @@
             @endif
         @endforeach
     </div>
-    <h1>Dropouts</h1>
+    <h1>Industry Extension # 1</h1>
     <div class="panel panel-default">
-        <div class="panel-heading"><a href="/dropouts/create" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
+        <div class="panel-heading"><a href="/industry-extension-1/create" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
         <table class="table table-striped">
             <thead>
                 <tr>
