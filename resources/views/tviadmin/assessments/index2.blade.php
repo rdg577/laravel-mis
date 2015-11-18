@@ -26,9 +26,7 @@
     @forelse($assessments as $assessment)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $assessment->id }}">
-                    <h4>{{ $assessment->occupation->name }}</h4>
-                </a>
+                <a data-toggle="collapse" href="{{ '#item' . $assessment->id }}"><h4>{{ $assessment->occupation->name }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/assessments/' . $assessment->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/assessments/' . $assessment->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

@@ -26,9 +26,7 @@
     @forelse($industry_extension1s as $industry_extension1)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $industry_extension1->id }}">
-                    <h4>{{ $industry_extension1->occupation->name }}</h4>
-                </a>
+                <a data-toggle="collapse" href="{{ '#item' . $industry_extension1->id }}"><h4>{{ $industry_extension1->occupation->name }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/industry-extension-1/' . $industry_extension1->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/industry-extension-1/' . $industry_extension1->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

@@ -26,10 +26,9 @@
     @forelse($formal_trainings as $formal_training)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $formal_training->id }}">
-                    <h4>{{ $formal_training->occupation->name }}</h4>
-                </a>
+                <a data-toggle="collapse" href="{{ '#item' . $formal_training->id }}"><h4>{{ $formal_training->occupation->name }}</h4></a>
                 <p>Duration : {{ $formal_training->course_started }} to {{ $formal_training->course_ended }}</p>
+                <a data-toggle="collapse" href="{{ '#item' . $formal_training->id }}"><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/formal-trainings/' . $formal_training->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/formal-trainings/' . $formal_training->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

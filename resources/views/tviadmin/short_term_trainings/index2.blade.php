@@ -25,10 +25,9 @@
     @forelse($short_term_trainings as $short_term_training)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $short_term_training->id }}">
-                    <h4>{{ $short_term_training->occupation->name }}</h4>
-                </a>
+                <a data-toggle="collapse" href="{{ '#item' . $short_term_training->id }}"><h4>{{ $short_term_training->occupation->name }}</h4></a>
                 <p>Duration : {{ $short_term_training->course_started }} to {{ $short_term_training->course_ended }}</p>
+                <a data-toggle="collapse" href="{{ '#item' . $short_term_training->id }}"><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/short-term-trainings/' . $short_term_training->id }}/edit"
                     title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>&nbsp;<a href="{{ '/short-term-trainings/' . $short_term_training->id }}/delete"
                     title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

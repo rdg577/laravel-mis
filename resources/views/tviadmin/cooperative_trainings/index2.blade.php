@@ -26,9 +26,7 @@
     @forelse($cooperative_trainings as $cooperative_training)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $cooperative_training->id }}">
-                    <h4>{{ $cooperative_training->occupation->name }}</h4>
-                </a>
+                <a data-toggle="collapse" href="{{ '#item' . $cooperative_training->id }}"><h4>{{ $cooperative_training->occupation->name }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/cooperative-trainings/' . $cooperative_training->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/cooperative-trainings/' . $cooperative_training->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
