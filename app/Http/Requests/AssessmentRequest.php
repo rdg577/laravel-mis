@@ -26,7 +26,7 @@ class AssessmentRequest extends Request
         return [                   
             'report_date_id'                => 'required',
             'institution_id'                => 'required',
-            'occupation_id'                 => 'required',
+            'occupation_id'                 => 'required|integer|min:1',
             'assessed_regular_male'         => 'required|integer|min:0',
             'assessed_regular_female'       => 'required|integer|min:0',
             'assessed_extension_male'       => 'required|integer|min:0',

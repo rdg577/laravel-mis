@@ -13,25 +13,18 @@
 
         <div class="form-group">
             {!! Form::label('sector_id', 'Sector : ') !!}
-            {!! Form::select('sector_id', $sectors, $industry_extension1->occupation->subsector->sector->id,
+            {!! Form::select('sector_id', $sectors, $industry_extension1->subsector->sector->id,
                                                           ['class' => 'form-control',
                                                            'data-url' => url('load-sub-sectors'),
                                                            'id' => 'sector']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('department', 'Sub-sector : ') !!}
-            {!! Form::select('department', $subsectors, $industry_extension1->occupation->subsector->id,
+            {!! Form::label('subsector_id', 'Sub-sector : ') !!}
+            {!! Form::select('subsector_id', $subsectors, $industry_extension1->subsector->id,
                                                           ['class' => 'form-control',
                                                            'data-url' => url('load-occupations'),
                                                            'id' => 'subsector']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('occupation_id', 'Occupation : ') !!}
-            {!! Form::select('occupation_id', $occupations, $industry_extension1->occupation->id,
-                                                          ['class' => 'form-control',
-                                                           'id' => 'occupation']) !!}
         </div>
 
         <div class="form-group">
@@ -67,12 +60,12 @@
         <div class="form-group">
             {!! Form::label('capital', 'Capital in Million - Technology :') !!}
             {!! Form::input('number', 'capital', null, ['class' => 'form-control']) !!}
-                </div>
+        </div>
 
-                <div class="form-group">
-                    {!! Form::label('remarks', 'Remarks : ') !!}
-                    {!! Form::textarea('remarks',null, ['class' => 'form-control']) !!}
-                </div>
+        <div class="form-group">
+            {!! Form::label('remarks', 'Remarks : ') !!}
+            {!! Form::textarea('remarks',null, ['class' => 'form-control']) !!}
+        </div>
 
     </div> {{--div class="update-form"--}}
 
@@ -93,17 +86,10 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('department', 'Sub-sector : ') !!}
-            {!! Form::select('department', array('- select sector first -'), null, ['class' => 'form-control',
+            {!! Form::label('subsector_id', 'Sub-sector : ') !!}
+            {!! Form::select('subsector_id', array('- select sector first -'), null, ['class' => 'form-control',
                                                            'data-url' => url('load-occupations'),
                                                            'id' => 'subsector']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('occupation_id', 'Occupation : ') !!}
-            {!! Form::select('occupation_id', array('- select sub-sector first -'), null,
-                                                            ['class' => 'form-control',
-                                                           'id' => 'occupation']) !!}
         </div>
 
         <div class="form-group">

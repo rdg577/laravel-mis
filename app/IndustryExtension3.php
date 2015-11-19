@@ -4,21 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class IndustryExtension1 extends Model
+class IndustryExtension3 extends Model
 {
-    protected $table = 'industry_extension1s';
-    
+    protected $table = 'industry_extension3s';
+
     protected $fillable = [
         'report_date_id',
         'institution_id',
         'subsector_id',
-        'identified_technologies',
-        'benchmarked_technologies',
-        'proper_documentation',
-        'prototype',
-        'competent_entrepreneurs',
-        'transferred',
-        'capital',
+        'high_level',
+        'mid_level',
+        'low_level',
         'remarks'
     ];
 

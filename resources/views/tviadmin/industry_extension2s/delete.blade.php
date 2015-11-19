@@ -24,7 +24,7 @@
                                     </tr>
                                     <tr>
                                         <th>Occupation :</th>
-                                        <td>{{ $industry_extension2->occupation->name }}</td>
+                                        <td>{{ $industry_extension2->subsector->name }}</td>
                                     </tr>
                                 </tbody>
                             </table>

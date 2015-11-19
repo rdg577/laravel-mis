@@ -6,25 +6,25 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Warning! Deleting this is permanent. Do you want to continue?</div>
                     <div class="panel-body">
-                        {!! Form::model($industry_extension1,
+                        {!! Form::model($industry_extension3,
                             [
                                 'method' => 'DELETE',
-                                'url'=>'/industry-extension-1/' . $industry_extension1->id,
+                                'url'=>'/industry-extension-3/' . $industry_extension3->id,
                                 'role'=>'form', 'class'=>'form-horizontal'
                             ]
                             ) !!}
                             {!! Form::submit('Yes, Delete!', ['class' => 'btn btn-danger']) !!}
-                            <a role="button" class="btn btn-success" href="/industry-extension-1/{{ $industry_extension1->report_date->id }}">No!</a>
+                            <a role="button" class="btn btn-success" href="/industry-extension-3/{{ $industry_extension3->report_date->id }}">No!</a>
                             <p>&nbsp;</p>
                             <table class="table table-stripe">
                                 <tbody>
                                     <tr>
                                         <th>Report Date :</th>
-                                        <td>{{ $industry_extension1->report_date->petsa }}</td>
+                                        <td>{{ $industry_extension3->report_date->petsa }}</td>
                                     </tr>
                                     <tr>
                                         <th>Occupation :</th>
-                                        <td>{{ $industry_extension1->subsector->name }}</td>
+                                        <td>{{ $industry_extension3->subsector->name }}</td>
                                     </tr>
                                 </tbody>
                             </table>

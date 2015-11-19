@@ -26,7 +26,7 @@ class CooperativeTrainingRequest extends Request
         return [
             'report_date_id'    => 'required',
             'institution_id'    => 'required',
-            'occupation_id'     => 'required',
+            'occupation_id'     => 'required|integer|min:1',
             'mse_list'          => 'required|integer|min:0',
             'mse_mou'           => 'required|integer|min:0',
             'mse_joint_plan'    => 'required|integer|min:0',

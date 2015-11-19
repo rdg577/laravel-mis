@@ -133,6 +133,12 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('industry-extension-2/{id}/delete', 'TVI\IndustryExtension2Controller@delete');
     Route::get('industry-extension-2/{id}/save-as', 'TVI\IndustryExtension2Controller@saveAsForm');
     Route::post('industry-extension-2/save-as', 'TVI\IndustryExtension2Controller@saveAs');
+
+    // IndustryExtension3 routes...
+    Route::resource('industry-extension-3', 'TVI\IndustryExtension3Controller');
+    Route::get('industry-extension-3/{id}/delete', 'TVI\IndustryExtension3Controller@delete');
+    Route::get('industry-extension-3/{id}/save-as', 'TVI\IndustryExtension3Controller@saveAsForm');
+    Route::post('industry-extension-3/save-as', 'TVI\IndustryExtension3Controller@saveAs');
 });
 
 // System Admin routes...

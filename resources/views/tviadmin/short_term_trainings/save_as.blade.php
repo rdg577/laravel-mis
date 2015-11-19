@@ -16,7 +16,7 @@
 
                             {!! Form::hidden('institution_id', $institution_id) !!}
 
-                            <div class="col col-md-8 col-md-offset-2">
+                            <div class="col col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                                 <div class="form-group">
                                     {!! Form::label('report_date_id', 'Source Report Date : ') !!}
                                     {!! Form::text('report_date_petsa', $report_date->petsa, ['class' => 'form-control',

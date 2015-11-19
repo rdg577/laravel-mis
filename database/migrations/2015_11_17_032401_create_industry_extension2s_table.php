@@ -16,7 +16,7 @@ class CreateIndustryExtension2sTable extends Migration
             $table->increments('id');
             $table->integer('report_date_id')->unsigned();
             $table->integer('institution_id')->unsigned();
-            $table->integer('occupation_id')->unsigned();
+            $table->integer('subsector_id')->unsigned();
             $table->integer('starter_enterprise');
             $table->integer('starter_mse_operator_male');
             $table->integer('starter_mse_operator_female');

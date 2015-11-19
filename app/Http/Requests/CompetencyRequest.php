@@ -27,7 +27,7 @@ class CompetencyRequest extends Request
             'name' => 'required|min:6|max:255',
             'code' => 'required|max:50',
             'active' => 'boolean',
-            'occupation_id' => 'required'
+            'occupation_id' => 'required|integer|min:1'
         ];
     }
 }

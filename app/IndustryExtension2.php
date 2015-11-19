@@ -11,7 +11,7 @@ class IndustryExtension2 extends Model
     protected $fillable = [
         'report_date_id',
         'institution_id',
-        'occupation_id',
+        'subsector_id',
         'starter_enterprise',
         'starter_mse_operator_male',
         'starter_mse_operator_female',
@@ -40,8 +40,8 @@ class IndustryExtension2 extends Model
         return $this->belongsTo('App\Institution', 'institution_id');
     }
 
-    public function occupation()
+    public function subsector()
     {
-        return $this->belongsTo('App\Occupation', 'occupation_id');
+        return $this->belongsTo('App\Subsector', 'subsector_id');
     }
 }

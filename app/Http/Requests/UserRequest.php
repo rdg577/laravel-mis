@@ -24,12 +24,12 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'name'      => 'required|max:255',
-            'email'     => 'required|email|max:255',   // required|email|max:255|unique:users
-            'password'  => 'required|confirmed|min:6',
-            'user_type' => 'required',
-            'institution_id' => 'required',
-            'region_id' => 'required'
+            'name'              => 'required|max:255',
+            'email'             => 'required|email|max:255',   // required|email|max:255|unique:users
+            'password'          => 'required|confirmed|min:6',
+            'user_type'         => 'required',
+            'institution_id'    => 'required|integer|min:1',
+            'region_id'         => 'required|integer|min:1'
         ];
     }
 }

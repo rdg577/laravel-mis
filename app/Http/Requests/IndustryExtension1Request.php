@@ -26,7 +26,7 @@ class IndustryExtension1Request extends Request
         return [
             'report_date_id'            => 'required',
             'institution_id'            => 'required',
-            'occupation_id'             => 'required',
+            'subsector_id'              => 'required|integer|min:1',
             'identified_technologies'   => 'required|integer|min:0',
             'benchmarked_technologies'  => 'required|integer|min:0',
             'proper_documentation'      => 'required|integer|min:0',

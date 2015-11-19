@@ -73,8 +73,10 @@ class IndustryExtension2Controller extends Controller
         $criteria = array('report_date_id' => $id, 'institution_id' => $user->institution->id);
         $industry_extension2s = IndustryExtension2::where($criteria)->paginate(10);
         $report_date = ReportDate::findOrFail($id);
-        return view('tviadmin.industry_extension2s.index2', array('industry_extension2s' => $industry_extension2s,
-            'report_date' => $report_date));
+
+        return view('tviadmin.industry_extension2s.index2',
+                    array('industry_extension2s' => $industry_extension2s,
+                          'report_date' => $report_date));
     }
 
     /**
@@ -89,14 +91,12 @@ class IndustryExtension2Controller extends Controller
         $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
         $industry_extension2 = IndustryExtension2::findOrFail($id);
         $sectors = Sector::all()->lists('name', 'id');
-        $subsectors = Subsector::findOrFail($industry_extension2->occupation->subsector->id)->lists('name', 'id');
-        $occupations = Occupation::findOrFail($industry_extension2->occupation->id)->lists('name', 'id');
+        $subsectors = Subsector::findOrFail($industry_extension2->subsector->id)->lists('name', 'id');
 
         return view('tviadmin.industry_extension2s.edit', array('industry_extension2' => $industry_extension2,
             'report_dates' => $report_dates,
             'sectors' => $sectors,
-            'subsectors' => $subsectors,
-            'occupations' => $occupations));
+            'subsectors' => $subsectors));
     }
 
     /**
@@ -153,7 +153,7 @@ class IndustryExtension2Controller extends Controller
         $records = IndustryExtension2::select(
             'report_date_id',
             'institution_id',
-            'occupation_id',
+            'subsector_id',
             'starter_enterprise',
             'starter_mse_operator_male',
             'starter_mse_operator_female',

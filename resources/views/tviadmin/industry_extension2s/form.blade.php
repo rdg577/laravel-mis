@@ -13,25 +13,18 @@
 
         <div class="form-group">
             {!! Form::label('sector_id', 'Sector : ') !!}
-            {!! Form::select('sector_id', $sectors, $industry_extension2->occupation->subsector->sector->id,
+            {!! Form::select('sector_id', $sectors, $industry_extension2->subsector->sector->id,
                                                           ['class' => 'form-control',
                                                            'data-url' => url('load-sub-sectors'),
                                                            'id' => 'sector']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('department', 'Sub-sector : ') !!}
-            {!! Form::select('department', $subsectors, $industry_extension2->occupation->subsector->id,
+            {!! Form::label('subsector_id', 'Sub-sector : ') !!}
+            {!! Form::select('subsector_id', $subsectors, $industry_extension2->subsector->id,
                                                           ['class' => 'form-control',
                                                            'data-url' => url('load-occupations'),
                                                            'id' => 'subsector']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('occupation_id', 'Occupation : ') !!}
-            {!! Form::select('occupation_id', $occupations, $industry_extension2->occupation->id,
-                                                          ['class' => 'form-control',
-                                                           'id' => 'occupation']) !!}
         </div>
 
         <div class="starter panel panel-default">
@@ -256,17 +249,8 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('department', 'Sub-sector : ') !!}
-            {!! Form::select('department', array('- select sector first -'), null, ['class' => 'form-control',
-                                                           'data-url' => url('load-occupations'),
-                                                           'id' => 'subsector']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('occupation_id', 'Occupation : ') !!}
-            {!! Form::select('occupation_id', array('- select sub-sector first -'), null,
-                                                            ['class' => 'form-control',
-                                                           'id' => 'occupation']) !!}
+            {!! Form::label('subsector_id', 'Sub-sector : ') !!}
+            {!! Form::select('subsector_id', array('- select sector first -'), null, ['class' => 'form-control', 'id' => 'subsector']) !!}
         </div>
 
         <div class="starter panel panel-default">

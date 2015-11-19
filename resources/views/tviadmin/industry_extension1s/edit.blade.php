@@ -18,7 +18,6 @@
                                                                                'report_dates' => $report_dates,
                                                                                'sectors' => $sectors,
                                                                                'subsectors' => $subsectors,
-                                                                               'occupations' => $occupations,
                                                                                'submitButtonText' => 'Update'
                                                                             ])
                         {!! Form::close() !!}

@@ -26,7 +26,7 @@ class IndustryExtension2Request extends Request
         return [
             'report_date_id'                            => 'required',
             'institution_id'                            => 'required',
-            'occupation_id'                             => 'required',
+            'subsector_id'                              => 'required|integer|min:1',
             'starter_enterprise'                        => 'required|integer|min:0',
             'starter_mse_operator_male'                 => 'required|integer|min:0',
             'starter_mse_operator_female'               => 'required|integer|min:0',

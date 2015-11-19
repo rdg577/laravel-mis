@@ -9,7 +9,7 @@
                     <div class="panel-heading">Save As Report</div>
                     <div class="panel-body">
                         <div class="row">
-                            {!! Form::open(['url'   => '/formal-trainings/save-as',
+                            {!! Form::open(['url'   => '/industry-extension-3/save-as',
                                             'role'  => 'form',
                                             'class' => 'form-horizontal'
                                            ]
@@ -35,10 +35,6 @@
                                     {!! Form::reset('Reset', ['class' => 'btn btn-default']) !!}
                                 </div>
                             </div>
-
-
-
-
 
                             {!! Form::close() !!}
                         </div>

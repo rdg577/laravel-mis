@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndustryExtension1sTable extends Migration
+class CreateIndustryExtension3sTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,14 @@ class CreateIndustryExtension1sTable extends Migration
      */
     public function up()
     {
-        Schema::create('industry_extension1s', function (Blueprint $table) {
+        Schema::create('industry_extension3s', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('report_date_id')->unsigned();
             $table->integer('institution_id')->unsigned();
             $table->integer('subsector_id')->unsigned();
-            $table->integer('identified_technologies');
-            $table->integer('benchmarked_technologies');
-            $table->integer('proper_documentation');
-            $table->integer('prototype');
-            $table->integer('competent_entrepreneurs');
-            $table->integer('transferred');
-            $table->integer('capital');
+            $table->integer('high_level');
+            $table->integer('mid_level');
+            $table->integer('low_level');
             $table->string('remarks');
             $table->timestamps();
 
@@ -41,6 +37,6 @@ class CreateIndustryExtension1sTable extends Migration
      */
     public function down()
     {
-        Schema::drop('industry_extension1s');
+        Schema::drop('industry_extension3s');
     }
 }

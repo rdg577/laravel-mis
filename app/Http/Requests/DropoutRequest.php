@@ -26,7 +26,7 @@ class DropoutRequest extends Request
         return [
             'report_date_id'        => 'required',
             'institution_id'        => 'required',
-            'occupation_id'         => 'required',
+            'occupation_id'         => 'required|integer|min:1',
             'department'            => 'required|integer|min:0',
             'completed_level'       => 'required',
             'regular_male'          => 'required|integer|min:0',

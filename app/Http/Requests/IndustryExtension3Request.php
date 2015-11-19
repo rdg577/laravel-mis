@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class OccupationRequest extends Request
+class IndustryExtension3Request extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class OccupationRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|min:6|max:255',
-            'code' => 'required|max:50',
-            'level' => 'required',
-            'active' => 'boolean',
-            'subsector_id' => 'required|integer|min:1'
+            'report_date_id'    => 'required',
+            'institution_id'    => 'required',
+            'subsector_id'      => 'required|integer|min:1',
+            'high_level'        => 'required|integer|min:0',
+            'mid_level'         => 'required|integer|min:0',
+            'low_level'         => 'required|integer|min:0'
         ];
     }
 }
