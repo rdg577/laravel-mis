@@ -27,6 +27,7 @@ class TrainerRequest extends Request
             'report_date_id'        => 'required',
             'institution_id'        => 'required',
             'occupation_id'         => 'required|integer|min:1',
+            'level'                 => 'required',
             'full_time_male'        => 'required|integer|min:0',
             'full_time_female'      => 'required|integer|min:0',
             'part_time_male'        => 'required|integer|min:0',

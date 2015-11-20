@@ -17,6 +17,7 @@ class CreateTrainersTable extends Migration
             $table->integer('report_date_id')->unsigned();
             $table->integer('institution_id')->unsigned();
             $table->integer('occupation_id')->unsigned();
+            $table->string('level');
             $table->integer('full_time_male');
             $table->integer('full_time_female');
             $table->integer('part_time_male');

@@ -155,6 +155,7 @@ class TrainerController extends Controller
             'report_date_id',
             'institution_id',
             'occupation_id',
+            'level',
             'full_time_male',
             'full_time_female',
             'part_time_male',

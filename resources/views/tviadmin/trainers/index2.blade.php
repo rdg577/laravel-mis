@@ -26,7 +26,7 @@
     @forelse($trainers as $trainer)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $trainer->id }}"><h4>{{ $trainer->occupation->name }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
+                <a data-toggle="collapse" href="{{ '#item' . $trainer->id }}"><h4>{{ $trainer->occupation->name }} [ {{ $trainer->level }} ]</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/trainers/' . $trainer->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/trainers/' . $trainer->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

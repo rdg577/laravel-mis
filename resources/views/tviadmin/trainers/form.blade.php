@@ -35,6 +35,15 @@
         </div>
 
         <div class="form-group">
+            {!! Form::label('level', 'Level : ') !!}
+            {!! Form::select('level', array('Level A' => 'Level A',
+                                            'Level B' => 'Level B',
+                                            'Level C' => 'Level C'),
+                                      $trainer->level,
+                                      ['class' => 'form-control', 'id' => 'occupation']) !!}
+        </div>
+
+        <div class="form-group">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -188,6 +197,15 @@
             {!! Form::label('occupation_id', 'Occupation : ') !!}
             {!! Form::select('occupation_id', array('- select sub-sector first -'), null, ['class' => 'form-control',
                                                            'id' => 'occupation']) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('level', 'Level : ') !!}
+            {!! Form::select('level', array('Level A' => 'Level A',
+                                            'Level B' => 'Level B',
+                                            'Level C' => 'Level C'),
+                                      null,
+                                      ['class' => 'form-control', 'id' => 'occupation']) !!}
         </div>
 
         <div class="form-group">
