@@ -42,7 +42,7 @@ class ShortTermTrainingController extends Controller
         $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
-        return view('tviadmin.assessments.create', array('report_dates' => $report_dates,
+        return view('tviadmin.short_term_trainings.create', array('report_dates' => $report_dates,
                                                                 'report_date_id' => Input::get('id'),
                                                                 'sectors' => $sectors,
                                                                 'institution_id' => $user->institution->id));

@@ -1,5 +1,5 @@
 <?php
-    $sectors = \App\Sector::lists('name', 'id')->sortBy('name');
+    $sectors = \App\Sector::orderBy('name', 'asc')->lists('name', 'id');
 ?>
 
 <div class="col-md-8 col-md-offset-2">

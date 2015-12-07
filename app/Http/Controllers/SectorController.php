@@ -18,7 +18,7 @@ class SectorController extends Controller
      */
     public function index()
     {
-        $sectors = Sector::paginate(7);
+        $sectors = Sector::orderBy('name', 'asc')->paginate(7);
         return view('sysadmin.sectors.index', compact('sectors'));
     }
 

@@ -51,21 +51,21 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::get('load-sub-sectors', function(){
         $input = Input::get('option');
         $sector = \App\Sector::find($input);
-        $subsectors = $sector->subsectors();
+        $subsectors = $sector->subsectors()->orderBy('name', 'asc');
         return Response::make($subsectors->get(['id','name']));
     });
 
     Route::get('load-occupations', function(){
         $input = Input::get('option');
         $subsector = \App\Subsector::find($input);
-        $occupations = $subsector->occupations();
+        $occupations = $subsector->occupations()->orderBy('name', 'asc');
         return Response::make($occupations->get(['id','name']));
     });
 
     Route::get('load-competencies', function(){
         $input = Input::get('option');
         $occupation = \App\Occupation::find($input);
-        $competencies = $occupation->competencies();
+        $competencies = $occupation->competencies()->orderBy('name', 'asc');
         return Response::make($competencies->get(['id', 'name']));
     });
 });
@@ -151,6 +151,10 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('industry-extension-5/{id}/delete', 'TVI\IndustryExtension5Controller@delete');
     Route::get('industry-extension-5/{id}/save-as', 'TVI\IndustryExtension5Controller@saveAsForm');
     Route::post('industry-extension-5/save-as', 'TVI\IndustryExtension5Controller@saveAs');
+
+    // Report Data Summary
+    Route::get('report-data-summary', 'TVI\ReportController@index');
+    Route::post('report-data-summary', 'TVI\ReportController@tvi_show');
 });
 
 // System Admin routes...

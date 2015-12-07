@@ -4,7 +4,7 @@
 
     <div class="form-group">
         {!! Form::label('name', 'Sector Name : ') !!}
-        {!! Form::text('name', null, ['placeholder' => 'School Name',
+        {!! Form::text('name', null, ['placeholder' => 'Sector Name',
                                       'class' => 'form-control',
                                       'value' => '{{ old("name") }}']) !!}
     </div>
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         {!! Form::label('name', 'Sector Name : ') !!}
-        {!! Form::text('name', null, ['placeholder' => 'School Name',
+        {!! Form::text('name', null, ['placeholder' => 'Sector Name',
                                       'class' => 'form-control',
                                       'value' => '{{ old("name") }}']) !!}
     </div>

@@ -36,7 +36,7 @@ class Institution extends Model
         return $this->belongsTo('App\Region', 'region_id');
     }
 
-    public function cluster_leader()
+    public function c_leader()
     {
         return $this->belongsTo('App\Institution', 'cluster_leader');
     }

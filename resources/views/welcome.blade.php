@@ -23,10 +23,8 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-8">
-            <div class="col-lg-offset-4">
-                <img src="{{ URL::asset('img/mis_front.png') }}" class="img-responsive" width="100%" alt="Management Information System">
-            </div>
+        <div class="col col-lg-8 col-lg-offset-2">
+                <img src="{{ URL::asset('img/mis_front.PNG') }}" class="img-responsive" width="100%" alt="Management Information System">
         </div>
     </div>
 @stop

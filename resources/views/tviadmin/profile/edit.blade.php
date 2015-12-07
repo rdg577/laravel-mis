@@ -1,4 +1,4 @@
-@extends('sysadmin')
+@extends('tviadmin')
 @section('content')
     @include('errors.list')
     <div class="container">

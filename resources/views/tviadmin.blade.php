@@ -49,6 +49,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Report <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href="/report-data-summary">Data Summary</a></li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">Report Dates</a>
@@ -59,20 +60,13 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a href="/indicators">Indicators</a></li>
                     <li><a href="/tvi/about">About</a></li>
                 </ul>
 
                 <div class="navbar-form navbar-right">
                     <a href="/auth/logout" class="btn btn-primary" role="button">Logout</a>
                 </div>
-
-                {{--{!! Form::open(['url'=>'/search', 'class'=>'navbar-form navbar-right']) !!}
-                    <div class="form-group">
-                        <input type="text" placeholder="Search" class="form-control">
-                    </div>
-
-                    <a href="/auth/logout" class="btn btn-primary" role="button">Logout</a>
-                {!! Form::close() !!}--}}
 
             </div><!--/.navbar-collapse -->
         </div>
