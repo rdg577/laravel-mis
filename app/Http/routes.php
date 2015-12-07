@@ -154,7 +154,12 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
 
     // Report Data Summary
     Route::get('report-data-summary', 'TVI\ReportController@index');
-    Route::post('report-data-summary', 'TVI\ReportController@tvi_show');
+    Route::post('report-data-summary', 'TVI\ReportController@show');
+
+    // Indicators
+    Route::get('indicators', 'TVI\IndicatorsController@index');
+    Route::post('indicators', 'TVI\IndicatorsController@show');
+
 });
 
 // System Admin routes...
