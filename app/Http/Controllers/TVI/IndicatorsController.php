@@ -5,6 +5,7 @@ namespace App\Http\Controllers\TVI;
 use App\Institution;
 use App\ReportDate;
 use App\TVIIndicator1TrainerRatio;
+use App\TVIIndicator2StudentRatio;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,8 +24,7 @@ class IndicatorsController extends Controller
         $institution_id = Auth::user()->institution->id;
         $report_dates = ReportDate::where('user_id', Auth::user()->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
-        return view('tviadmin.indicators.index', array('trainer_ratio' => $trainer_ratio,
-                                                        'institution_id' => $institution_id,
+        return view('tviadmin.indicators.index', array('institution_id' => $institution_id,
                                                         'report_dates' => $report_dates));
     }
 
@@ -40,11 +40,13 @@ class IndicatorsController extends Controller
         $institution = Institution::findOrFail($request->get('institution_id'));
 
         $trainer_ratio = new TVIIndicator1TrainerRatio($request->get('institution_id'), $request->get('report_date_id'));
+        $student_ratio = new TVIIndicator2StudentRatio($request->get('institution_id'), $request->get('report_date_id'));
 
-        /*dd($trainer_ratio->levelA()[0]->total);*/
+        /*dd($student_ratio->ages());*/
 
         return view('tviadmin.indicators.show', array('institution' => $institution,
-                                                        'trainer_ratio' => $trainer_ratio));
+                                                        'trainer_ratio' => $trainer_ratio,
+                                                        'student_ratio' => $student_ratio));
     }
 
 

@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80af2e77-c1f0-403d-a089-e51aed2efc0f" name="Default" comment="new design on index2 files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TVI/ReportController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TVI/ReportController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/TVI/IndicatorsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/TVI/IndicatorsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php" afterPath="$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php" afterPath="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="laravel-mis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DataSummaryTrainers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/DataSummaryTrainers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625" vertical-offset="270" max-vertical-offset="1425">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="IndicatorsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TVI/IndicatorsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.166666" vertical-offset="230" max-vertical-offset="855">
-              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+            <state vertical-scroll-proportion="-16.583334" vertical-offset="262" max-vertical-offset="885">
+              <caret line="44" column="37" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="39" />
               <folding>
                 <element signature="e#44#64#0#PHP" expanded="true" />
               </folding>
@@ -50,51 +46,118 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TVIIndicator2StudentRatio.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/TVIIndicator2StudentRatio.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.708334" vertical-offset="1189" max-vertical-offset="1875">
+              <caret line="385" column="36" selection-start-line="385" selection-start-column="20" selection-end-line="385" selection-end-column="36" />
+              <folding>
+                <element signature="e#243#382#0#PHP" expanded="false" />
+                <element signature="e#448#901#0#PHP" expanded="false" />
+                <element signature="e#498#727#0#PHP" expanded="false" />
+                <element signature="e#521#726#1#PHP" expanded="false" />
+                <element signature="e#498#788#0#PHP" expanded="false" />
+                <element signature="e#498#849#0#PHP" expanded="false" />
+                <element signature="e#907#1370#0#PHP" expanded="false" />
+                <element signature="e#959#1196#0#PHP" expanded="false" />
+                <element signature="e#982#1195#1#PHP" expanded="false" />
+                <element signature="e#959#1257#0#PHP" expanded="false" />
+                <element signature="e#959#1318#0#PHP" expanded="false" />
+                <element signature="e#1376#1775#0#PHP" expanded="false" />
+                <element signature="e#1424#1601#0#PHP" expanded="false" />
+                <element signature="e#1447#1600#1#PHP" expanded="false" />
+                <element signature="e#1424#1662#0#PHP" expanded="false" />
+                <element signature="e#1424#1723#0#PHP" expanded="false" />
+                <element signature="e#1824#2519#0#PHP" expanded="false" />
+                <element signature="e#2575#3255#0#PHP" expanded="false" />
+                <element signature="e#2634#2863#0#PHP" expanded="false" />
+                <element signature="e#2657#2862#1#PHP" expanded="false" />
+                <element signature="e#2634#2924#0#PHP" expanded="false" />
+                <element signature="e#2634#2985#0#PHP" expanded="false" />
+                <element signature="e#2634#3203#0#PHP" expanded="false" />
+                <element signature="e#3025#3202#1#PHP" expanded="false" />
+                <element signature="e#3061#3123#0#PHP" expanded="false" />
+                <element signature="e#3061#3187#0#PHP" expanded="false" />
+                <element signature="e#3261#3943#0#PHP" expanded="false" />
+                <element signature="e#3320#3549#0#PHP" expanded="false" />
+                <element signature="e#3343#3548#1#PHP" expanded="false" />
+                <element signature="e#3320#3610#0#PHP" expanded="false" />
+                <element signature="e#3320#3671#0#PHP" expanded="false" />
+                <element signature="e#3320#3891#0#PHP" expanded="false" />
+                <element signature="e#3711#3890#1#PHP" expanded="false" />
+                <element signature="e#3747#3809#0#PHP" expanded="false" />
+                <element signature="e#3747#3875#0#PHP" expanded="false" />
+                <element signature="e#3949#4615#0#PHP" expanded="false" />
+                <element signature="e#4006#4235#0#PHP" expanded="false" />
+                <element signature="e#4029#4234#1#PHP" expanded="false" />
+                <element signature="e#4006#4296#0#PHP" expanded="false" />
+                <element signature="e#4006#4357#0#PHP" expanded="false" />
+                <element signature="e#4006#4563#0#PHP" expanded="false" />
+                <element signature="e#4397#4562#1#PHP" expanded="false" />
+                <element signature="e#4433#4495#0#PHP" expanded="false" />
+                <element signature="e#4433#4547#0#PHP" expanded="false" />
+                <element signature="e#4672#5362#0#PHP" expanded="false" />
+                <element signature="e#4733#4970#0#PHP" expanded="false" />
+                <element signature="e#4756#4969#1#PHP" expanded="false" />
+                <element signature="e#4733#5031#0#PHP" expanded="false" />
+                <element signature="e#4733#5092#0#PHP" expanded="false" />
+                <element signature="e#4733#5310#0#PHP" expanded="false" />
+                <element signature="e#5132#5309#1#PHP" expanded="false" />
+                <element signature="e#5168#5230#0#PHP" expanded="false" />
+                <element signature="e#5168#5294#0#PHP" expanded="false" />
+                <element signature="e#5368#6060#0#PHP" expanded="false" />
+                <element signature="e#5429#5666#0#PHP" expanded="false" />
+                <element signature="e#5452#5665#1#PHP" expanded="false" />
+                <element signature="e#5429#5727#0#PHP" expanded="false" />
+                <element signature="e#5429#5788#0#PHP" expanded="false" />
+                <element signature="e#5429#6008#0#PHP" expanded="false" />
+                <element signature="e#5828#6007#1#PHP" expanded="false" />
+                <element signature="e#5864#5926#0#PHP" expanded="false" />
+                <element signature="e#5864#5992#0#PHP" expanded="false" />
+                <element signature="e#6066#6742#0#PHP" expanded="false" />
+                <element signature="e#6560#6622#0#PHP" expanded="false" />
+                <element signature="e#6560#6674#0#PHP" expanded="false" />
+                <element signature="e#6806#7825#0#PHP" expanded="false" />
+                <element signature="e#7831#8863#0#PHP" expanded="false" />
+                <element signature="e#8909#9363#0#PHP" expanded="false" />
+                <element signature="e#9369#9829#0#PHP" expanded="false" />
+                <element signature="e#9895#10332#0#PHP" expanded="false" />
+                <element signature="e#10338#10779#0#PHP" expanded="false" />
+                <element signature="e#10785#11226#0#PHP" expanded="false" />
+                <element signature="e#11232#11677#0#PHP" expanded="false" />
+                <element signature="e#12230#12636#0#PHP" expanded="false" />
+                <element signature="e#12700#13360#0#PHP" expanded="false" />
+                <element signature="e#13397#14064#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indicator14.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator14.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="465">
+              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indicator9.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator9.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="360">
+              <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="show.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17706576" vertical-offset="0" max-vertical-offset="593">
-              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="indicator1.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="360">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="615">
-              <caret line="19" column="111" selection-start-line="19" selection-start-column="111" selection-end-line="19" selection-end-column="111" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2083333" vertical-offset="2128" max-vertical-offset="2835">
-              <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TVIIndicator1TrainerRatio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.950617" vertical-offset="25" max-vertical-offset="960">
-              <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.5699831" vertical-offset="232" max-vertical-offset="825">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -148,13 +211,28 @@
         <option value="$PROJECT_DIR$/resources/views/tviadmin/report/industry_extension.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tviadmin/report/trainees.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tviadmin.blade.php" />
-        <option value="$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php" />
         <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TVI/ReportController.php" />
+        <option value="$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator2.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator3.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator4.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator5.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator6.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator7.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator8.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/TVI/IndicatorsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator11.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator10.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator12.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator13.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator9.blade.php" />
+        <option value="$PROJECT_DIR$/app/TVIIndicator2StudentRatio.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator14.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php" />
       </list>
     </option>
   </component>
@@ -168,7 +246,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
+    <option name="width" value="1356" />
     <option name="height" value="741" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -212,6 +290,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="laravel-mis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel-mis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel-mis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -445,11 +537,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/tviadmin/indicators" />
       <recent name="$PROJECT_DIR$/resources/views/tviadmin/report" />
       <recent name="C:\wamp24\www\laravel-mis\resources\views\tviadmin" />
       <recent name="C:\Users\NQI\Desktop\laravel-mis\resources\views\tviadmin\report_dates" />
       <recent name="C:\Users\NQI\Desktop\laravel-mis\resources\views\tviadmin" />
-      <recent name="C:\wamp24\www\laravel-mis\resources\views\tviadmin\short_term_trainings" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp24\www\laravel-mis\resources\views\sysadmin\users" />
@@ -470,9 +562,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -480,6 +569,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -499,7 +591,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="741" extended-state="6" />
+    <frame x="0" y="0" width="1356" height="741" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -509,20 +601,20 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22913617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17359051" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991204" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39442816" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -546,116 +638,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/trainers/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5666666" vertical-offset="828" max-vertical-offset="8725">
-          <caret line="41" column="53" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_02_214200_create_trainers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="150" max-vertical-offset="1425">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/TrainerRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.966666" vertical-offset="426" max-vertical-offset="1275">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/trainers/index2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7364975" vertical-offset="375" max-vertical-offset="5200">
-          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InstitutionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="21.538462" vertical-offset="560" max-vertical-offset="1802">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sysadmin/sectors/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35304055" vertical-offset="182" max-vertical-offset="816">
-          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sysadmin/sectors/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/profile/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TVI/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8614865" vertical-offset="510" max-vertical-offset="1615">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SubsectorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1802">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SectorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="34.307693" vertical-offset="1147" max-vertical-offset="1802">
-          <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OccupationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1802">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CompetencyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="1802">
-          <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sysadmin/subsectors/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sysadmin/subsectors/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/sysadmin/occupations/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.028716216" vertical-offset="0" max-vertical-offset="2142">
@@ -737,7 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="593">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80944353" vertical-offset="90" max-vertical-offset="750">
           <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="617">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20236088" vertical-offset="225" max-vertical-offset="2040">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-31.583334" vertical-offset="67" max-vertical-offset="975">
           <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3035413" vertical-offset="180" max-vertical-offset="945">
           <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -834,7 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7217538" vertical-offset="592" max-vertical-offset="1185">
           <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2730">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -850,47 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="615">
           <caret line="14" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DataSummaryTrainers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625" vertical-offset="270" max-vertical-offset="1425">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="615">
-          <caret line="19" column="111" selection-start-line="19" selection-start-column="111" selection-end-line="19" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2083333" vertical-offset="2128" max-vertical-offset="2835">
-          <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.950617" vertical-offset="25" max-vertical-offset="960">
-          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="360">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,9 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48397976" vertical-offset="193" max-vertical-offset="810">
           <caret line="32" column="80" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="80" />
-          <folding>
-            <element signature="e#44#84#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -908,24 +843,252 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17706576" vertical-offset="0" max-vertical-offset="593">
           <caret line="7" column="81" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4806071" vertical-offset="0" max-vertical-offset="615">
+          <caret line="19" column="111" selection-start-line="19" selection-start-column="111" selection-end-line="19" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12984823" vertical-offset="2128" max-vertical-offset="2835">
+          <caret line="156" column="61" selection-start-line="156" selection-start-column="61" selection-end-line="156" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/DataSummaryTrainers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02529511" vertical-offset="270" max-vertical-offset="1425">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5311973" vertical-offset="1935" max-vertical-offset="3165">
+          <caret line="150" column="66" selection-start-line="150" selection-start-column="66" selection-end-line="150" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator3.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.666666" vertical-offset="35" max-vertical-offset="615">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator1.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28680688" vertical-offset="0" max-vertical-offset="523">
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49137932" vertical-offset="0" max-vertical-offset="580">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/TVIIndicator1TrainerRatio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.46205732" vertical-offset="484" max-vertical-offset="1155">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator4.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="390">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator5.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator6.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6666665" vertical-offset="23" max-vertical-offset="660">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator7.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17706576" vertical-offset="0" max-vertical-offset="600">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator8.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7155172" vertical-offset="575" max-vertical-offset="1290">
+          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/TVI/IndicatorsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.166666" vertical-offset="230" max-vertical-offset="855">
-          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+        <state vertical-scroll-proportion="-16.583334" vertical-offset="262" max-vertical-offset="885">
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="39" />
           <folding>
             <element signature="e#44#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator11.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="375">
+          <caret line="14" column="131" selection-start-line="14" selection-start-column="131" selection-end-line="14" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator10.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="375">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator12.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5689655" vertical-offset="0" max-vertical-offset="580">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator9.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="360">
+          <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator13.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5948276" vertical-offset="0" max-vertical-offset="645">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/TVIIndicator2StudentRatio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.708334" vertical-offset="1189" max-vertical-offset="1875">
+          <caret line="385" column="36" selection-start-line="385" selection-start-column="20" selection-end-line="385" selection-end-column="36" />
+          <folding>
+            <element signature="e#243#382#0#PHP" expanded="false" />
+            <element signature="e#448#901#0#PHP" expanded="false" />
+            <element signature="e#498#727#0#PHP" expanded="false" />
+            <element signature="e#521#726#1#PHP" expanded="false" />
+            <element signature="e#498#788#0#PHP" expanded="false" />
+            <element signature="e#498#849#0#PHP" expanded="false" />
+            <element signature="e#907#1370#0#PHP" expanded="false" />
+            <element signature="e#959#1196#0#PHP" expanded="false" />
+            <element signature="e#982#1195#1#PHP" expanded="false" />
+            <element signature="e#959#1257#0#PHP" expanded="false" />
+            <element signature="e#959#1318#0#PHP" expanded="false" />
+            <element signature="e#1376#1775#0#PHP" expanded="false" />
+            <element signature="e#1424#1601#0#PHP" expanded="false" />
+            <element signature="e#1447#1600#1#PHP" expanded="false" />
+            <element signature="e#1424#1662#0#PHP" expanded="false" />
+            <element signature="e#1424#1723#0#PHP" expanded="false" />
+            <element signature="e#1824#2519#0#PHP" expanded="false" />
+            <element signature="e#2575#3255#0#PHP" expanded="false" />
+            <element signature="e#2634#2863#0#PHP" expanded="false" />
+            <element signature="e#2657#2862#1#PHP" expanded="false" />
+            <element signature="e#2634#2924#0#PHP" expanded="false" />
+            <element signature="e#2634#2985#0#PHP" expanded="false" />
+            <element signature="e#2634#3203#0#PHP" expanded="false" />
+            <element signature="e#3025#3202#1#PHP" expanded="false" />
+            <element signature="e#3061#3123#0#PHP" expanded="false" />
+            <element signature="e#3061#3187#0#PHP" expanded="false" />
+            <element signature="e#3261#3943#0#PHP" expanded="false" />
+            <element signature="e#3320#3549#0#PHP" expanded="false" />
+            <element signature="e#3343#3548#1#PHP" expanded="false" />
+            <element signature="e#3320#3610#0#PHP" expanded="false" />
+            <element signature="e#3320#3671#0#PHP" expanded="false" />
+            <element signature="e#3320#3891#0#PHP" expanded="false" />
+            <element signature="e#3711#3890#1#PHP" expanded="false" />
+            <element signature="e#3747#3809#0#PHP" expanded="false" />
+            <element signature="e#3747#3875#0#PHP" expanded="false" />
+            <element signature="e#3949#4615#0#PHP" expanded="false" />
+            <element signature="e#4006#4235#0#PHP" expanded="false" />
+            <element signature="e#4029#4234#1#PHP" expanded="false" />
+            <element signature="e#4006#4296#0#PHP" expanded="false" />
+            <element signature="e#4006#4357#0#PHP" expanded="false" />
+            <element signature="e#4006#4563#0#PHP" expanded="false" />
+            <element signature="e#4397#4562#1#PHP" expanded="false" />
+            <element signature="e#4433#4495#0#PHP" expanded="false" />
+            <element signature="e#4433#4547#0#PHP" expanded="false" />
+            <element signature="e#4672#5362#0#PHP" expanded="false" />
+            <element signature="e#4733#4970#0#PHP" expanded="false" />
+            <element signature="e#4756#4969#1#PHP" expanded="false" />
+            <element signature="e#4733#5031#0#PHP" expanded="false" />
+            <element signature="e#4733#5092#0#PHP" expanded="false" />
+            <element signature="e#4733#5310#0#PHP" expanded="false" />
+            <element signature="e#5132#5309#1#PHP" expanded="false" />
+            <element signature="e#5168#5230#0#PHP" expanded="false" />
+            <element signature="e#5168#5294#0#PHP" expanded="false" />
+            <element signature="e#5368#6060#0#PHP" expanded="false" />
+            <element signature="e#5429#5666#0#PHP" expanded="false" />
+            <element signature="e#5452#5665#1#PHP" expanded="false" />
+            <element signature="e#5429#5727#0#PHP" expanded="false" />
+            <element signature="e#5429#5788#0#PHP" expanded="false" />
+            <element signature="e#5429#6008#0#PHP" expanded="false" />
+            <element signature="e#5828#6007#1#PHP" expanded="false" />
+            <element signature="e#5864#5926#0#PHP" expanded="false" />
+            <element signature="e#5864#5992#0#PHP" expanded="false" />
+            <element signature="e#6066#6742#0#PHP" expanded="false" />
+            <element signature="e#6560#6622#0#PHP" expanded="false" />
+            <element signature="e#6560#6674#0#PHP" expanded="false" />
+            <element signature="e#6806#7825#0#PHP" expanded="false" />
+            <element signature="e#7831#8863#0#PHP" expanded="false" />
+            <element signature="e#8909#9363#0#PHP" expanded="false" />
+            <element signature="e#9369#9829#0#PHP" expanded="false" />
+            <element signature="e#9895#10332#0#PHP" expanded="false" />
+            <element signature="e#10338#10779#0#PHP" expanded="false" />
+            <element signature="e#10785#11226#0#PHP" expanded="false" />
+            <element signature="e#11232#11677#0#PHP" expanded="false" />
+            <element signature="e#12230#12636#0#PHP" expanded="false" />
+            <element signature="e#12700#13360#0#PHP" expanded="false" />
+            <element signature="e#13397#14064#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/indicator14.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="465">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/tviadmin/indicators/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17706576" vertical-offset="0" max-vertical-offset="593">
-          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.5699831" vertical-offset="232" max-vertical-offset="825">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
