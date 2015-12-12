@@ -52,7 +52,7 @@ class CreateInstitutionsTable extends Migration
             'urban_rural'           => 'Urban',
             'website_url'           => '',
             'status'                => 'Polytechnic',
-            'region_id'             => 8,
+            'region_id'             => 577,
             'cluster_leader'        => 0
         ];
 

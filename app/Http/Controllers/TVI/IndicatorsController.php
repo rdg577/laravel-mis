@@ -42,8 +42,6 @@ class IndicatorsController extends Controller
         $trainer_ratio = new TVIIndicator1TrainerRatio($request->get('institution_id'), $request->get('report_date_id'));
         $student_ratio = new TVIIndicator2StudentRatio($request->get('institution_id'), $request->get('report_date_id'));
 
-        /*dd($student_ratio->ages());*/
-
         return view('tviadmin.indicators.show', array('institution' => $institution,
                                                         'trainer_ratio' => $trainer_ratio,
                                                         'student_ratio' => $student_ratio));

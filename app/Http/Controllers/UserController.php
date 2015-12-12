@@ -98,7 +98,7 @@ class UserController extends Controller
     {
         User::findOrFail($id)->delete();
         $request->session()->flash('alert-success', 'Deletion was successful!');
-        return view('/users');
+        return redirect('/users');
     }
 
     /**

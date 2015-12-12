@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
                  'user_type' => 'System Administrator',
                  'active' => true,
                  'institution_id' => 1,
-                 'region_id' => 8
+                 'region_id' => 577
                 ];
         DB::table('users')->insert($user);
     }

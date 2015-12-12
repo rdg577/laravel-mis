@@ -18,7 +18,15 @@ Route::get('/', function () {
 Route::get('home', function () {
     if(Auth::check()) {
         $user = Auth::user();
-        return view('home', compact('user'));
+        $page = 'sysadmin';
+        if($user->user_type == 'System Administrator')
+            $page = 'sysadmin';
+        elseif($user->user_type == 'TVI Administrator')
+            $page = 'tviadmin';
+        elseif($user->user_type == 'Region Administrator')
+            $page = 'rtaadmin';
+
+        return view('home', compact('user', 'page'));
     } else {
         return redirect('auth/login');
     }
@@ -37,6 +45,12 @@ Route::post('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthContr
 
 Route::filter('admin', function () {
     if (!Auth::check() || !Auth::user()->isSystemAdmin()) {
+        return App::abort(404);
+    }
+});
+
+Route::filter('rta', function () {
+    if (!Auth::check() || !Auth::user()->isRTAAdmin()) {
         return App::abort(404);
     }
 });
@@ -68,6 +82,16 @@ Route::group(array('middleware' => 'auth'), function () {
         $competencies = $occupation->competencies()->orderBy('name', 'asc');
         return Response::make($competencies->get(['id', 'name']));
     });
+});
+
+// RTA Admin routes...
+Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
+    // Institutions
+    Route::get('rta-institutions', 'RTA\RTAController@institutions');
+
+    // Indicators
+    Route::get('rta-indicators', 'RTA\RTAController@indicators');
+    Route::post('rta-indicators', 'RTA\RTAController@show_indicators');
 });
 
 // TVI Admin routes...
