@@ -61,7 +61,7 @@
                         </ul>
                     </li>
                     <li><a href="/indicators">Indicators</a></li>
-                    <li><a href="/tvi/about">About</a></li>
+                    <li><a href="/about">About</a></li>
                 </ul>
 
                 <div class="navbar-form navbar-right">

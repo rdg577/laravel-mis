@@ -6,11 +6,8 @@
                 <?php
                 $tmses = $tmls = 0;
                 ?>
-                @foreach($data_summary_cooperative_trainings->subsectors() as $subsector_id)
+                @foreach($data_summary_cooperative_trainings->subsectors() as $subsector)
                     <?php
-                    // get subsector
-                    $subsector = \App\Subsector::findOrFail($subsector_id[0]);
-
                     $mses = $data_summary_cooperative_trainings->mses($subsector->id);
                     $mls = $data_summary_cooperative_trainings->mls($subsector->id);
                     ?>

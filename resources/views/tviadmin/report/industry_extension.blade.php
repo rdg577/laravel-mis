@@ -7,11 +7,8 @@
                 $tmicro = $tsmall = $tmedium = 0;
                 ?>
 
-                @foreach($data_summary_industry_extension->subsectors() as $subsector_id)
+                @foreach($data_summary_industry_extension->subsectors() as $subsector)
                     <?php
-                    // get subsector
-                    $subsector = \App\Subsector::findOrFail($subsector_id[0]);
-
                     $micro = $data_summary_industry_extension->micro($subsector->id);
                     $small = $data_summary_industry_extension->small($subsector->id);
                     $medium = $data_summary_industry_extension->medium($subsector->id);

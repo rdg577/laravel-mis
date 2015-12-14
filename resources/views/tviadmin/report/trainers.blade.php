@@ -5,17 +5,19 @@
             <div class="panel-body">
                 <div class="row">
                     <?php
+
                     $tmaleA = $tfemaleA = $totalA = 0;
                     $tmaleB = $tfemaleB = $totalB = 0;
                     $tmaleC = $tfemaleC = $totalC = 0;
+
                     ?>
 
-                    @foreach($data_summary_trainers->subsectors() as $subsector_id)
+                    @foreach($data_summary_trainers->subsectors() as $subsector)
                         <?php
-                        $subsector = \App\Subsector::findOrFail($subsector_id[0]);
-                        $levelA = $data_summary_trainers->levelA($subsector_id[0]);
-                        $levelB = $data_summary_trainers->levelB($subsector_id[0]);
-                        $levelC = $data_summary_trainers->levelC($subsector_id[0]);
+
+                        $levelA = $data_summary_trainers->levelA($subsector->id);
+                        $levelB = $data_summary_trainers->levelB($subsector->id);
+                        $levelC = $data_summary_trainers->levelC($subsector->id);
 
                         $tmaleA += $levelA[0]->male; $tfemaleA += $levelA[0]->female; $totalA += ($levelA[0]->male + $levelA[0]->female);
                         $tmaleB += $levelB[0]->male; $tfemaleB += $levelB[0]->female; $totalB += ($levelB[0]->male + $levelB[0]->female);

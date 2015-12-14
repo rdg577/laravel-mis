@@ -24,16 +24,15 @@ class DataSummaryCooperativeTrainings {
 
     public function subsectors()
     {
-        $sub_sectors = Occupation::select('subsector_id')
-            ->whereIn('id', function ($query) {
-                $query->select('occupation_id')
-                    ->from('trainers')
-                    ->where('report_date_id', $this->report_date_id)
-                    ->where('institution_id', $this->institution_id)
-                    ->distinct();
-            })
-            ->distinct()
-            ->lists('subsector_id');
+        $sub_sectors = Subsector::whereIn('id', Occupation::select('subsector_id')
+                                                    ->whereIn('id', Trainer::select('occupation_id')
+                                                                        ->where('report_date_id', $this->report_date_id)
+                                                                        ->where('institution_id', $this->institution_id)
+                                                                        ->distinct()
+                                                                        ->lists('occupation_id'))
+                                                    ->distinct()
+                                                    ->lists('subsector_id'))
+            ->get();
 
         return $sub_sectors;
     }

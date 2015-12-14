@@ -15,6 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('about', function () {
+    if(Auth::check()) {
+
+        $user = Auth::user();
+        $page = 'sysadmin';
+
+        if($user->user_type == 'System Administrator')
+            $page = 'sysadmin';
+        elseif($user->user_type == 'TVI Administrator')
+            $page = 'tviadmin';
+        elseif($user->user_type == 'Region Administrator')
+            $page = 'rtaadmin';
+        elseif($user->user_type == 'Cluster Administrator')
+            $page = 'cluster_admin';
+
+        return view('about', compact('page'));
+
+    }
+
+    return redirect('/');
+
+});
+
 Route::get('home', function () {
     if(Auth::check()) {
         $user = Auth::user();
@@ -25,6 +48,8 @@ Route::get('home', function () {
             $page = 'tviadmin';
         elseif($user->user_type == 'Region Administrator')
             $page = 'rtaadmin';
+        elseif($user->user_type == 'Cluster Administrator')
+            $page = 'cluster_admin';
 
         return view('home', compact('user', 'page'));
     } else {

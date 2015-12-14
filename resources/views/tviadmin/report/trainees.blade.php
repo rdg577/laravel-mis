@@ -11,10 +11,8 @@
                 $tlevel1n2_ext_female = $tlevel3n4_ext_female = $tlevel5_ext_female = 0;
                 ?>
 
-                @foreach($data_summary_trainees->subsectors() as $subsector_id)
+                @foreach($data_summary_trainees->subsectors() as $subsector)
                     <?php
-                    // get subsector
-                    $subsector = \App\Subsector::findOrFail($subsector_id[0]);
 
                     $level1 = $data_summary_trainees->level1($subsector->id);
                     $level2 = $data_summary_trainees->level2($subsector->id);

@@ -75,6 +75,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return false;
     }
 
+    public function isClusterAdmin()
+    {
+        if($this->user_type == 'Cluster Administrator') {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isTVIAdmin()
     {
         if($this->user_type == 'TVI Administrator') {

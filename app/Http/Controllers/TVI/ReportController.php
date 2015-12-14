@@ -36,8 +36,6 @@ class ReportController extends Controller
         $data_summary_cooperative_trainings = new DataSummaryCooperativeTrainings($request->get('institution_id'), $request->get('report_date_id'));
         $data_summary_industry_extension = new DataSummaryIndustryExtension($request->get('institution_id'), $request->get('report_date_id'));
 
-        /*dd('micro -' . $data_summary_industry_extension->micro(9));*/
-
         return view('tviadmin.report.show', array('data_summary_trainers' => $data_summary_trainers,
                                                     'data_summary_trainees' => $data_summary_trainees,
                                                     'data_summary_cooperative_trainings' => $data_summary_cooperative_trainings,

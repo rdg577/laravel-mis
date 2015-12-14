@@ -24,11 +24,15 @@ class DataSummaryIndustryExtension {
 
     public function subsectors()
     {
-        $sub_sectors = IndustryExtension5::select('subsector_id')
-                        ->where('report_date_id', $this->report_date_id)
-                        ->where('institution_id', $this->institution_id)
-                        ->distinct()
-                        ->lists('subsector_id');
+        $sub_sectors = Subsector::whereIn('id', Occupation::select('subsector_id')
+                                                    ->whereIn('id', Trainer::select('occupation_id')
+                                                                        ->where('report_date_id', $this->report_date_id)
+                                                                        ->where('institution_id', $this->institution_id)
+                                                                        ->distinct()
+                                                                        ->lists('occupation_id'))
+                                                    ->distinct()
+                                                    ->lists('subsector_id'))
+            ->get();
 
         return $sub_sectors;
     }
