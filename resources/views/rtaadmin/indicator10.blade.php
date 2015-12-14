@@ -1,7 +1,11 @@
 <?php
-$below17s = ($student_ratio->ages()[0]->below17 / $student_ratio->ages()[0]->total) * 100;
-$from17to19s = ($student_ratio->ages()[0]->from17to19 / $student_ratio->ages()[0]->total) * 100;
-$above19s = ($student_ratio->ages()[0]->above19 / $student_ratio->ages()[0]->total) * 100;
+$below17s = $from17to19s = $above19s = 0;
+
+if($student_ratio->ages()[0]->total > 0) {
+    $below17s = ($student_ratio->ages()[0]->below17 / $student_ratio->ages()[0]->total) * 100;
+    $from17to19s = ($student_ratio->ages()[0]->from17to19 / $student_ratio->ages()[0]->total) * 100;
+    $above19s = ($student_ratio->ages()[0]->above19 / $student_ratio->ages()[0]->total) * 100;
+}
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

@@ -1,6 +1,11 @@
 <?php
-$mses = ($student_ratio->cooperative_trainings()[0]->mse / $student_ratio->cooperative_trainings()[0]->total) * 100;
-$mls = ($student_ratio->cooperative_trainings()[0]->medium_large / $student_ratio->cooperative_trainings()[0]->total) * 100;
+$mses = $mls = 0;
+
+if($student_ratio->cooperative_trainings()[0]->total > 0) {
+    $mses = ($student_ratio->cooperative_trainings()[0]->mse / $student_ratio->cooperative_trainings()[0]->total) * 100;
+    $mls = ($student_ratio->cooperative_trainings()[0]->medium_large / $student_ratio->cooperative_trainings()[0]->total) * 100;
+}
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

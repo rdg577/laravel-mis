@@ -1,9 +1,17 @@
 <?php
-$regular_rate = ($student_ratio->competent()[0]->regular_total / $student_ratio->assessed()[0]->regular_total) * 100;
-$extension_rate = ($student_ratio->competent()[0]->extension_total / $student_ratio->assessed()[0]->extension_total) * 100;
+$regular_rate = $extension_rate = $rate = 0;
 
-$rate = ($student_ratio->competent()[0]->regular_total + $student_ratio->competent()[0]->extension_total) /
-        ($student_ratio->assessed()[0]->regular_total + $student_ratio->assessed()[0]->extension_total) * 100;
+$total_regular_assessed = $student_ratio->assessed()[0]->regular_total;
+$total_extension_assessed = $student_ratio->assessed()[0]->extension_total;
+
+if($total_extension_assessed > 0 and $total_regular_assessed > 0) {
+    $regular_rate = ($student_ratio->competent()[0]->regular_total / $total_regular_assessed) * 100;
+    $extension_rate = ($student_ratio->competent()[0]->extension_total / $total_extension_assessed) * 100;
+
+    $rate = ($student_ratio->competent()[0]->regular_total + $student_ratio->competent()[0]->extension_total) /
+            ($total_regular_assessed + $total_extension_assessed) * 100;
+}
+
 ?>
 <div class="col col-lg-6 col-md-6">
     <div class="panel panel-default">

@@ -1,12 +1,21 @@
 <?php
+$regularPercentage = 0;
+$extensionPercentage = 0;
+$ratio_regular = 0;
+$ratio_extension = 0;
+
 $total_trainer = $trainer_ratio->total()[0]->total;
-
 $total_students = $student_ratio->total()[0]->total;
-$regularPercentage = ($student_ratio->regular()[0]->total / $total_students) * 100;
-$extensionPercentage = ($student_ratio->extension()[0]->total / $total_students) * 100;
 
-$ratio_regular = $student_ratio->regular()[0]->total / $total_trainer;
-$ratio_extension = $student_ratio->extension()[0]->total / $total_trainer;
+if($total_trainer > 0 and $total_students > 0) {
+    $regularPercentage = ($student_ratio->regular()[0]->total / $total_students) * 100;
+    $extensionPercentage = ($student_ratio->extension()[0]->total / $total_students) * 100;
+
+    $ratio_regular = $student_ratio->regular()[0]->total / $total_trainer;
+    $ratio_extension = $student_ratio->extension()[0]->total / $total_trainer;
+}
+
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

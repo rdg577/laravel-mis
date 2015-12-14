@@ -1,8 +1,16 @@
 <?php
+$levelAPercentage = 0;
+$levelBPercentage = 0;
+$levelCPercentage = 0;
+
 $total = $trainer_ratio->total()[0]->total;
-$levelAPercentage = ($trainer_ratio->levelA()[0]->total / $total) * 100;
-$levelBPercentage = ($trainer_ratio->levelB()[0]->total / $total) * 100;
-$levelCPercentage = ($trainer_ratio->levelC()[0]->total / $total) * 100;
+
+if($total > 0) {
+    $levelAPercentage = ($trainer_ratio->levelA()[0]->total / $total) * 100;
+    $levelBPercentage = ($trainer_ratio->levelB()[0]->total / $total) * 100;
+    $levelCPercentage = ($trainer_ratio->levelC()[0]->total / $total) * 100;
+}
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

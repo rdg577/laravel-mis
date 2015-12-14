@@ -1,10 +1,15 @@
 <?php
+$regular_rate = $extension_rate = $rate = 0;
+
 $total = $student_ratio->total()[0]->total;
 
-$regular_rate = ($student_ratio->assessed()[0]->regular_total / $total) * 100;
-$extension_rate = ($student_ratio->assessed()[0]->extension_total / $total) * 100;
+if($total > 0) {
+    $regular_rate = ($student_ratio->assessed()[0]->regular_total / $total) * 100;
+    $extension_rate = ($student_ratio->assessed()[0]->extension_total / $total) * 100;
 
-$rate = ($student_ratio->assessed()[0]->regular_total + $student_ratio->assessed()[0]->extension_total) / ($total) * 100;
+    $rate = ($student_ratio->assessed()[0]->regular_total + $student_ratio->assessed()[0]->extension_total) / ($total) * 100;
+}
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

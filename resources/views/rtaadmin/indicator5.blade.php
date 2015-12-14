@@ -1,5 +1,10 @@
 <?php
-$rate = ($student_ratio->short_term()[0]->total / ($student_ratio->total()[0]->total + $student_ratio->short_term()[0]->total)) * 100;
+$rate = 0;
+
+if($student_ratio->total()[0]->total > 0 or $student_ratio->short_term()[0]->total) {
+    $rate = ($student_ratio->short_term()[0]->total / ($student_ratio->total()[0]->total + $student_ratio->short_term()[0]->total)) * 100;
+}
+
 ?>
 <div class="col col-lg-6 col-md-6">
     <div class="panel panel-default">

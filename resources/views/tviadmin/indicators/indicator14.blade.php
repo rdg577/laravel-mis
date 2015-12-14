@@ -1,9 +1,14 @@
 <?php
-$micro = $student_ratio->ie_supported_mse()[0]->micro / $student_ratio->cooperative_trainings()[0]->mse * 100;
-$small = $student_ratio->ie_supported_mse()[0]->small / $student_ratio->cooperative_trainings()[0]->mse * 100;
+$micro = $small = $rate = 0;
 
-$rate = ($student_ratio->ie_supported_mse()[0]->micro + $student_ratio->ie_supported_mse()[0]->small) /
-        $student_ratio->cooperative_trainings()[0]->mse * 100;
+if($student_ratio->cooperative_trainings()[0]->mse > 0) {
+    $micro = $student_ratio->ie_supported_mse()[0]->micro / $student_ratio->cooperative_trainings()[0]->mse * 100;
+    $small = $student_ratio->ie_supported_mse()[0]->small / $student_ratio->cooperative_trainings()[0]->mse * 100;
+
+    $rate = ($student_ratio->ie_supported_mse()[0]->micro + $student_ratio->ie_supported_mse()[0]->small) /
+            $student_ratio->cooperative_trainings()[0]->mse * 100;
+}
+
 ?>
 <div class="col col-lg-12 col-md-12">
     <div class="panel panel-default">

@@ -1,14 +1,24 @@
 <?php
+$regularMalePercentage = 0;
+$regularFemalePercentage = 0;
+$extensionMalePercentage = 0;
+$extensionFemalePercentage = 0;
+$totalFemalePercentage = 0;
+
 $total_students = $student_ratio->total()[0]->total;
+$total_regular = $student_ratio->regular()[0]->total;
+$total_extension = $student_ratio->extension()[0]->total;
 
-$regularMalePercentage = ($student_ratio->regular()[0]->male / $student_ratio->regular()[0]->total) * 100;
-$regularFemalePercentage = ($student_ratio->regular()[0]->female / $student_ratio->regular()[0]->total) * 100;
+if($total_students > 0 and $total_regular > 0 and $total_extension > 0) {
+    $regularMalePercentage = ($student_ratio->regular()[0]->male / $total_regular) * 100;
+    $regularFemalePercentage = ($student_ratio->regular()[0]->female / $total_regular) * 100;
 
-$extensionMalePercentage = ($student_ratio->extension()[0]->male / $student_ratio->extension()[0]->total) * 100;
-$extensionFemalePercentage = ($student_ratio->extension()[0]->female / $student_ratio->extension()[0]->total) * 100;
+    $extensionMalePercentage = ($student_ratio->extension()[0]->male / $total_extension) * 100;
+    $extensionFemalePercentage = ($student_ratio->extension()[0]->female / $total_extension) * 100;
 
-$total_female_students = ($student_ratio->regular()[0]->female + $student_ratio->extension()[0]->female);
-$totalFemalePercentage = ($total_female_students / $total_students) * 100;
+    $totalFemalePercentage = (($student_ratio->regular()[0]->female + $student_ratio->extension()[0]->female) / $total_students) * 100;
+}
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

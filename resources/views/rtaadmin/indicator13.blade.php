@@ -1,13 +1,18 @@
 <?php
+$participating_mses = $participating_mls = $registered_mses = $registered_mls = $rate = 0;
+
 $total = $student_ratio->registered_companies()[0]->total;
 
-$participating_mses = ($student_ratio->cooperative_trainings()[0]->mse  / $total) * 100;
-$participating_mls = ($student_ratio->cooperative_trainings()[0]->medium_large / $total) * 100;
+if($total > 0) {
+    $participating_mses = ($student_ratio->cooperative_trainings()[0]->mse  / $total) * 100;
+    $participating_mls = ($student_ratio->cooperative_trainings()[0]->medium_large / $total) * 100;
 
-$registered_mses = ($student_ratio->registered_companies()[0]->mse  / $total) * 100;
-$registered_mls = ($student_ratio->registered_companies()[0]->medium_large / $total) * 100;
+    $registered_mses = ($student_ratio->registered_companies()[0]->mse  / $total) * 100;
+    $registered_mls = ($student_ratio->registered_companies()[0]->medium_large / $total) * 100;
 
-$rate = ($student_ratio->cooperative_trainings()[0]->total) / ($total) * 100;
+    $rate = ($student_ratio->cooperative_trainings()[0]->total) / ($total) * 100;
+}
+
 ?>
 <div class="col col-lg-8 col-md-8">
     <div class="panel panel-default">

@@ -1,11 +1,24 @@
 <?php
-$reg_level1n2_percentage = ($student_ratio->level1n2_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
-$reg_level3n4_percentage = ($student_ratio->level3n4_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
-$reg_level5_percentage = ($student_ratio->level5_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
+$reg_level1n2_percentage = 0;
+$reg_level3n4_percentage = 0;
+$reg_level5_percentage = 0;
+$ext_level1n2_percentage = 0;
+$ext_level3n4_percentage = 0;
+$ext_level5_percentage = 0;
 
-$ext_level1n2_percentage = ($student_ratio->level1n2_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
-$ext_level3n4_percentage = ($student_ratio->level3n4_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
-$ext_level5_percentage = ($student_ratio->level5_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
+$total_regular = $student_ratio->regular()[0]->total;
+$total_extension = $student_ratio->extension()[0]->total;
+
+if($total_regular > 0 and $total_extension > 0) {
+    $reg_level1n2_percentage = ($student_ratio->level1n2_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
+    $reg_level3n4_percentage = ($student_ratio->level3n4_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
+    $reg_level5_percentage = ($student_ratio->level5_regular()[0]->total / $student_ratio->regular()[0]->total) * 100;
+
+    $ext_level1n2_percentage = ($student_ratio->level1n2_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
+    $ext_level3n4_percentage = ($student_ratio->level3n4_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
+    $ext_level5_percentage = ($student_ratio->level5_extension()[0]->total / $student_ratio->extension()[0]->total) * 100;
+}
+
 ?>
 <div class="col col-lg-6 col-md-6">
     <div class="panel panel-default">

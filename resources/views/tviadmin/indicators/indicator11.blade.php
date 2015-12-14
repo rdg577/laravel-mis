@@ -1,7 +1,12 @@
 <?php
-$regular = ($student_ratio->dropouts()[0]->regular / $student_ratio->dropouts()[0]->total) * 100;
-$extension = ($student_ratio->dropouts()[0]->extension / $student_ratio->dropouts()[0]->total) * 100;
-$short_term = ($student_ratio->dropouts()[0]->short_term / $student_ratio->dropouts()[0]->total) * 100;
+$regular = $extension = $short_term = 0;
+
+if($student_ratio->dropouts()[0]->total > 0) {
+    $regular = ($student_ratio->dropouts()[0]->regular / $student_ratio->dropouts()[0]->total) * 100;
+    $extension = ($student_ratio->dropouts()[0]->extension / $student_ratio->dropouts()[0]->total) * 100;
+    $short_term = ($student_ratio->dropouts()[0]->short_term / $student_ratio->dropouts()[0]->total) * 100;
+}
+
 ?>
 <div class="col col-lg-4 col-md-4">
     <div class="panel panel-default">

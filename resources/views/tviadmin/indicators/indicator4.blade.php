@@ -1,5 +1,10 @@
 <?php
-$ratio = ($student_ratio->extension()[0]->total / $student_ratio->regular()[0]->total);
+$ratio = 0;
+
+if($student_ratio->regular()[0]->total > 0) {
+    $ratio = ($student_ratio->extension()[0]->total / $student_ratio->regular()[0]->total);
+}
+
 ?>
 <div class="col col-lg-6 col-md-6">
     <div class="panel panel-default">
