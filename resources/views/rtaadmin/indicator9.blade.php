@@ -7,7 +7,7 @@ if($student_ratio->cooperative_trainings()[0]->total > 0) {
 }
 
 ?>
-<div class="col col-lg-4 col-md-4">
+<div class="col col-lg-4 col-md-4 col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 9 - Companies providing cooperative training</div>
         <div class="panel-body">

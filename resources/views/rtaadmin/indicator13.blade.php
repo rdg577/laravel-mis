@@ -14,7 +14,7 @@ if($total > 0) {
 }
 
 ?>
-<div class="col col-lg-8 col-md-8">
+<div class="col col-lg-8 col-md-8 col-sm-8">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 13 - Cooperative training company participation rate</div>
         <div class="panel-body">

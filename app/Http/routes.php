@@ -117,6 +117,10 @@ Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     // Indicators
     Route::get('rta-indicators', 'RTA\RTAController@indicators');
     Route::post('rta-indicators', 'RTA\RTAController@show_indicators');
+
+    // Data Summary
+    Route::get('rta-data-summary', 'RTA\RTAController@data_summary');
+    Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');
 });
 
 // TVI Admin routes...

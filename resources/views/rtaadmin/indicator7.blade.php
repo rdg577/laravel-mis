@@ -13,7 +13,7 @@ if($total_extension_assessed > 0 and $total_regular_assessed > 0) {
 }
 
 ?>
-<div class="col col-lg-6 col-md-6">
+<div class="col col-lg-6 col-md-6 col-sm-6">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 7 - Assessment Success Rate</div>
         <div class="panel-body">

@@ -20,7 +20,7 @@ if($total_students > 0 and $total_regular > 0 and $total_extension > 0) {
 }
 
 ?>
-<div class="col col-lg-4 col-md-4">
+<div class="col col-lg-4 col-md-4 col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 3 - Share of Female Trainees</div>
         <div class="panel-body">

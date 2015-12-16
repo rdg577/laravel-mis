@@ -7,7 +7,7 @@ if($student_ratio->ages()[0]->total > 0) {
     $above19s = ($student_ratio->ages()[0]->above19 / $student_ratio->ages()[0]->total) * 100;
 }
 ?>
-<div class="col col-lg-4 col-md-4">
+<div class="col col-lg-4 col-md-4 col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 10 - Young people in the training system</div>
         <div class="panel-body">

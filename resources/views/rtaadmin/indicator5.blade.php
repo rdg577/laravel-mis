@@ -6,7 +6,7 @@ if($student_ratio->total()[0]->total > 0 or $student_ratio->short_term()[0]->tot
 }
 
 ?>
-<div class="col col-lg-6 col-md-6">
+<div class="col col-lg-6 col-md-6 col-sm-6">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 5 - Rate of Short Term Trainees</div>
         <div class="panel-body">

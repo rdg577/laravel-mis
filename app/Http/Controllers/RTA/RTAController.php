@@ -49,7 +49,9 @@ class RTAController extends Controller
 
         $student_ratio = new RTAIndicatorStudentRatio($request->get('report_date_id'), $user->region_id);
 
-        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'region'));
+        $report_date = ReportDate::findOrFail($request->get('report_date_id'));
+
+        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'region', 'report_date'));
     }
 
 }

@@ -6,7 +6,7 @@ if($student_ratio->regular()[0]->total > 0) {
 }
 
 ?>
-<div class="col col-lg-6 col-md-6">
+<div class="col col-lg-6 col-md-6 col-sm-6">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 4 - Regular-Extension Trainee Ratio</div>
         <div class="panel-body">

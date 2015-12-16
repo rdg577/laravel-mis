@@ -3,6 +3,7 @@
 @section('content')
 
     <h1>Regional Level Indicators</h1>
+    <p><small>Report Date : {{ $report_date->petsa }}</small></p>
 
     <div class="panel panel-default">
         <div class="panel-heading">Region: {{ $region->name }}</div>

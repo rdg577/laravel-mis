@@ -12,7 +12,7 @@ if($total > 0) {
 }
 
 ?>
-<div class="col col-lg-4 col-md-4">
+<div class="col col-lg-4 col-md-4 col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 1 - Trainers Ratio</div>
         <div class="panel-body">

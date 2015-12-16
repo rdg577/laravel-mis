@@ -30,6 +30,8 @@ class ReportController extends Controller
 
     public function show(Request $request)
     {
+        $report_date = ReportDate::findOrFail($request->get('report_date_id'));
+
         $institution = Institution::findOrFail($request->get('institution_id'));
         $data_summary_trainers = new DataSummaryTrainers($request->get('institution_id'), $request->get('report_date_id'));
         $data_summary_trainees = new DataSummaryTrainees($request->get('institution_id'), $request->get('report_date_id'));
@@ -40,7 +42,8 @@ class ReportController extends Controller
                                                     'data_summary_trainees' => $data_summary_trainees,
                                                     'data_summary_cooperative_trainings' => $data_summary_cooperative_trainings,
                                                     'data_summary_industry_extension' => $data_summary_industry_extension,
-                                                    'institution' => $institution));
+                                                    'institution' => $institution,
+                                                    'report_date' => $report_date));
     }
 
 }

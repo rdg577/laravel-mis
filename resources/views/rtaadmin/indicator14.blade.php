@@ -10,7 +10,7 @@ if($student_ratio->cooperative_trainings()[0]->mse > 0) {
 }
 
 ?>
-<div class="col col-lg-12 col-md-12">
+<div class="col col-lg-12 col-md-12 col-sm-12">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 14 - Rate of IE supported MSEs</div>
         <div class="panel-body">

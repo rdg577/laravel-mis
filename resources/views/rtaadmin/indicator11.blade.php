@@ -8,7 +8,7 @@ if($student_ratio->dropouts()[0]->total > 0) {
 }
 
 ?>
-<div class="col col-lg-4 col-md-4">
+<div class="col col-lg-4 col-md-4 col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">Indicator No. 11 - Dropouts from the training system</div>
         <div class="panel-body">
