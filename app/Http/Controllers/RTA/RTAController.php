@@ -33,8 +33,8 @@ class RTAController extends Controller
 
         // get report dates
         $report_dates = ReportDate::whereIn('user_id', User::select('id')->where('region_id', $user->region_id)->lists('id'))
-            ->orderBy('petsa', 'desc')
-            ->lists('petsa', 'id');
+            ->distinct()->orderBy('petsa', 'desc')
+            ->lists('petsa', 'petsa');
 
         return view('rtaadmin.indicators', compact('report_dates'));
     }
@@ -45,13 +45,13 @@ class RTAController extends Controller
 
         $region = Region::findOrFail($user->region_id);
 
-        $trainer_ratio = new RTAIndicatorTrainerRatio($request->get('report_date_id'), $user->region_id);
+        $trainer_ratio = new RTAIndicatorTrainerRatio($request->get('petsa'), $user->region_id);
 
-        $student_ratio = new RTAIndicatorStudentRatio($request->get('report_date_id'), $user->region_id);
+        $student_ratio = new RTAIndicatorStudentRatio($request->get('petsa'), $user->region_id);
 
-        $report_date = ReportDate::findOrFail($request->get('report_date_id'));
+        $petsa = $request->get('petsa');
 
-        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'region', 'report_date'));
+        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'region', 'petsa'));
     }
 
 }

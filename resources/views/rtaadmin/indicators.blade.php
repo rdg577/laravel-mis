@@ -15,8 +15,8 @@
 
                         <div class="col-md-8 col-md-offset-2">
                             <div class="form-group">
-                                {!! Form::label('report_date_id', 'Kindly Select a Report Date to be based from : ') !!}
-                                {!! Form::select('report_date_id', $report_dates, null, ['placeholder' => '', 'class' => 'form-control']) !!}
+                                {!! Form::label('petsa', 'Kindly Select a Report Date to be based from : ') !!}
+                                {!! Form::select('petsa', $report_dates, null, ['placeholder' => '', 'class' => 'form-control']) !!}
                             </div>
 
                             <div class="form-group">
