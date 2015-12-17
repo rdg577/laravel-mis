@@ -34,7 +34,7 @@ Route::get('about', function () {
 
     }
 
-    return redirect('/');
+    return redirect('/auth/login');
 
 });
 
@@ -70,19 +70,22 @@ Route::post('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthContr
 
 Route::filter('admin', function () {
     if (!Auth::check() || !Auth::user()->isSystemAdmin()) {
-        return App::abort(404);
+        /*return App::abort(404);*/
+        return redirect('/auth/login');
     }
 });
 
 Route::filter('rta', function () {
     if (!Auth::check() || !Auth::user()->isRTAAdmin()) {
-        return App::abort(404);
+        /*return App::abort(404);*/
+        return redirect('/auth/login');
     }
 });
 
 Route::filter('tvi', function () {
     if (!Auth::check() || !Auth::user()->isTVIAdmin()) {
-        return App::abort(404);
+        /*return App::abort(404);*/
+        return redirect('/auth/login');
     }
 });
 
