@@ -27,6 +27,13 @@ class RTAController extends Controller
         return view('rtaadmin.institutions', compact('institutions', 'region'));
     }
 
+    public function school_profile($id)
+    {
+        $institution = Institution::findOrFail($id);
+
+        return view('rtaadmin.school_profile', compact('institution'));
+    }
+
     public function indicators()
     {
         $user = Auth::user();

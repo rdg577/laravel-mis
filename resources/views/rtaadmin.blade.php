@@ -21,7 +21,6 @@
                             <li><a href="/rta-institutions">Institutions</a></li>
                         </ul>
                     </li>
-                    <li><a href="/rta-data-summary">Data Summary</a></li>
                     <li><a href="/rta-indicators">Indicators</a></li>
                     <li><a href="/about">About</a></li>
                 </ul>

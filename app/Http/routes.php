@@ -116,14 +116,15 @@ Route::group(array('middleware' => 'auth'), function () {
 Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     // Institutions
     Route::get('rta-institutions', 'RTA\RTAController@institutions');
+    Route::get('rta-institutions/{id}', 'RTA\RTAController@school_profile');
 
     // Indicators
     Route::get('rta-indicators', 'RTA\RTAController@indicators');
     Route::post('rta-indicators', 'RTA\RTAController@show_indicators');
 
     // Data Summary
-    Route::get('rta-data-summary', 'RTA\RTAController@data_summary');
-    Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');
+    /*Route::get('rta-data-summary', 'RTA\RTAController@data_summary');
+    Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');*/
 });
 
 // TVI Admin routes...

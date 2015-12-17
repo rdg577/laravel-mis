@@ -6,11 +6,11 @@
 
     @if(count($institutions))
         <div class="panel panel-default">
-            <div class="panel-heading">Region: {{ $region->name }}</div>
+            <div class="panel-heading">Region Name: {{ $region->name }}</div>
             <div class="panel-body">
                 <ol>
                     @foreach($institutions as $institution)
-                        <li>{{ $institution->name }}</li>
+                        <li><a href="/rta-institutions/{{ $institution->id }}">{{ $institution->name }}</a></li>
                     @endforeach
                 </ol>
             </div>
