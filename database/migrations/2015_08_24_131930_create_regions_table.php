@@ -27,7 +27,8 @@ class CreateRegionsTable extends Migration
             ['name' => 'SNNPR'],
             ['name' => 'Somali'],
             ['name' => 'Addis Ababa'],
-            ['name' => 'Dire Dawa']
+            ['name' => 'Dire Dawa'],
+            ['name' => 'None']
         ];
 
         for($i = 0; $i < count($regions); $i++)

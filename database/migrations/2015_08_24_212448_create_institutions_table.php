@@ -52,34 +52,13 @@ class CreateInstitutionsTable extends Migration
             'urban_rural'           => 'Urban',
             'website_url'           => '',
             'status'                => 'Polytechnic',
-            'region_id'             => 577,
+            'region_id'             => 10,
             'cluster_leader'        => 0
         ];
 
         DB::table('institutions')->insert($institute);
 
-        $institute = [
-            'name'                  => 'Addis Ababa Polytechnic College',
-            'year_establish'        => '1990-01-01',
-            'ownership'             => 'Public',
-            'dean_name'             => '',
-            'dean_phone'            => '',
-            'dean_email'            => '',
-            'po_box'                => '',
-            'office_telno'          => '',
-            'fax'                   => '',
-            'office_email'          => '',
-            'city'                  => 'Addis Ababa',
-            'sub_city'              => '',
-            'woreda_zone'           => '',
-            'urban_rural'           => 'Urban',
-            'website_url'           => '',
-            'status'                => 'Polytechnic',
-            'region_id'             => 8,
-            'cluster_leader'        => 0
-        ];
 
-        DB::table('institutions')->insert($institute);
     }
 
     /**
