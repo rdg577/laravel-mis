@@ -45,6 +45,18 @@
 
     <div class="row">
         @include('tviadmin.indicators.indicator14', array('student_ratio' => $student_ratio))
+
+        @include('tviadmin.indicators.indicator15', compact('industry_extension'))
+    </div>
+
+    <div class="row">
+        @include('tviadmin.indicators.indicator16', compact('industry_extension'))
+
+        @include('tviadmin.indicators.indicator17', compact('industry_extension'))
+    </div>
+
+    <div class="row">
+        @include('tviadmin.indicators.indicator18', compact('industry_extension'))
     </div>
 
 @endsection

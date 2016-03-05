@@ -67,7 +67,6 @@ Route::get('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthContro
 Route::post('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthController@postRegister']);
 
 
-
 Route::filter('admin', function () {
     if (!Auth::check() || !Auth::user()->isSystemAdmin()) {
         /*return App::abort(404);*/

@@ -6,6 +6,7 @@ use App\Institution;
 use App\ReportDate;
 use App\TVIIndicator1TrainerRatio;
 use App\TVIIndicator2StudentRatio;
+use App\TVIIndicatorIndustryExtension;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -41,10 +42,12 @@ class IndicatorsController extends Controller
 
         $trainer_ratio = new TVIIndicator1TrainerRatio($request->get('institution_id'), $request->get('report_date_id'));
         $student_ratio = new TVIIndicator2StudentRatio($request->get('institution_id'), $request->get('report_date_id'));
+        $industry_extension = new TVIIndicatorIndustryExtension($request->get('institution_id'), $request->get('report_date_id'));
 
         return view('tviadmin.indicators.show', array('institution' => $institution,
                                                         'trainer_ratio' => $trainer_ratio,
-                                                        'student_ratio' => $student_ratio));
+                                                        'student_ratio' => $student_ratio,
+                                                        'industry_extension' => $industry_extension));
     }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\RTA;
 use App\Institution;
 use App\Region;
 use App\ReportDate;
+use App\RTAIndicatorIndustryExtension;
 use App\RTAIndicatorStudentRatio;
 use App\RTAIndicatorTrainerRatio;
 use App\User;
@@ -56,9 +57,11 @@ class RTAController extends Controller
 
         $student_ratio = new RTAIndicatorStudentRatio($request->get('petsa'), $user->region_id);
 
+        $industry_extension = new RTAIndicatorIndustryExtension($request->get('petsa'), $user->region_id);
+
         $petsa = $request->get('petsa');
 
-        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'region', 'petsa'));
+        return view('rtaadmin.show', compact('trainer_ratio', 'student_ratio', 'industry_extension', 'region', 'petsa'));
     }
 
 }
