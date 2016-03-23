@@ -26,7 +26,7 @@
     @forelse($industry_extension5s as $industry_extension5)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a data-toggle="collapse" href="{{ '#item' . $industry_extension5->id }}"><h4>{{ $industry_extension5->subsector->name }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
+                <a data-toggle="collapse" href="{{ '#item' . $industry_extension5->id }}"><h4>{{ $industry_extension5->subsector->name }} - {{ $industry_extension5->ie_field }}</h4><span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span></a>
                 <a href="{{ '/industry-extension-5/' . $industry_extension5->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit"
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/industry-extension-5/' . $industry_extension5->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>

@@ -532,4 +532,30 @@ class RTAIndicatorStudentRatio {
         return $result;
     }
 
+    /*
+     * trainees with disabilities
+     */
+    public function disabilities()
+    {
+        $result = FormalTraining::select(
+            DB::raw('sum(mental_male) as mental_male,
+                      sum(mental_female) as mental_female,
+                      sum(visual_male) as visual_male,
+                      sum(visual_female) as visual_female,
+                      sum(hearing_male) as hearing_male,
+                      sum(hearing_female) as hearing_female,
+                      sum(physical_male) as physical_male,
+                      sum(physical_female) as physical_female'))
+            ->whereIn('report_date_id', ReportDate::select('id')
+                ->where('petsa', $this->petsa)
+                ->lists('id'))
+            ->whereIn('institution_id', Institution::select('id')
+                ->where('region_id', $this->region_id)
+                ->lists('id'))
+            ->get();
+
+        return $result;
+
+    }
+
 }

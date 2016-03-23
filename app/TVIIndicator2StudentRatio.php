@@ -395,4 +395,26 @@ class TVIIndicator2StudentRatio {
         return $result;
     }
 
+    /*
+     * trainees with disabilities
+     */
+    public function disabilities()
+    {
+        $result = FormalTraining::select(
+            DB::raw('sum(mental_male) as mental_male,
+                      sum(mental_female) as mental_female,
+                      sum(visual_male) as visual_male,
+                      sum(visual_female) as visual_female,
+                      sum(hearing_male) as hearing_male,
+                      sum(hearing_female) as hearing_female,
+                      sum(physical_male) as physical_male,
+                      sum(physical_female) as physical_female'))
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->get();
+
+        return $result;
+
+    }
+
 }

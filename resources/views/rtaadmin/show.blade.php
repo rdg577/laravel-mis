@@ -48,7 +48,11 @@
 
             <div class="row">
                 @include('rtaadmin.indicator14', array('student_ratio' => $student_ratio))
-                
+
+                @include('rtaadmin.indicator14b', array('student_ratio' => $student_ratio))
+            </div>
+
+            <div class="row">
                 @include('rtaadmin.indicator15', compact('industry_extension'))
             </div>
 

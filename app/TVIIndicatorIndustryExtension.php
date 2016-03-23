@@ -23,9 +23,9 @@ class TVIIndicatorIndustryExtension {
     }
 
     /*
-     * No. of Trainers Capacitated
+     * No. of Trainers Capacitated - Kaizen
      */
-    public function ie_capacitated_trainers()
+    public function ie_capacitated_trainers_kaizen()
     {
         $result = IndustryExtension5::select(DB::raw(
                     'sum(level_c_male) as levelC_male,
@@ -34,9 +34,70 @@ class TVIIndicatorIndustryExtension {
                     sum(level_b_female) as levelB_female,
                     sum(level_a_male) as levelA_male,
                     sum(level_a_female) as levelA_female'))
+                ->where('ie_field', 'Kaizen')
                 ->where('report_date_id', $this->report_date_id)
                 ->where('institution_id', $this->institution_id)
                 ->get();
+
+        return $result;
+    }
+
+    /*
+     * No. of Trainers Capacitated - Entrepreneurship
+     */
+    public function ie_capacitated_trainers_entrepreneurship()
+    {
+        $result = IndustryExtension5::select(DB::raw(
+            'sum(level_c_male) as levelC_male,
+                    sum(level_c_female) as levelC_female,
+                    sum(level_b_male) as levelB_male,
+                    sum(level_b_female) as levelB_female,
+                    sum(level_a_male) as levelA_male,
+                    sum(level_a_female) as levelA_female'))
+            ->where('ie_field', 'Entrepreneurship')
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->get();
+
+        return $result;
+    }
+
+    /*
+     * No. of Trainers Capacitated - Technical Skill
+     */
+    public function ie_capacitated_trainers_technical_skill()
+    {
+        $result = IndustryExtension5::select(DB::raw(
+            'sum(level_c_male) as levelC_male,
+                    sum(level_c_female) as levelC_female,
+                    sum(level_b_male) as levelB_male,
+                    sum(level_b_female) as levelB_female,
+                    sum(level_a_male) as levelA_male,
+                    sum(level_a_female) as levelA_female'))
+            ->where('ie_field', 'Technical Skill')
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->get();
+
+        return $result;
+    }
+
+    /*
+     * No. of Trainers Capacitated - Technology Transfer
+     */
+    public function ie_capacitated_trainers_technology_transfer()
+    {
+        $result = IndustryExtension5::select(DB::raw(
+            'sum(level_c_male) as levelC_male,
+                    sum(level_c_female) as levelC_female,
+                    sum(level_b_male) as levelB_male,
+                    sum(level_b_female) as levelB_female,
+                    sum(level_a_male) as levelA_male,
+                    sum(level_a_female) as levelA_female'))
+            ->where('ie_field', 'Technology Transfer')
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->get();
 
         return $result;
     }
