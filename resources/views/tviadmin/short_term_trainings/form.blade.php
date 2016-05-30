@@ -6,7 +6,8 @@
                                                             'short_term_training' => $short_term_training,
                                                             'sectors' => $sectors,
                                                             'subsectors' => $subsectors,
-                                                            'occupations' => $occupations])
+                                                            'occupations' => $occupations,
+                                                            'competencies' => $competencies])
 
 @elseif($submitButtonText=='Save')
 

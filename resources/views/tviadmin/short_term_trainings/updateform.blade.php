@@ -25,7 +25,15 @@
     {!! Form::label('occupation_id', 'Occupation : ') !!}
     {!! Form::select('occupation_id', $occupations, $short_term_training->occupation->id,
                                                   ['class' => 'form-control',
+                                                   'data-url' => url('load-competencies'),
                                                    'id' => 'occupation']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('competency_id', 'Unit of Competency : ') !!}
+    {!! Form::select('competency_id', $competencies, $short_term_training->competency_id,
+                                                  ['class' => 'form-control',
+                                                   'id' => 'competency']) !!}
 </div>
 
 <div class="form-group">

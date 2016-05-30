@@ -21,7 +21,8 @@
                                                                                  'report_dates' => $report_dates,
                                                                                  'sectors' => $sectors,
                                                                                  'subsectors' => $subsectors,
-                                                                                 'occupations' => $occupations
+                                                                                 'occupations' => $occupations,
+                                                                                 'competencies' => $competencies
                                                                             ))
                         {!! Form::close() !!}
                     </div>

@@ -20,7 +20,14 @@
 <div class="form-group">
     {!! Form::label('occupation_id', 'Occupation : ') !!}
     {!! Form::select('occupation_id', array('- select sub-sector first -'), null, ['class' => 'form-control',
+                                                   'data-url' => url('load-competencies'),
                                                    'id' => 'occupation']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('competency_id', 'Unit of Competency : ') !!}
+    {!! Form::select('competency_id', array('- select occupation first -'), null, ['class' => 'form-control',
+                                                   'id' => 'competency']) !!}
 </div>
 
 <div class="form-group">

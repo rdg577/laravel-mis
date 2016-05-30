@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\TVI;
 
+use App\Competency;
 use App\Http\Requests\ShortTermTrainingRequest;
 use App\Occupation;
 use App\ReportDate;
@@ -91,12 +92,14 @@ class ShortTermTrainingController extends Controller
         $sectors = Sector::all()->lists('name', 'id');
         $subsectors = Subsector::findOrFail($short_term_training->occupation->subsector->id)->lists('name', 'id');
         $occupations = Occupation::findOrFail($short_term_training->occupation->id)->lists('name', 'id');
+        $competencies = Occupation::findOrFail($short_term_training->occupation->id)->competencies()->lists('name', 'id');
 
         return view('tviadmin.short_term_trainings.edit', array('short_term_training' => $short_term_training,
                                                                 'report_dates' => $report_dates,
                                                                 'sectors' => $sectors,
                                                                 'subsectors' => $subsectors,
-                                                                'occupations' => $occupations));
+                                                                'occupations' => $occupations,
+                                                                'competencies' => $competencies));
     }
 
     /**

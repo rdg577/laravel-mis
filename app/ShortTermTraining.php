@@ -12,6 +12,7 @@ class ShortTermTraining extends Model
         'report_date_id',
         'institution_id',
         'occupation_id',
+        'competency_id',
         'course_started',
         'course_ended',
         'below17_male',
@@ -56,5 +57,10 @@ class ShortTermTraining extends Model
     public function occupation()
     {
         return $this->belongsTo('App\Occupation', 'occupation_id');
+    }
+
+    public function competency()
+    {
+        return $this->belongsTo('App\Competency', 'competency_id');
     }
 }
