@@ -17,7 +17,7 @@ class SubsectorController extends Controller
      */
     public function index()
     {
-        $subsectors = Subsector::orderBy('name', 'asc')->paginate(7);
+        $subsectors = Subsector::orderBy('name', 'asc')->paginate(20);
         return view('sysadmin.subsectors.index', compact('subsectors'));
     }
 

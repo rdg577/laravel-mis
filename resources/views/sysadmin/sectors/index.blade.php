@@ -35,9 +35,9 @@
                     <td>
                         <a href="sectors/{{ $sector->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     </td>
-                    <td>
+                    {{--<td>
                         <a href="sectors/{{ $sector->id }}/delete" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
+                    </td>--}}
                     <td>
                         <a href="sectors/{{ $sector->id }}" title="View"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                     </td>

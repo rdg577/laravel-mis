@@ -1,5 +1,5 @@
 <?php
-    $sectors = \App\Sector::all();
+    $sectors = \App\Sector::orderBy('name')->get();
 ?>
 
 <div class="col-md-8 col-md-offset-2">
@@ -7,7 +7,7 @@
 @if($submitButtonText=='Update')
 
     <?php
-        $subsectors = \App\Sector::find($sector_id)->subsectors->lists('name', 'id');
+        $subsectors = \App\Sector::find($sector_id)->subsectors->sortBy('name')->lists('name', 'id');
     ?>
 
     <div class="form-group">

@@ -18,7 +18,7 @@ class OccupationController extends Controller
      */
     public function index()
     {
-        $occupations = Occupation::orderBy('name', 'asc')->paginate(7);
+        $occupations = Occupation::orderBy('name', 'asc')->paginate(20);
         return view('sysadmin.occupations.index', compact('occupations'));
     }
 

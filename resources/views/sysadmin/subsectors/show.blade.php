@@ -14,7 +14,11 @@
                                 </tr>
                                 <tr>
                                     <th>Sector :</th>
-                                    <td>{{ $subsector->sector->name }}</td>
+                                    <td>
+                                        @if(!is_null($subsector->sector))
+                                            {{ $subsector->sector->name }}
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Is Active? :</th>

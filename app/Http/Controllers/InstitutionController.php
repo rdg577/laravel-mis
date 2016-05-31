@@ -18,7 +18,7 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        $institutions = Institution::paginate(7);
+        $institutions = Institution::orderBy('name', 'asc')->paginate(20);
         return view('sysadmin.institutions.index', compact('institutions'));
     }
 

@@ -30,9 +30,26 @@
                 <tr>
                     <td>{{ $competency->name }}</td>
                     <td>{{ $competency->code }}</td>
-                    <td>{{ $competency->occupation->name }}</td>
-                    <td>{{ $competency->occupation->subsector->name }}</td>
-                    <td>{{ $competency->occupation->subsector->sector->name }}</td>
+                    <td>
+                        @if(!is_null($competency->occupation))
+                            {{ $competency->occupation->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if((!is_null($competency->occupation)) &&
+                            (!is_null($competency->occupation->subsector)))
+
+                            {{ $competency->occupation->subsector->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if((!is_null($competency->occupation)) &&
+                            (!is_null($competency->occupation->subsector)) &&
+                            (!is_null($competency->occupation->subsector->sector)))
+
+                            {{ $competency->occupation->subsector->sector->name }}
+                        @endif
+                    </td>
                     <td>
                         @if($competency->active)
                             {{ 'True' }}

@@ -227,7 +227,7 @@ Route::group(array('before' => 'admin', 'middleware' => 'auth'), function() {
 
     // Institution routes...
     Route::resource('institutions', 'InstitutionController');
-    Route::get('institutions/{id}/delete', 'InstitutionController@delete');
+    /*Route::get('institutions/{id}/delete', 'InstitutionController@delete');*/
 
     // Sector routes...
     Route::resource('sectors', 'SectorController');

@@ -18,7 +18,7 @@ class CompetencyController extends Controller
      */
     public function index()
     {
-        $competencies = Competency::orderBy('name', 'asc')->paginate(7);
+        $competencies = Competency::orderBy('name', 'asc')->paginate(20);
         return view('sysadmin.competencies.index', compact('competencies'));
     }
 

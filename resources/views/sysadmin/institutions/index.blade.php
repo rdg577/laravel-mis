@@ -31,17 +31,20 @@
                     <td>{{ $institution->office_telno }}</td>
                     <td>{{ $institution->dean_name }}</td>
                     <td>{{ $institution->dean_phone }}</td>
-                    <td>{{ $institution->region->name }}</td>
+                    <td>
+                        @if(!is_null($institution->region))
+                            {{ $institution->region->name }}</td>
+                        @endif
                     <td>
                         @if($institution->name != 'None')
                             <a href="institutions/{{ $institution->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                         @endif
                     </td>
-                    <td>
+                    {{--<td>
                         @if($institution->name != 'None')
                             <a href="institutions/{{ $institution->id }}/delete" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                         @endif
-                    </td>
+                    </td>--}}
                     <td>
                         @if($institution->name != 'None')
                             <a href="institutions/{{ $institution->id }}" title="View"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>

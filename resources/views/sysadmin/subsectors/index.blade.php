@@ -26,7 +26,11 @@
             @forelse($subsectors as $subsector)
                 <tr>
                     <td>{{ $subsector->name }}</td>
-                    <td>{{ $subsector->sector->name }}</td>
+                    <td>
+                        @if(!is_null($subsector->sector))
+                            {{ $subsector->sector->name }}
+                        @endif
+                    </td>
                     <td>
                         @if($subsector->active)
                             {{ 'True' }}
@@ -37,9 +41,9 @@
                     <td>
                         <a href="subsectors/{{ $subsector->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     </td>
-                    <td>
+                    {{--<td>
                         <a href="subsectors/{{ $subsector->id }}/delete" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
+                    </td>--}}
                     <td>
                         <a href="subsectors/{{ $subsector->id }}" title="View"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                     </td>

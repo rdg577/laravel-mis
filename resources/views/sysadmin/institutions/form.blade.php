@@ -1,6 +1,6 @@
 <?php
-    $regions = \App\Region::lists('name', 'id')->sortBy('name');
-    $institutions = \App\Institution::lists('name', 'id')->sortBy('name');
+    $regions = \App\Region::orderBy('name', 'asc')->lists('name', 'id');
+    $institutions = \App\Institution::orderBy('name','asc')->lists('name', 'id');
 ?>
 
 <div class="col-md-8 col-md-offset-2">

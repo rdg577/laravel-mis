@@ -31,8 +31,19 @@
                     <td>{{ $occupation->name }}</td>
                     <td>{{ $occupation->code }}</td>
                     <td>{{ $occupation->level }}</td>
-                    <td>{{ $occupation->subsector->name }}</td>
-                    <td>{{ $occupation->subsector->sector->name }}</td>
+                    <td>
+                        @if(!is_null($occupation->subsector))
+
+                            {{ $occupation->subsector->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if(!(is_null($occupation->subsector->sector)) &&
+                            !(is_null($occupation->subsector->sector)))
+
+                            {{ $occupation->subsector->sector->name }}
+                        @endif
+                    </td>
                     <td>
                         @if($occupation->active)
                             {{ 'True' }}
@@ -43,9 +54,9 @@
                     <td>
                         <a href="occupations/{{ $occupation->id }}/edit" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     </td>
-                    <td>
+                    {{--<td>
                         <a href="occupations/{{ $occupation->id }}/delete" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
+                    </td>--}}
                     <td>
                         <a href="occupations/{{ $occupation->id }}" title="View"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                     </td>

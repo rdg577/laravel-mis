@@ -30,14 +30,22 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->user_type }}</td>
-                    <td>{{ $user->institution->name }}</td>
-                    <td>{{ $user->region->name }}</td>
+                    <td>
+                        @if(!is_null($user->institution))
+                            {{ $user->institution->name }}
+                        @endif
+                    </td>
+                    <td>
+                        @if(!is_null($user->region))
+                            {{ $user->region->name }}
+                        @endif
+                    </td>
                     <td>
                         <a href="users/{{ $user->id }}/edit" title="Edit user"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     </td>
-                    <td>
+                    {{--<td>
                         <a href="users/{{ $user->id }}/delete" title="Delete user"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-                    </td>
+                    </td>--}}
                     <td>
                         <a href="users/{{ $user->id }}" title="View user profile"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
                     </td>

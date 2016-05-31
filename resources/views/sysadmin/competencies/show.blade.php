@@ -18,11 +18,21 @@
                                 </tr>
                                 <tr>
                                     <th>Sub-sector Name :</th>
-                                    <td>{{ $occupation->subsector->name }}</td>
+                                    <td>
+                                        @if(!is_null($occupation->subsector))
+                                            {{ $occupation->subsector->name }}
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Sector Name :</th>
-                                    <td>{{ $occupation->subsector->sector->name }}</td>
+                                    <td>
+                                        @if((!is_null($occupation->subsector)) &&
+                                            (!is_null($occupation->subsector->sector)))
+
+                                            {{ $occupation->subsector->sector->name }}
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Is Active? :</th>

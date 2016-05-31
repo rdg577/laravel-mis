@@ -36,7 +36,11 @@
                                     </tr>
                                     <tr>
                                         <th>Region :</th>
-                                        <td>{{ $institution->region->name }}</td>
+                                        <td>
+                                            @if(!is_null($institution->region))
+                                                {{ $institution->region->name }}</td>
+                                            @endif
+                                        <td>
                                     </tr>
                                 </tbody>
                             </table>

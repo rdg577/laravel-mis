@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(7);
+        $users = User::orderBy('name')->paginate(20);
         return view('sysadmin.users.index', compact('users'));
     }
 
