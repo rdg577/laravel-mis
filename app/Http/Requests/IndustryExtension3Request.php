@@ -24,9 +24,9 @@ class IndustryExtension3Request extends Request
     public function rules()
     {
         return [
-            'report_date_id'    => 'required',
-            'institution_id'    => 'required',
-            'subsector_id'      => 'required|integer|min:1',
+            'report_date_id'    => 'exists:report_dates,id',
+            'institution_id'    => 'exists:institutions,id',
+            'subsector_id'      => 'exists:subsectors,id',
             'high_level'        => 'required|integer|min:0',
             'mid_level'         => 'required|integer|min:0',
             'low_level'         => 'required|integer|min:0'

@@ -28,7 +28,7 @@ class OccupationRequest extends Request
             'code' => 'required|max:50',
             'level' => 'required',
             'active' => 'boolean',
-            'subsector_id' => 'required|integer|min:1'
+            'subsector_id' => 'exists:subsectors,id'
         ];
     }
 }

@@ -24,10 +24,10 @@ class ShortTermTrainingRequest extends Request
     public function rules()
     {
         return [
-            'report_date_id'            => 'required',
-            'institution_id'            => 'required',
-            'occupation_id'             => 'required|integer|min:1',
-            'competency_id'             => 'required|integer|min:1',
+            'report_date_id'            => 'exists:report_dates,id',
+            'institution_id'            => 'exists:institutions,id',
+            'occupation_id'             => 'exists:occupations,id',
+            'competency_id'             => 'exists:competencies,id',
             'course_started'            => 'required|date|before:today',
             'course_ended'              => 'required|date|after:course_started',
             'below17_male'              => 'required|integer|min:0',

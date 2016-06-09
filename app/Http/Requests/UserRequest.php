@@ -28,8 +28,8 @@ class UserRequest extends Request
             'email'             => 'required|email|max:255',   // required|email|max:255|unique:users
             'password'          => 'required|confirmed|min:6',
             'user_type'         => 'required',
-            'institution_id'    => 'required|integer|min:1',
-            'region_id'         => 'required|integer|min:1'
+            'institution_id'    => 'exists:institutions,id',
+            'region_id'         => 'exists:regions,id'
         ];
     }
 }

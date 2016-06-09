@@ -32,7 +32,7 @@ class InstitutionRequest extends Request
             'dean_name'         => 'required',
             'city'              => 'required',
             'woreda_zone'       => 'required',
-            'region_id'         => 'required'
+            'region_id'         => 'exists:regions,id'
         ];
     }
 }

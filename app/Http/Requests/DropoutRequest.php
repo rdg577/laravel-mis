@@ -24,9 +24,9 @@ class DropoutRequest extends Request
     public function rules()
     {
         return [
-            'report_date_id'        => 'required',
-            'institution_id'        => 'required',
-            'occupation_id'         => 'required|integer|min:1',
+            'report_date_id'        => 'exists:report_dates,id',
+            'institution_id'        => 'exists:institutions,id',
+            'occupation_id'         => 'exists:occupations,id',
             'department'            => 'required|integer|min:0',
             'completed_level'       => 'required',
             'regular_male'          => 'required|integer|min:0',

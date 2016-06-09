@@ -24,9 +24,9 @@ class CooperativeTrainingRequest extends Request
     public function rules()
     {
         return [
-            'report_date_id'    => 'required',
-            'institution_id'    => 'required',
-            'occupation_id'     => 'required|integer|min:1',
+            'report_date_id'    => 'exists:report_dates,id',
+            'institution_id'    => 'exists:institutions,id',
+            'occupation_id'     => 'exists:occupations,id',
             'mse_list'          => 'required|integer|min:0',
             'mse_mou'           => 'required|integer|min:0',
             'mse_joint_plan'    => 'required|integer|min:0',

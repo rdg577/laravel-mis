@@ -25,7 +25,7 @@ class ReportDateRequest extends Request
     {
         return [
             'petsa' => 'required',
-            'user_id' => 'required'
+            'user_id' => 'exists:users,id'
         ];
     }
 }

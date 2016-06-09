@@ -38,7 +38,7 @@
                         @endif
                     </td>
                     <td>
-                        @if(!(is_null($occupation->subsector->sector)) &&
+                        @if(!(is_null($occupation->subsector)) &&
                             !(is_null($occupation->subsector->sector)))
 
                             {{ $occupation->subsector->sector->name }}

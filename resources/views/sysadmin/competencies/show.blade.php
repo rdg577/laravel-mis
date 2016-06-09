@@ -4,40 +4,51 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Viewing Occupation Profile</div>
+                    <div class="panel-heading">Viewing Competency Profile</div>
                     <div class="panel-body">
                         <table class="table table-stripe">
                             <tbody>
                                 <tr>
-                                    <th>Occupation Name :</th>
-                                    <td>{{ $occupation->name }}</td>
+                                    <th>Competency Name :</th>
+                                    <td>{{ $competency->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Level :</th>
-                                    <td>{{ $occupation->level }}</td>
+                                    <th>Competency Code :</th>
+                                    <td>{{ $competency->code }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Occupation Name :</th>
+                                    <td>
+                                        @if(!is_null($competency->occupation))
+                                            {{ $competency->occupation->name }}
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Sub-sector Name :</th>
                                     <td>
-                                        @if(!is_null($occupation->subsector))
-                                            {{ $occupation->subsector->name }}
+                                        @if(!is_null($competency->occupation) &&
+                                            !is_null($competency->occupation->subsector))
+
+                                            {{ $competency->occupation->subsector->name }}
                                         @endif
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Sector Name :</th>
                                     <td>
-                                        @if((!is_null($occupation->subsector)) &&
-                                            (!is_null($occupation->subsector->sector)))
+                                        @if((!is_null($competency->occupation)) &&
+                                            (!is_null($competency->occupation->subsector)) &&
+                                            (!is_null($competency->occupation->subsector->sector)))
 
-                                            {{ $occupation->subsector->sector->name }}
+                                            {{ $competency->occupation->subsector->sector->name }}
                                         @endif
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Is Active? :</th>
                                     <td>
-                                        @if($occupation->active)
+                                        @if($competency->active)
                                             {{ 'True' }}
                                         @else
                                             {{ 'False' }}

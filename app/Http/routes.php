@@ -141,6 +141,7 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::patch('report-dates/{id}', 'TVI\ReportDateController@update');
     Route::get('report-dates/{id}/delete', 'TVI\ReportDateController@delete');
     Route::delete('report-dates/{id}', 'TVI\ReportDateController@destroy');
+    Route::get('report-dates/{id}', 'TVI\ReportDateController@show');
 
     // Formal Training routes...
     Route::resource('formal-trainings', 'TVI\FormalTrainingController');
@@ -223,7 +224,7 @@ Route::group(array('before' => 'admin', 'middleware' => 'auth'), function() {
 
     // Users routes...
     Route::resource('users', 'UserController');
-    Route:get('users/{id}/delete', 'UserController@delete');
+    /*Route:get('users/{id}/delete', 'UserController@delete');*/
 
     // Institution routes...
     Route::resource('institutions', 'InstitutionController');
@@ -231,18 +232,18 @@ Route::group(array('before' => 'admin', 'middleware' => 'auth'), function() {
 
     // Sector routes...
     Route::resource('sectors', 'SectorController');
-    Route::get('sectors/{id}/delete', 'SectorController@delete');
+    /*Route::get('sectors/{id}/delete', 'SectorController@delete');*/
 
     // Subsector routes...
     Route::resource('subsectors', 'SubsectorController');
-    Route::get('subsectors/{id}/delete', 'SubsectorController@delete');
+    /*Route::get('subsectors/{id}/delete', 'SubsectorController@delete');*/
 
     // Occupation routes...
     Route::resource('occupations', 'OccupationController');
-    Route::get('occupations/{id}/delete', 'OccupationController@delete');
+    /*Route::get('occupations/{id}/delete', 'OccupationController@delete');*/
 
     // Competency routes...
     Route::resource('competencies', 'CompetencyController');
-    Route::get('competencies/{id}/delete', 'CompetencyController@delete');
+    /*Route::get('competencies/{id}/delete', 'CompetencyController@delete');*/
 
 });

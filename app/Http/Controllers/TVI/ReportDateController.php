@@ -60,7 +60,8 @@ class ReportDateController extends Controller
      */
     public function show($id)
     {
-        //
+        $report_date = ReportDate::findOrFail($id);
+        return view('tviadmin.report_dates.show', compact('report_date'));
     }
 
     /**

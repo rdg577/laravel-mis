@@ -97,6 +97,10 @@ class CompetencyController extends Controller
         return redirect('/competencies');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function delete($id)
     {
         $competency = Competency::findOrFail($id);

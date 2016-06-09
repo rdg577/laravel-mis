@@ -25,7 +25,7 @@ class SubsectorRequest extends Request
     {
         return [
             'name' => 'required|min:6|max:255',
-            'sector_id' => 'required',
+            'sector_id' => 'exists:sectors,id',
             'active' => 'boolean'
         ];
     }
