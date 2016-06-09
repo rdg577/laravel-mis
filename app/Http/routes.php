@@ -92,21 +92,21 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::get('load-sub-sectors', function(){
         $input = Input::get('option');
         $sector = \App\Sector::find($input);
-        $subsectors = $sector->subsectors()->orderBy('name', 'asc');
+        $subsectors = $sector->subsectors()->where('active', true)->orderBy('name', 'asc');
         return Response::make($subsectors->get(['id','name']));
     });
 
     Route::get('load-occupations', function(){
         $input = Input::get('option');
         $subsector = \App\Subsector::find($input);
-        $occupations = $subsector->occupations()->orderBy('name', 'asc');
+        $occupations = $subsector->occupations()->where('active', true)->orderBy('name', 'asc');
         return Response::make($occupations->get(['id','name']));
     });
 
     Route::get('load-competencies', function(){
         $input = Input::get('option');
         $occupation = \App\Occupation::find($input);
-        $competencies = $occupation->competencies()->orderBy('name', 'asc');
+        $competencies = $occupation->competencies()->where('active', true)->orderBy('name', 'asc');
         return Response::make($competencies->get(['id', 'name']));
     });
 });
