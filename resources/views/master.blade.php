@@ -79,6 +79,17 @@
             });
         });
 
+        $('#sector').click(function () {
+            $.get($(this).data('url'), { option: $(this).val() },
+            function (data) {
+                var subsector = $('#subsector');
+                subsector.empty();
+                $.each(data, function (index, element) {
+                    subsector.append("<option value='"+ element.id +"'>" + element.name + "</option>");
+                });
+            });
+        });
+
         $('#subsector').change(function () {
             $.get($(this).data('url'), { option: $(this).val() },
             function (data) {
