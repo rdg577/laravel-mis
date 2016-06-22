@@ -43,6 +43,8 @@
                                     <li><a href="/industry-extension-5"># 5</a></li>
                                 </ul>
                             </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/change-password">Change Password</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

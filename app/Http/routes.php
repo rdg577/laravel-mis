@@ -66,6 +66,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('users/register', ['middleware' => 'auth', 'uses' => 'Auth\AuthController@postRegister']);
 
+// Change User Password
+Route::get('change-password', ['middleware' => 'auth', 'uses' => 'UserController@showChangePasswordForm']);
+Route::post('change-password', ['middleware' => 'auth', 'uses' => 'UserController@changePassword']);
 
 Route::filter('admin', function () {
     if (!Auth::check() || !Auth::user()->isSystemAdmin()) {

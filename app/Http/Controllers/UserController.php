@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class UserController
@@ -109,5 +111,52 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         return view('sysadmin.users.delete', compact('user'));
+    }
+
+    public function showChangePasswordForm()
+    {
+        if(Auth::check()) {
+            $user = Auth::user();
+            $page = 'sysadmin';
+
+            if($user->user_type == 'System Administrator')
+                $page = 'sysadmin';
+            elseif($user->user_type == 'TVI Administrator')
+                $page = 'tviadmin';
+            elseif($user->user_type == 'Region Administrator')
+                $page = 'rtaadmin';
+            elseif($user->user_type == 'Cluster Administrator')
+                $page = 'cluster_admin';
+
+            return view('change_password', compact('user', 'page'));
+        } else
+            return redirect()->back();
+    }
+
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+                       'old_password' => 'required|min:5',
+                        'password' => 'required|confirmed|min:6'
+                    ]);
+
+        if($validator->fails())
+            return redirect()->back()->withErrors($validator->errors());
+
+
+        $user = Auth::user();
+
+        if(Hash::check($request->get('old_password'), $user->password))
+        {
+            $user->password = bcrypt($request->get('password'));
+            $user->update();
+
+            $request->session()->flash('alert-success', 'Password update successful!');
+            return redirect('/change-password');
+        } else {
+            $request->session()->flash('alert-warning', 'Old password incorrect!');
+            return redirect()->back();
+        }
+
     }
 }
