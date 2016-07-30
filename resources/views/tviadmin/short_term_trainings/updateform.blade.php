@@ -1,7 +1,7 @@
 <input type="hidden" name="institution_id" value="{{ $short_term_training->institution->id }}">
 
 <div class="form-group">
-    {!! Form::label('report_date_id', 'Report Date :') !!}
+    {!! Form::label('report_date_id', 'Report Schedule :') !!}
     {!! Form::select('report_date_id', $report_dates, $short_term_training->report_date->id, ['class' => 'form-control']) !!}
 </div>
 

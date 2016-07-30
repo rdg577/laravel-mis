@@ -5,7 +5,7 @@
     <input type="hidden" name="institution_id" value="{{ $formal_training->institution->id }}">
 
     <div class="form-group">
-        {!! Form::label('report_date_id', 'Report Date :') !!}
+        {!! Form::label('report_date_id', 'Report Schedule :') !!}
         {!! Form::select('report_date_id', $report_dates, $formal_training->report_date->id, ['class' => 'form-control']) !!}
     </div>
 
@@ -380,7 +380,7 @@
 @elseif($submitButtonText=='Save')
 
     <div class="form-group">
-        {!! Form::label('report_date_id', 'Report Date :') !!}
+        {!! Form::label('report_date_id', 'Report Schedule :') !!}
         {!! Form::select('report_date_id', $report_dates, null, ['class' => 'form-control']) !!}
     </div>
 

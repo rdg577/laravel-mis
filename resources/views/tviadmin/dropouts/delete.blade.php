@@ -19,7 +19,7 @@
                             <table class="table table-stripe">
                                 <tbody>
                                     <tr>
-                                        <th>Report Date :</th>
+                                        <th>Report Schedule :</th>
                                         <td>{{ $dropout->report_date->petsa }}</td>
                                     </tr>
                                     <tr>

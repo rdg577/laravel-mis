@@ -7,7 +7,7 @@
         <input type="hidden" name="institution_id" value="{{ $industry_extension4->institution->id }}">
 
         <div class="form-group">
-            {!! Form::label('report_date_id', 'Report Date :') !!}
+            {!! Form::label('report_date_id', 'Report Schedule :') !!}
             {!! Form::select('report_date_id', $report_dates, $industry_extension4->report_date->id, ['class' => 'form-control']) !!}
         </div>
 
@@ -103,7 +103,7 @@
     <div class="create-form">
 
         <div class="form-group">
-            {!! Form::label('report_date_id', 'Report Date :') !!}
+            {!! Form::label('report_date_id', 'Report Schedule :') !!}
             {!! Form::select('report_date_id', $report_dates, $report_date_id, ['class' => 'form-control']) !!}
         </div>
 

@@ -28,7 +28,6 @@ class RTAIndicatorStudentRatio {
     public function regular()
     {
 
-
         $result = FormalTraining::select(DB::raw('sum(regular_male) as male,
                                             sum(regular_female) as female,
                                             sum(regular_male) + sum(regular_female) as total'))

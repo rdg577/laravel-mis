@@ -18,7 +18,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading"><a href="/formal-trainings/create" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
-        <div class="panel-body">Report Date : {{ $report_date->petsa }}</div>
+        <div class="panel-body">Report Schedule : {{ $report_date->petsa }}</div>
     </div> <!-- div class="panel panel-default" -->
 
     {!! $formal_trainings->render() !!}

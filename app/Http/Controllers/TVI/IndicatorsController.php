@@ -23,7 +23,7 @@ class IndicatorsController extends Controller
     public function index()
     {
         $institution_id = Auth::user()->institution->id;
-        $report_dates = ReportDate::where('user_id', Auth::user()->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('tviadmin.indicators.index', array('institution_id' => $institution_id,
                                                         'report_dates' => $report_dates));

@@ -19,7 +19,7 @@
                             <table class="table table-stripe">
                                 <tbody>
                                     <tr>
-                                        <th>Report Date :</th>
+                                        <th>Report Schedule :</th>
                                         <td>{{ $industry_extension5->report_date->petsa }}</td>
                                     </tr>
                                     <tr>

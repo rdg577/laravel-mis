@@ -17,7 +17,7 @@
     <h1>Short-Term Trainings</h1>
     <div class="panel panel-default">
         <div class="panel-heading"><a href="/short-term-trainings/create?id={{ $report_date->id }}" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
-        <div class="panel-body">Report Date : {{ $report_date->petsa }}</div>
+        <div class="panel-body">Report Schedule : {{ $report_date->petsa }}</div>
     </div> <!-- div class="panel panel-default" -->
 
     {!! $short_term_trainings->render() !!}

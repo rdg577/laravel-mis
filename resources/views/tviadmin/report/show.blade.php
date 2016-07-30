@@ -4,7 +4,7 @@
     <div class="container">
 
         <h1>Report Data Summary</h1>
-        <p><small>Report Date : {{ $report_date->petsa }}</small></p>
+        <p><small>Report Schedule : {{ $report_date->petsa }}</small></p>
 
         @include('tviadmin.report.profile', array('institution' => $institution))
 

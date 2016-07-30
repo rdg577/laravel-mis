@@ -19,8 +19,35 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Main <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/rta-institutions">Institutions</a></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Report Dates</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/create-report-date">Create</a></li>
+                                    <li><a href="/report-dates">View All</a></li>
+                                </ul>
+                            </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/change-password">Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report 1</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/report-1/government">Government</a></li>
+                                    <li><a href="/report-1/non-government">Non-Government</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report 2 - Institution</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/report-2/government">Government</a></li>
+                                    <li><a href="/report-2/non-government">Non-Government</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="/rta-indicators">Indicators</a></li>

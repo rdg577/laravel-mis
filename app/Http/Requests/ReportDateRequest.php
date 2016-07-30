@@ -24,8 +24,19 @@ class ReportDateRequest extends Request
     public function rules()
     {
         return [
-            'petsa' => 'required',
+            'petsa' => 'required|integer|min:1900|max:2999|unique:report_dates',
             'user_id' => 'exists:users,id'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'petsa.required' => 'Please enter a reporting schedule.',
+            'petsa.unique' => 'The reporting schedule already exist.',
+            'petsa.integer' => 'The reporting schedule must be integer.',
+            'petsa.min' => 'The reporting schedule must be at least 1900.',
+            'petsa.max' => 'The reporting schedule may not be greater than 2999.'
         ];
     }
 }

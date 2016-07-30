@@ -18,14 +18,14 @@
 
                             <div class="col col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
                                 <div class="form-group">
-                                    {!! Form::label('report_date_id', 'Source Report Date : ') !!}
+                                    {!! Form::label('report_date_id', 'Source Report Schedule : ') !!}
                                     {!! Form::text('report_date_petsa', $report_date->petsa, ['class' => 'form-control',
                                                                                               'readonly' => 'readonly']) !!}
                                     {!! Form::hidden('report_date_id_source', $report_date->id) !!}
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::label('report_date_id_target', 'Target Report Date :') !!}
+                                    {!! Form::label('report_date_id_target', 'Target Report Schedule :') !!}
                                     {!! Form::select('report_date_id_target', $report_dates, $report_date->id, ['class' => 'form-control']) !!}
                                 </div>
 

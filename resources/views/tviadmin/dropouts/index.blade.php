@@ -20,7 +20,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th colspan="4">Report Dates</th>
+                    <th colspan="4">Report Schedules</th>
                 </tr>
             </thead>
             <tbody>

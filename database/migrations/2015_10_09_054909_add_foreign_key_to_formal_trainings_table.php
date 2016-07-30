@@ -14,8 +14,7 @@ class AddForeignKeyToFormalTrainingsTable extends Migration
     {
         Schema::table('formal_trainings', function (Blueprint $table) {
             $table->foreign('report_date_id')
-                ->references('id')
-                ->on('report_dates')
+                ->references('id')->on('report_dates')
                 ->onDelete('cascade');
         });
     }

@@ -1,4 +1,4 @@
-@extends('tviadmin')
+@extends('rtaadmin')
 
 @section('content')
 <div class="container">
@@ -22,7 +22,7 @@
                                     <table class="table table-stripe">
                                         <tbody>
                                             <tr>
-                                                <th>Report Date : </th>
+                                                <th>Report Schedule : </th>
                                                 <td>{{ $report_date->petsa }}</td>
                                             </tr>
                                         </tbody>

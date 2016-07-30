@@ -25,13 +25,26 @@
                         aria-expanded="false">Main <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/tvi/{{ $user->institution_id }}/profile">My Institution Profile</a></li>
-                            <li><a href="/formal-trainings">Formal Training</a></li>
-                            <li><a href="/short-term-trainings">Short-Term Training</a></li>
-                            <li><a href="/assessments">Assessment</a></li>
-                            <li><a href="/cooperative-trainings">Cooperative Training</a></li>
-                            <li><a href="/trainers">Trainers</a></li>
-                            <li><a href="/dropouts">Dropouts</a></li>
                             <li role="separator" class="divider"></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Trainees</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/trainees-new-enrollees">Newly Registered</a></li>
+                                    <li><a href="/trainees-re-enrollees">Current Re-Registered</a></li>
+                                    <li><a href="/trainees-transferees">Transferred</a></li>
+                                    <li><a href="/trainees-graduates">Graduates</a></li>
+                                    <li><a href="/short-term-trainees">Short Term</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">Dropouts</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/dropout-from-transferees">From Transferred</a></li>
+                                    <li><a href="/dropout-graduates">Graduates</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">Industry Extensions</a>
@@ -43,6 +56,11 @@
                                     <li><a href="/industry-extension-5"># 5</a></li>
                                 </ul>
                             </li>
+                            <li><a href="/formal-trainings">Formal Training</a></li>
+                            <li><a href="/short-term-trainings">Short-Term Training</a></li>
+                            <li><a href="/assessments">Assessment</a></li>
+                            <li><a href="/cooperative-trainings">Cooperative Training</a></li>
+                            <li><a href="/trainers">Trainers</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/change-password">Change Password</a></li>
                         </ul>
@@ -52,14 +70,6 @@
                         aria-expanded="false">Report <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/report-data-summary">Data Summary</a></li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">Report Dates</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/create-report-date">Create</a></li>
-                                    <li><a href="/report-dates">View All</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </li>
                     <li><a href="/indicators">Indicators</a></li>

@@ -25,8 +25,7 @@ class FormalTrainingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)
-            ->orderBy('petsa', 'desc')
+        $report_dates = ReportDate::orderBy('petsa', 'desc')
             ->paginate(10);
         return view('tviadmin.formal_trainings.index', compact('report_dates'));
     }
@@ -39,7 +38,7 @@ class FormalTrainingController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
+        $report_dates = ReportDate::lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
         return view('tviadmin.formal_trainings.create', array('report_dates' => $report_dates,
@@ -86,7 +85,7 @@ class FormalTrainingController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
+        $report_dates = ReportDate::lists('petsa', 'id');
         $formal_training = FormalTraining::findOrFail($id);
         $sectors = Sector::all()->lists('name', 'id');
         $subsectors = Subsector::findOrFail($formal_training->occupation->subsector->id)->lists('name', 'id');
@@ -145,7 +144,7 @@ class FormalTrainingController extends Controller
     public function saveAsForm($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
         $report_date = ReportDate::findOrFail($id);
         return view('tviadmin.formal_trainings.save_as', array('report_dates' => $report_dates,
                                                                 'report_date' => $report_date,

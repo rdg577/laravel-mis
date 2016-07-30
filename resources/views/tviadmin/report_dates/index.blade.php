@@ -1,4 +1,4 @@
-@extends('tviadmin')
+@extends('rtaadmin')
 
 @section('content')
     <div class="flash-message">
@@ -11,7 +11,7 @@
             @endif
         @endforeach
     </div>
-    <h1>Report Dates</h1>
+    <h1>Reporting Schedules</h1>
 
     {!! $report_dates->render() !!}
 
@@ -20,7 +20,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Report Date</th>
+                    <th>Schedule</th>
                     <th colspan="3">&nbsp;</th>
                 </tr>
             </thead>

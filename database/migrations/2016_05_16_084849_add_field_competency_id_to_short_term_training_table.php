@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AddFieldCompetencyIdToShortTermTrainingTable extends Migration
 {
@@ -12,9 +13,10 @@ class AddFieldCompetencyIdToShortTermTrainingTable extends Migration
      */
     public function up()
     {
-        Schema::table('short_term_trainings', function (Blueprint $table) {
-            $table->integer('competency_id')->unsigned()->after('occupation_id');
-        });
+        if(! Schema::hasColumn('short_term_trainings', 'competency_id'))
+            Schema::table('short_term_trainings', function (Blueprint $table) {
+                $table->integer('competency_id')->unsigned()->after('occupation_id');
+            });
     }
 
     /**
@@ -24,8 +26,9 @@ class AddFieldCompetencyIdToShortTermTrainingTable extends Migration
      */
     public function down()
     {
-        Schema::table('short_term_trainings', function (Blueprint $table) {
-            $table->dropColumn('competency_id');
-        });
+        if(! Schema::hasColumn('short_term_trainings', 'competency_id'))
+            Schema::table('short_term_trainings', function (Blueprint $table) {
+                $table->dropColumn('competency_id');
+            });
     }
 }

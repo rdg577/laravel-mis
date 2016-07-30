@@ -26,8 +26,7 @@ class TrainerController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)
-                                    ->orderBy('petsa', 'desc')
+        $report_dates = ReportDate::orderBy('petsa', 'desc')
                                     ->paginate(10);
         return view('tviadmin.trainers.index', compact('report_dates'));
     }
@@ -40,7 +39,7 @@ class TrainerController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
+        $report_dates = ReportDate::lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
         return view('tviadmin.trainers.create', array('report_dates' => $report_dates,
@@ -87,7 +86,7 @@ class TrainerController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)->lists('petsa', 'id');
+        $report_dates = ReportDate::lists('petsa', 'id');
         $trainer = Trainer::findOrFail($id);
         $sectors = Sector::all()->lists('name', 'id');
         $subsectors = Subsector::findOrFail($trainer->occupation->subsector->id)->lists('name', 'id');
@@ -139,8 +138,7 @@ class TrainerController extends Controller
     public function saveAsForm($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::where('user_id', '=', $user->id)
-                                        ->orderBy('petsa', 'desc')
+        $report_dates = ReportDate::orderBy('petsa', 'desc')
                                         ->lists('petsa', 'id');
         $report_date = ReportDate::findOrFail($id);
         return view('tviadmin.trainers.save_as', array('report_dates' => $report_dates,

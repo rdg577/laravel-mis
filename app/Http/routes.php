@@ -120,22 +120,6 @@ Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     Route::get('rta-institutions', 'RTA\RTAController@institutions');
     Route::get('rta-institutions/{id}', 'RTA\RTAController@school_profile');
 
-    // Indicators
-    Route::get('rta-indicators', 'RTA\RTAController@indicators');
-    Route::post('rta-indicators', 'RTA\RTAController@show_indicators');
-
-    // Data Summary
-    /*Route::get('rta-data-summary', 'RTA\RTAController@data_summary');
-    Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');*/
-});
-
-// TVI Admin routes...
-Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
-    // Profile routes...
-    Route::get('tvi/{id}/profile', 'TVI\ProfileController@show');
-    Route::get('tvi/{id}/profile-edit', 'TVI\ProfileController@edit');
-    Route::patch('tvi/{id}/profile', 'TVI\ProfileController@update');
-
     // Report Dates routes...
     Route::get('create-report-date', 'TVI\ReportDateController@create');
     Route::post('create-report-date', 'TVI\ReportDateController@store');
@@ -145,6 +129,48 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('report-dates/{id}/delete', 'TVI\ReportDateController@delete');
     Route::delete('report-dates/{id}', 'TVI\ReportDateController@destroy');
     Route::get('report-dates/{id}', 'TVI\ReportDateController@show');
+
+    // Indicators
+    Route::get('rta-indicators', 'RTA\RTAController@indicators');
+    Route::post('rta-indicators', 'RTA\RTAController@show_indicators');
+
+    // Data Summary
+    /*Route::get('rta-data-summary', 'RTA\RTAController@data_summary');
+    Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');*/
+
+    // Report 1 - Government
+    Route::get('report-1/government', 'RTA\RTAController@report1_government');
+    Route::post('report-1/government', 'RTA\RTAController@show_report1_government');
+    Route::get('report-1/gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_new');
+    Route::get('report-1/gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_re');
+    Route::get('report-1/gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_trans');
+    Route::get('report-1/gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_grad');
+    Route::get('report-1/gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_short');
+    Route::get('report-1/gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_drop_trans');
+    Route::get('report-1/gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_drop_grad');
+
+    // Report 1 - Non-Government
+    Route::get('report-1/non-government', 'RTA\RTAController@report1_non_government');
+    Route::post('report-1/non-government', 'RTA\RTAController@show_report1_non_government');
+    Route::get('report-1/non-gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_new');
+    Route::get('report-1/non-gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_re');
+    Route::get('report-1/non-gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_trans');
+    Route::get('report-1/non-gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_grad');
+    Route::get('report-1/non-gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_short');
+    Route::get('report-1/non-gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_trans');
+    Route::get('report-1/non-gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_grad');
+
+    // Report 1 - Government
+    Route::get('report-2/government', 'RTA\RTAController@report2_government');
+    Route::post('report-2/government', 'RTA\RTAController@show_report2_government');
+});
+
+// TVI Admin routes...
+Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
+    // Profile routes...
+    Route::get('tvi/{id}/profile', 'TVI\ProfileController@show');
+    Route::get('tvi/{id}/profile-edit', 'TVI\ProfileController@edit');
+    Route::patch('tvi/{id}/profile', 'TVI\ProfileController@update');
 
     // Formal Training routes...
     Route::resource('formal-trainings', 'TVI\FormalTrainingController');
@@ -158,7 +184,7 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('short-term-trainings/{id}/save-as', 'TVI\ShortTermTrainingController@saveAsForm');
     Route::post('short-term-trainings/save-as', 'TVI\ShortTermTrainingController@saveAs');
 
-    // Short-Term Training routes...
+    // Assessment Training routes...
     Route::resource('assessments', 'TVI\AssessmentController');
     Route::get('assessments/{id}/delete', 'TVI\AssessmentController@delete');
     Route::get('assessments/{id}/save-as', 'TVI\AssessmentController@saveAsForm');
@@ -219,6 +245,48 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     // Indicators
     Route::get('indicators', 'TVI\IndicatorsController@index');
     Route::post('indicators', 'TVI\IndicatorsController@show');
+
+    // New Enrollee routes...
+    Route::resource('trainees-new-enrollees', 'TVI\NewEnrolleeController');
+    Route::get('trainees-new-enrollees/{id}/delete', 'TVI\NewEnrolleeController@delete');
+    Route::get('trainees-new-enrollees/{id}/save-as', 'TVI\NewEnrolleeController@saveAsForm');
+    Route::post('trainees-new-enrollees/save-as', 'TVI\NewEnrolleeController@saveAs');
+
+    // Re-Enrollee routes...
+    Route::resource('trainees-re-enrollees', 'TVI\ReEnrolleeController');
+    Route::get('trainees-re-enrollees/{id}/delete', 'TVI\ReEnrolleeController@delete');
+    Route::get('trainees-re-enrollees/{id}/save-as', 'TVI\ReEnrolleeController@saveAsForm');
+    Route::post('trainees-re-enrollees/save-as', 'TVI\ReEnrolleeController@saveAs');
+
+    // Graduate routes...
+    Route::resource('trainees-graduates', 'TVI\GraduateController');
+    Route::get('trainees-graduates/{id}/delete', 'TVI\GraduateController@delete');
+    Route::get('trainees-graduates/{id}/save-as', 'TVI\GraduateController@saveAsForm');
+    Route::post('trainees-graduates/save-as', 'TVI\GraduateController@saveAs');
+
+    // Transferee routes...
+    Route::resource('trainees-transferees', 'TVI\TransfereeController');
+    Route::get('trainees-transferees/{id}/delete', 'TVI\TransfereeController@delete');
+    Route::get('trainees-transferees/{id}/save-as', 'TVI\TransfereeController@saveAsForm');
+    Route::post('trainees-transferees/save-as', 'TVI\TransfereeController@saveAs');
+
+    // Short-Term Trainee routes...
+    Route::resource('short-term-trainees', 'TVI\ShortTermTraineeController');
+    Route::get('short-term-trainees/{id}/delete', 'TVI\ShortTermTraineeController@delete');
+    Route::get('short-term-trainees/{id}/save-as', 'TVI\ShortTermTraineeController@saveAsForm');
+    Route::post('short-term-trainees/save-as', 'TVI\ShortTermTraineeController@saveAs');
+
+    // Dropout-graduates  routes...
+    Route::resource('dropout-graduates', 'TVI\DropoutGraduatesController');
+    Route::get('dropout-graduates/{id}/delete', 'TVI\DropoutGraduatesController@delete');
+    Route::get('dropout-graduates/{id}/save-as', 'TVI\DropoutGraduatesController@saveAsForm');
+    Route::post('dropout-graduates/save-as', 'TVI\DropoutGraduatesController@saveAs');
+
+    // Dropout-from-transferees  routes...
+    Route::resource('dropout-from-transferees', 'TVI\DropoutTransfereesController');
+    Route::get('dropout-from-transferees/{id}/delete', 'TVI\DropoutTransfereesController@delete');
+    Route::get('dropout-from-transferees/{id}/save-as', 'TVI\DropoutTransfereesController@saveAsForm');
+    Route::post('dropout-from-transferees/save-as', 'TVI\DropoutTransfereesController@saveAs');
 
 });
 

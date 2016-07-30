@@ -101,7 +101,29 @@
             });
         });
 
+        $('#subsector').click(function () {
+            $.get($(this).data('url'), { option: $(this).val() },
+            function (data) {
+                var occupation = $('#occupation');
+                occupation.empty();
+                $.each(data, function (index, element) {
+                    occupation.append("<option value='"+ element.id +"'>" + element.name + "</option>");
+                });
+            });
+        });
+
         $('#occupation').change(function () {
+            $.get($(this).data('url'), { option: $(this).val() },
+            function (data) {
+                var competency = $('#competency');
+                competency.empty();
+                $.each(data, function (index, element) {
+                    competency.append("<option value='"+ element.id +"'>" + element.name + "</option>");
+                });
+            });
+        });
+
+        $('#occupation').click(function () {
             $.get($(this).data('url'), { option: $(this).val() },
             function (data) {
                 var competency = $('#competency');

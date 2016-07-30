@@ -14,9 +14,11 @@ class CreateReportDatesTable extends Migration
     {
         Schema::create('report_dates', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('petsa');
+            $table->string('petsa', 10);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+
+
         });
     }
 
