@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9fa6adfc-43d0-421b-b62c-c4458515bf70" name="Default" comment="Modification as per RTA (until Report 1 only).">
+    <list default="true" id="9fa6adfc-43d0-421b-b62c-c4458515bf70" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/RTAReport1Government.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/RTAReport1NonGovernment.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/tviadmin/dropout_graduates/create.blade.php" />
@@ -881,6 +881,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
