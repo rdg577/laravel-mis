@@ -17,6 +17,8 @@ use App\RTAIndicatorStudentRatio;
 use App\RTAIndicatorTrainerRatio;
 use App\RTAReport1Government;
 use App\RTAReport1NonGovernment;
+use App\RTAReport2Government;
+use App\RTAReport2NonGovernment;
 use App\Sector;
 use App\ShortTermTrainee;
 use App\Subsector;
@@ -801,5 +803,302 @@ class RTAController extends Controller
         $report_dates = ReportDate::where('user_id', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('rtaadmin.rpt2gov', compact('report_dates'));
+    }
+
+    public function show_report2_government(Request $request)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($request->get('petsa'));
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        switch($request->get('report')){
+            case 0:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', NewEnrollee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_1', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 1:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', ReEnrollee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_2', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 2:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', Transferee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_3', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 3:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', Graduate::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_4', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 4:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', ShortTermTrainee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_5', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 5:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', DropoutTransferee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_6', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 6:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', 'Public')
+                    ->whereIn('id', DropoutGraduate::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2gov_7', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+        }
+
+
+    }
+
+    public function for_print_rpt2_gov_new($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', NewEnrollee::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_re($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', ReEnrollee::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_2', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_trans($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', Transferee::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_3', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_grad($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', Graduate::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_4', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_short($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', ShortTermTrainee::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_5', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_drop_trans($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', DropoutTransferee::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_6', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function for_print_rpt2_gov_drop_grad($id)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($id);
+
+        $rpt2 = new RTAReport2Government($report_date->id, $user->region_id);
+
+        $institutions = Institution::where('region_id', $region->id)
+            ->where('ownership', 'Public')
+            ->whereIn('id', DropoutGraduate::where('report_date_id', $report_date->id)->lists('institution_id'))
+            ->orderBy('name')
+            ->get();
+
+        return view('rtaadmin.print_rpt2gov_7', compact('rpt2', 'region', 'report_date', 'institutions'));
+    }
+
+    public function report2_non_government()
+    {
+        $user = Auth::user();
+
+        // get report dates
+        $report_dates = ReportDate::where('user_id', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
+        return view('rtaadmin.rpt2nongov', compact('report_dates'));
+    }
+
+    public function show_report2_non_government(Request $request)
+    {
+        $user = Auth::user();
+        $region = Region::findOrFail($user->region_id);
+        $report_date = ReportDate::findOrFail($request->get('petsa'));
+
+        $rpt2 = new RTAReport2NonGovernment($report_date->id, $user->region_id);
+
+        switch($request->get('report')){
+            case 0:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', NewEnrollee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_1', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 1:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', ReEnrollee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_2', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 2:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', Transferee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_3', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 3:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', Graduate::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_4', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 4:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', ShortTermTrainee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_5', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 5:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', DropoutTransferee::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_6', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+            case 6:
+                $institutions = Institution::where('region_id', $region->id)
+                    ->where('ownership', '!=', 'Public')
+                    ->whereIn('id', DropoutGraduate::where('report_date_id', $request->get('petsa'))->lists('institution_id'))
+                    ->orderBy('name')
+                    ->get();
+
+                return view('rtaadmin.show_rpt2nongov_7', compact('rpt2', 'region', 'report_date', 'institutions'));
+
+                break;
+        }
+
+
     }
 }

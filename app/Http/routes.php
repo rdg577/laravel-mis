@@ -160,9 +160,20 @@ Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     Route::get('report-1/non-gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_trans');
     Route::get('report-1/non-gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_grad');
 
-    // Report 1 - Government
+    // Report 2 - Government
     Route::get('report-2/government', 'RTA\RTAController@report2_government');
     Route::post('report-2/government', 'RTA\RTAController@show_report2_government');
+    Route::get('report-2/gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_new');
+    Route::get('report-2/gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_re');
+    Route::get('report-2/gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_trans');
+    Route::get('report-2/gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_grad');
+    Route::get('report-2/gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_short');
+    Route::get('report-2/gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_drop_trans');
+    Route::get('report-2/gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_drop_grad');
+
+    // Report 2 - Non-Government
+    Route::get('report-2/non-government', 'RTA\RTAController@report2_non_government');
+    Route::post('report-2/non-government', 'RTA\RTAController@show_report2_non_government');
 });
 
 // TVI Admin routes...

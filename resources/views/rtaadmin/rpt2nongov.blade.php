@@ -2,21 +2,21 @@
 
 @section('content')
     <?php
-        $reports = ['Government -> New Enrollees',
-                    'Government -> Re-Enrollees',
-                    'Government -> Transferees',
-                    'Government -> Graduates',
-                    'Government -> Short Term',
-                    'Government -> Dropouts [Transferees]',
-                    'Government -> Dropouts [Graduates]'];
+        $reports = ['Non-Government -> New Enrollees',
+                    'Non-Government -> Re-Enrollees',
+                    'Non-Government -> Transferees',
+                    'Non-Government -> Graduates',
+                    'Non-Government -> Short Term',
+                    'Non-Government -> Dropouts [Transferees]',
+                    'Non-Government -> Dropouts [Graduates]'];
     ?>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Generate Report 2 - Governmental :</div>
+                    <div class="panel-heading">Generate Report 2 - Non-Governmental :</div>
                     <div class="panel-body">
-                        {!! Form::open(['url'   => '/report-2/government',
+                        {!! Form::open(['url'   => '/report-2/non-government',
                         'role'  => 'form',
                         'class' => 'form-horizontal'
                         ]

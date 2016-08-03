@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report 2 - Institution</a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report 2</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/report-2/government">Government</a></li>
                                     <li><a href="/report-2/non-government">Non-Government</a></li>
