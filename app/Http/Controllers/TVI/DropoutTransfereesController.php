@@ -6,6 +6,7 @@ use App\DropoutTransferee;
 use App\Http\Requests\DropoutTransfereeRequest;
 use App\ReportDate;
 use App\Sector;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,7 +23,11 @@ class DropoutTransfereesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->paginate(10);
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.dropout_transferees.index', compact('report_dates'));
     }
 
@@ -36,7 +41,11 @@ class DropoutTransfereesController extends Controller
         $user = Auth::user();
         $institution_id = $user->institution_id;
         $sectors = Sector::all()->lists('name', 'id');
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('tviadmin.dropout_transferees.create', compact('report_dates','sectors','institution_id'));
     }
@@ -137,7 +146,11 @@ class DropoutTransfereesController extends Controller
     public function saveAsForm($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
         $report_date = ReportDate::findOrFail($id);
         return view('tviadmin.dropout_transferees.save_as', array('report_dates' => $report_dates,
             'report_date' => $report_date,
@@ -166,6 +179,7 @@ class DropoutTransfereesController extends Controller
         $records = DropoutTransferee::select(
             'report_date_id'            ,
             'institution_id'            ,
+            'occupation_id'                       ,
             'regular_level1_to_level2_male'       ,
             'regular_level1_to_level2_female'     ,
             'regular_level2_to_level3_male'       ,

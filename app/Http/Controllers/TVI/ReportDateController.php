@@ -21,7 +21,8 @@ class ReportDateController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->paginate(10);
+//        $report_dates = ReportDate::where('user_id', $user->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+        $report_dates = ReportDate::where('user_id', $user->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.report_dates.index', ['user' => $user, 'report_dates' => $report_dates]);
     }
 

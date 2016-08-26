@@ -8,6 +8,7 @@ use App\Occupation;
 use App\ReportDate;
 use App\Sector;
 use App\Subsector;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,7 +25,11 @@ class GraduateController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->paginate(10);
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.graduates.index', compact('report_dates'));
     }
 
@@ -38,7 +43,11 @@ class GraduateController extends Controller
         $user = Auth::user();
         $institution_id = $user->institution_id;
         $sectors = Sector::all()->lists('name', 'id');
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('tviadmin.graduates.create', compact('report_dates', 'sectors', 'institution_id'));
     }
@@ -155,6 +164,7 @@ class GraduateController extends Controller
         $records = Graduate::select(
             'report_date_id'            ,
             'institution_id'            ,
+            'occupation_id'             ,
             'regular_level1_male'       ,
             'regular_level1_female'     ,
             'regular_level2_male'       ,

@@ -8,6 +8,7 @@ use App\ReportDate;
 use App\Sector;
 use App\ShortTermTrainee;
 use App\Subsector;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,7 +25,11 @@ class ShortTermTraineeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->paginate(10);
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.short_term_trainees.index', compact('report_dates'));
     }
 
@@ -37,7 +42,11 @@ class ShortTermTraineeController extends Controller
     {
         $user = Auth::user();
         $institution_id = $user->institution_id;
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
         return view('tviadmin.short_term_trainees.create', compact('report_dates', 'sectors', 'institution_id'));

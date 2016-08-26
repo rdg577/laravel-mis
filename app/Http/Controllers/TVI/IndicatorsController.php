@@ -7,6 +7,7 @@ use App\ReportDate;
 use App\TVIIndicator1TrainerRatio;
 use App\TVIIndicator2StudentRatio;
 use App\TVIIndicatorIndustryExtension;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,8 +23,13 @@ class IndicatorsController extends Controller
      */
     public function index()
     {
-        $institution_id = Auth::user()->institution->id;
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        $user = Auth::user();
+        $institution_id = $user->institution->id;
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('tviadmin.indicators.index', array('institution_id' => $institution_id,
                                                         'report_dates' => $report_dates));

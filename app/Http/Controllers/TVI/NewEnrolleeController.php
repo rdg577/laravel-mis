@@ -8,6 +8,7 @@ use App\Occupation;
 use App\ReportDate;
 use App\Sector;
 use App\Subsector;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,7 +26,11 @@ class NewEnrolleeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->paginate(10);
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+                                    ->where('active', true)
+                                    ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.new_enrollees.index', compact('report_dates'));
     }
 
@@ -39,7 +44,11 @@ class NewEnrolleeController extends Controller
         $user = Auth::user();
         $institution_id = $user->institution_id;
 
-        $report_dates = ReportDate::orderBy('petsa', 'desc')->lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+                                    ->where('active', true)
+                                    ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
         return view('tviadmin.new_enrollees.create', compact('report_dates', 'sectors', 'institution_id'));
@@ -156,6 +165,7 @@ class NewEnrolleeController extends Controller
         $records = NewEnrollee::select(
             'report_date_id'            ,
             'institution_id'            ,
+            'occupation_id'             ,
             'regular_level1_male'       ,
             'regular_level1_female'     ,
             'regular_level2_male'       ,

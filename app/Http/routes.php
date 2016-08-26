@@ -299,6 +299,78 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('dropout-from-transferees/{id}/save-as', 'TVI\DropoutTransfereesController@saveAsForm');
     Route::post('dropout-from-transferees/save-as', 'TVI\DropoutTransfereesController@saveAs');
 
+    // Dropout-from-short-term-trainees  routes...
+    Route::resource('dropout-short-term', 'TVI\DropoutShortTermTraineesController');
+    Route::get('dropout-short-term/{id}/delete', 'TVI\DropoutShortTermTraineesController@delete');
+    Route::get('dropout-short-term/{id}/save-as', 'TVI\DropoutShortTermTraineesController@saveAsForm');
+    Route::post('dropout-short-term/save-as', 'TVI\DropoutShortTermTraineesController@saveAs');
+
+    // Assessment-transferees  routes...
+    Route::resource('assessment-transferees', 'TVI\AssessmentTransfereesController');
+    Route::get('assessment-transferees/{id}/delete', 'TVI\AssessmentTransfereesController@delete');
+    Route::get('assessment-transferees/{id}/save-as', 'TVI\AssessmentTransfereesController@saveAsForm');
+    Route::post('assessment-transferees/save-as', 'TVI\AssessmentTransfereesController@saveAs');
+
+    // Assessment-graduates  routes...
+    Route::resource('assessment-graduates', 'TVI\AssessmentGraduatesController');
+    Route::get('assessment-graduates/{id}/delete', 'TVI\AssessmentGraduatesController@delete');
+    Route::get('assessment-graduates/{id}/save-as', 'TVI\AssessmentGraduatesController@saveAsForm');
+    Route::post('assessment-graduates/save-as', 'TVI\AssessmentGraduatesController@saveAs');
+
+    // Assessment-short-term  routes...
+    Route::resource('assessment-short-term', 'TVI\AssessmentShortTermTraineesController');
+    Route::get('assessment-short-term/{id}/delete', 'TVI\AssessmentShortTermTraineesController@delete');
+    Route::get('assessment-short-term/{id}/save-as', 'TVI\AssessmentShortTermTraineesController@saveAsForm');
+    Route::post('assessment-short-term/save-as', 'TVI\AssessmentShortTermTraineesController@saveAs');
+
+    // Cooperative-training-transferees  routes...
+    Route::resource('cooperative-training-transferees', 'TVI\CooperativeTrainingTransfereeController');
+    Route::get('cooperative-training-transferees/{id}/delete', 'TVI\CooperativeTrainingTransfereeController@delete');
+    Route::get('cooperative-training-transferees/{id}/save-as', 'TVI\CooperativeTrainingTransfereeController@saveAsForm');
+    Route::post('cooperative-training-transferees/save-as', 'TVI\CooperativeTrainingTransfereeController@saveAs');
+
+    // CooperativeTraining-graduates  routes...
+    Route::resource('cooperative-training-graduates', 'TVI\CooperativeTrainingGraduateController');
+    Route::get('cooperative-training-graduates/{id}/delete', 'TVI\CooperativeTrainingGraduateController@delete');
+    Route::get('cooperative-training-graduates/{id}/save-as', 'TVI\CooperativeTrainingGraduateController@saveAsForm');
+    Route::post('cooperative-training-graduates/save-as', 'TVI\CooperativeTrainingGraduateController@saveAs');
+
+    // CooperativeTraining-short-term  routes...
+    Route::resource('cooperative-training-short-term', 'TVI\CooperativeTrainingShortTermTraineeController');
+    Route::get('cooperative-training-short-term/{id}/delete', 'TVI\CooperativeTrainingShortTermTraineeController@delete');
+    Route::get('cooperative-training-short-term/{id}/save-as', 'TVI\CooperativeTrainingShortTermTraineeController@saveAsForm');
+    Route::post('cooperative-training-short-term/save-as', 'TVI\CooperativeTrainingShortTermTraineeController@saveAs');
+
+    // Saving-transferees  routes...
+    Route::resource('saving-transferees', 'TVI\SavingTransfereeController');
+    Route::get('saving-transferees/{id}/delete', 'TVI\SavingTransfereeController@delete');
+    Route::get('saving-transferees/{id}/save-as', 'TVI\SavingTransfereeController@saveAsForm');
+    Route::post('saving-transferees/save-as', 'TVI\SavingTransfereeController@saveAs');
+
+    // Saving-graduates  routes...
+    Route::resource('saving-graduates', 'TVI\SavingGraduateController');
+    Route::get('saving-graduates/{id}/delete', 'TVI\SavingGraduateController@delete');
+    Route::get('saving-graduates/{id}/save-as', 'TVI\SavingGraduateController@saveAsForm');
+    Route::post('saving-graduates/save-as', 'TVI\SavingGraduateController@saveAs');
+
+    // Job-Placement-graduates  routes...
+    Route::resource('job-placement-graduates', 'TVI\JobPlacementGraduateController');
+    Route::get('job-placement-graduates/{id}/delete', 'TVI\JobPlacementGraduateController@delete');
+    Route::get('job-placement-graduates/{id}/save-as', 'TVI\JobPlacementGraduateController@saveAsForm');
+    Route::post('job-placement-graduates/save-as', 'TVI\JobPlacementGraduateController@saveAs');
+
+    // Action-Research  routes...
+    Route::resource('action-research', 'TVI\ActionResearchController');
+    Route::get('action-research/{id}/delete', 'TVI\ActionResearchController@delete');
+    Route::get('action-research/{id}/save-as', 'TVI\ActionResearchController@saveAsForm');
+    Route::post('action-research/save-as', 'TVI\ActionResearchController@saveAs');
+
+    // Tracer-Study  routes...
+    Route::resource('tracer-studies', 'TVI\TracerStudyController');
+    Route::get('tracer-studies/{id}/delete', 'TVI\TracerStudyController@delete');
+    Route::get('tracer-studies/{id}/save-as', 'TVI\TracerStudyController@saveAsForm');
+    Route::post('tracer-studies/save-as', 'TVI\TracerStudyController@saveAs');
+
 });
 
 // System Admin routes...

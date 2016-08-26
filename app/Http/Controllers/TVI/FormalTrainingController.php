@@ -8,6 +8,7 @@ use App\Occupation;
 use App\ReportDate;
 use App\Sector;
 use App\Subsector;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,8 +26,11 @@ class FormalTrainingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::orderBy('petsa', 'desc')
-            ->paginate(10);
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->paginate(10);
         return view('tviadmin.formal_trainings.index', compact('report_dates'));
     }
 
@@ -38,7 +42,11 @@ class FormalTrainingController extends Controller
     public function create()
     {
         $user = Auth::user();
-        $report_dates = ReportDate::lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
         $sectors = Sector::all()->lists('name', 'id');
 
         return view('tviadmin.formal_trainings.create', array('report_dates' => $report_dates,
