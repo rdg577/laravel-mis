@@ -174,6 +174,10 @@ Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     // Report 2 - Non-Government
     Route::get('report-2/non-government', 'RTA\RTAController@report2_non_government');
     Route::post('report-2/non-government', 'RTA\RTAController@show_report2_non_government');
+
+    // Institutional Summary Report
+    Route::get('rta-institutions/{id}/summary-report', 'RTA\RTAController@summary_report');
+    Route::post('rta-institutions/{id}/summary-report', 'RTA\RTAController@summary_report2');
 });
 
 // TVI Admin routes...

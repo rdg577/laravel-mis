@@ -26,8 +26,9 @@
         }
 
         body {
-          /* Margin bottom by footer height */
-          margin-bottom: 0px;
+          margin-top: 1em;
+          margin-left: 1em;
+          margin-right: 1em;
         }
 
         .container .text-muted {
@@ -40,10 +41,7 @@
     </style>
   </head>
   <body>
-
-    <div class="container">
-    	@yield('content')
-    </div>
+    @yield("content")
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ URL::asset('js/jquery/1.11.13/jquery.min.js') }}"></script>
