@@ -27,20 +27,52 @@
             <div class="panel-heading"><a href="{{ '/action-research/' . $action_research->id }}/edit"
                                                      title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>&nbsp;
                                                  <a href="{{ '/action-research/' . $action_research->id }}/delete"
-                                                     title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
+                                                     title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                <br /><a href="/action-research-titles/{{ $action_research->id }}" title="Add Research Titles">Add Research Title(s)</a> | <a href="{{ '/action-research/' . $action_research->id }}/edit" title="Remove Research Title">Remove Research Title</a>
+            </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col col-lg-6 col-md-6 col-sm-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Number of Proposed Action Research</div>
-                            <div class="panel-body">{{ $action_research->proposal }}</div>
+                            <div class="panel-heading">Number of Proposed Action Research : {{ $action_research->proposal }}</div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Title(s)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($action_research->titles as $title_entry)
+                                    @if($title_entry->type == 'proposal')
+                                        <tr>
+                                            <td>{{ $title_entry->title }}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div> <!-- div class="panel panel-default" -->
                     </div>
 
                     <div class="col col-lg-6 col-md-6 col-sm-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Completed Action Research</div>
-                            <div class="panel-body">{{ $action_research->completed }}</div>
+                            <div class="panel-heading">Completed Action Research : {{ $action_research->completed }}</div>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Title(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($action_research->titles as $title_entry)
+                                    @if($title_entry->type == 'completed')
+                                        <tr>
+                                            <td>{{ $title_entry->title }}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div> <!-- div class="panel panel-default" -->
                     </div>
                 </div>

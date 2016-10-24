@@ -21,6 +21,7 @@
                             {!! Form::label('petsa', 'Report Schedule : ') !!}
                             {{--{!! Form::input('date', 'petsa', null, ['placeholder' => '', 'class' => 'form-control']) !!}--}}
                             {!! Form::text('petsa', null, ['placeholder' => '', 'class' => 'form-control']) !!}
+                            <div><em>example: <br />2016 - a year, <br />30 Apr 2016 - a long date, <br />30/04/2016 - a short date, <br />01/01/2016 to 30/04/2016 - a range</em></div>
                         </div>
 
                         <div class="form-group">

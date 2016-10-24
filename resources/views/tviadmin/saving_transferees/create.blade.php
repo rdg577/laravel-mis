@@ -3,9 +3,9 @@
     @include('errors.list')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create saving on transferees entry</div>
+                    <div class="panel-heading"><h1>Create saving on transferees entry</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => '/saving-transferees',
                                         'role'  => 'form',

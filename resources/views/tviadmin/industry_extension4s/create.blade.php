@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create industry extension 3 entry</div>
+                    <div class="panel-heading"><h1>Create industry extension 3 entry</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => '/industry-extension-4',
                                         'role'  => 'form',

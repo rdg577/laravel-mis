@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create re-enrollees entry</div>
+                    <div class="panel-heading"><h1>Create re-enrollees entry</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => '/trainees-re-enrollees',
                                         'role'  => 'form',

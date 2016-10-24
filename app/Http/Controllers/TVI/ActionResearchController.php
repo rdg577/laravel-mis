@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\TVI;
 
 use App\ActionResearch;
+use App\ActionResearchTitle;
 use App\Http\Requests\ActionResearchRequest;
+use App\Http\Requests\ActionResearchTitlesRequest;
 use App\ReportDate;
 use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class ActionResearchController extends Controller
@@ -86,7 +89,13 @@ class ActionResearchController extends Controller
      */
     public function edit($id)
     {
-        $report_dates = ReportDate::lists('petsa', 'id');
+        $user = Auth::user();
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
         $action_research = ActionResearch::findOrFail($id);
 
         return view('tviadmin.action_researches.edit', compact('action_research', 'report_dates'));
@@ -105,6 +114,80 @@ class ActionResearchController extends Controller
         $action_research->update($request->all());
         $request->session()->flash('alert-success', 'Update was successful!');
         return redirect('action-research/' . $action_research->report_date->id);
+    }
+
+    public function addTitles($id)
+    {
+        $action_research = ActionResearch::findOrFail($id);
+
+        return view('tviadmin.action_researches.titles', compact('action_research'));
+    }
+
+    public function saveTitles(ActionResearchTitlesRequest $request, $id)
+    {
+        $action_research = ActionResearch::findOrFail($id);
+
+        try
+        {
+
+            foreach($request->get('proposal') as $title)
+            {
+                $title_entry = [
+                    'action_research_id' => $action_research->id,
+                    'title' => $title,
+                    'type' => 'proposal'
+                ];
+
+                ActionResearchTitle::create($title_entry);
+            }
+
+            foreach($request->get('completed') as $title)
+            {
+                $title_entry = [
+                    'action_research_id' => $action_research->id,
+                    'title' => $title,
+                    'type' => 'completed'
+                ];
+
+                ActionResearchTitle::create($title_entry);
+            }
+
+        } catch (\Exception $e)
+        {
+            $request->session()->flash('alert-warning', 'Encountered error(s) while save action research titles.');
+            return redirect('/action-research/' . $action_research->report_date_id);
+        }
+
+
+        $request->session()->flash('alert-success', 'Saving action research titles is successful.');
+        return redirect('/action-research/' . $action_research->report_date_id);
+    }
+
+    public function deleteTitles(Request $request, $id)
+    {
+        // get action research title
+        $action_research_title = ActionResearchTitle::findOrFail($id);
+        // get action research
+        $action_research = $action_research_title->action_research;
+        // check title type
+        $is_proposal = $action_research_title->type == 'proposal' ? true:false;
+        // delete action research title
+        $action_research_title->delete();
+        // update action research
+        if($is_proposal)
+        {
+            $action_research->proposal = $action_research->proposal - 1;
+            $action_research->update();
+        }
+        else
+        {
+            $action_research->completed = $action_research->completed - 1;
+            $action_research->update();
+        }
+
+        $request->session()->flash('alert-success', 'Research title was removed successfully.');
+
+        return redirect('/action-research/' . $action_research->id . '/edit');
     }
 
     public function delete($id)

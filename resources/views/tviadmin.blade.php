@@ -28,26 +28,6 @@
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">Trainees</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/trainees-new-enrollees">Newly Registered</a></li>
-                                    <li><a href="/trainees-re-enrollees">Current Re-Registered</a></li>
-                                    <li><a href="/trainees-transferees">Transferred</a></li>
-                                    <li><a href="/trainees-graduates">Graduates</a></li>
-                                    <li><a href="/short-term-trainees">Short Term</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">Dropouts</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/dropout-from-transferees">From Transferred</a></li>
-                                    <li><a href="/dropout-graduates">Graduates</a></li>
-                                    <li><a href="/dropout-short-term">Short-Term-Trainees</a> </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">Assessment</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/assessment-transferees">From Transferred</a></li>
@@ -59,9 +39,45 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">Cooperative Training</a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="/cooperative-trainings">With Partner Industries</a></li>
                                     <li><a href="/cooperative-training-transferees">From Transferred</a></li>
                                     <li><a href="/cooperative-training-graduates">Graduates</a></li>
                                     <li><a href="/cooperative-training-short-term">Short-Term-Trainees</a> </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Dropouts</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/dropout-from-transferees">From Transferred</a></li>
+                                    <li><a href="/dropout-graduates">Graduates</a></li>
+                                    <li><a href="/dropout-short-term">Short-Term-Trainees</a> </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Industry Extensions</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/industry-extension-1"># 1</a></li>
+                                    <li><a href="/industry-extension-2"># 2</a></li>
+                                    <li><a href="/industry-extension-3"># 3</a></li>
+                                    <li><a href="/industry-extension-4"># 4</a></li>
+                                    <li><a href="/industry-extension-5"># 5</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Job Placement</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/job-placement-graduates">Graduates</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false">Research</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/action-research">Action Research</a></li>
+                                    <li><a href="/tracer-studies">Tracer Study</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
@@ -74,19 +90,16 @@
                             </li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">Job Placement</a>
+                                   aria-expanded="false">Trainees</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/job-placement-graduates">Graduates</a></li>
+                                    <li><a href="/trainees-new-enrollees">Newly Registered</a></li>
+                                    <li><a href="/trainees-re-enrollees">Current Re-Registered</a></li>
+                                    <li><a href="/trainees-transferees">Transferred</a></li>
+                                    <li><a href="/trainees-graduates">Graduates</a></li>
+                                    <li><a href="/short-term-trainees">Short Term</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">Research</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/action-research">Action Research</a></li>
-                                    <li><a href="/tracer-studies">Tracer Study</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="/trainers">Trainers</a></li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -95,25 +108,16 @@
                                     <li><a href="/formal-trainings">Formal Training</a></li>
                                     <li><a href="/short-term-trainings">Short-Term Training</a></li>
                                     <li><a href="/assessments">Assessment</a></li>
-                                    <li><a href="/cooperative-trainings">Cooperative Training</a></li>
-                                    <li><a href="/trainers">Trainers</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                        aria-expanded="false">Industry Extensions</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/industry-extension-1"># 1</a></li>
-                                            <li><a href="/industry-extension-2"># 2</a></li>
-                                            <li><a href="/industry-extension-3"># 3</a></li>
-                                            <li><a href="/industry-extension-4"># 4</a></li>
-                                            <li><a href="/industry-extension-5"># 5</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/change-password">Change Password</a></li>
                         </ul>
                     </li>
+
+                    <li><a href="/summary-report">Report</a></li>
+
+                    {{--
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Report <span class="caret"></span></a>
@@ -122,6 +126,7 @@
                         </ul>
                     </li>
                     <li><a href="/indicators">Indicators</a></li>
+                    --}}
                     <li><a href="/about">About</a></li>
                 </ul>
 

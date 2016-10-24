@@ -14,7 +14,7 @@
             @endif
         @endforeach
     </div>
-    <h1>Cooperative Trainings</h1>
+    <h1>Cooperative Trainings with Partner Industries</h1>
     <div class="panel panel-default">
         <div class="panel-heading"><a href="/cooperative-trainings/create" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
         <table class="table table-striped">

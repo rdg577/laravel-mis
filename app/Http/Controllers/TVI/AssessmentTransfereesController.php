@@ -90,7 +90,14 @@ class AssessmentTransfereesController extends Controller
      */
     public function edit($id)
     {
-        $report_dates = ReportDate::lists('petsa', 'id');
+        $user = Auth::user();
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
         $assessment_transferee = AssessmentTransferee::findOrFail($id);
 
         $sectors = Sector::all()->lists('name', 'id');

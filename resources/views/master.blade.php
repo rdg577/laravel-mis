@@ -68,6 +68,32 @@
     </script>
     <script>
     $(document).ready(function () {
+
+        /*$('#proposal').change(function () {
+            $.get($(this).data('url'), {value: $(this).val() },
+                    function (data) {
+                        var proposed_titles = $('#proposed_titles');
+                        proposed_titles.empty();
+                        for(var i = 1; i <= data; i++) {
+                            proposed_titles.append("<div class='form-group'>" +
+                            "<input type='text' class='form-control' name='proposal[" + i + "]' /></div>");
+                        }
+                    });
+        });
+
+        $('#completed').change(function () {
+            $.get($(this).data('url'), {value: $(this).val() },
+                    function (data) {
+                        var completed_titles = $('#completed_titles');
+                        completed_titles.empty();
+                        for(var i = 1; i <= data; i++) {
+                            completed_titles.append("<div class='form-group'>" +
+                            "<input type='text' class='form-control' name='completed[" + i + "]' /></div>");
+                        }
+                    });
+        });*/
+
+
         $('#sector').change(function () {
             $.get($(this).data('url'), { option: $(this).val() },
             function (data) {

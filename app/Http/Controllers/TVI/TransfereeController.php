@@ -90,7 +90,13 @@ class TransfereeController extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
         $transferee = Transferee::findOrFail($id);
 
         $sectors = Sector::all()->lists('name', 'id');

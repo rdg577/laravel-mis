@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit dropout from transferees</div>
+                    <div class="panel-heading"><h1>Edit dropout from transferees</h1></div>
                     <div class="panel-body">
                         {!! Form::model($dropout_transferee,
                             [

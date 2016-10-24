@@ -90,7 +90,13 @@ class CooperativeTrainingGraduateController extends Controller
      */
     public function edit($id)
     {
-        $report_dates = ReportDate::lists('petsa', 'id');
+
+        $user = Auth::user();
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
         $cooperative_training_graduate = CooperativeTrainingGraduate::findOrFail($id);
 
         $sectors = Sector::all()->lists('name', 'id');

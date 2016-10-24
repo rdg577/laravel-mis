@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create saving on graduates entry</div>
+                    <div class="panel-heading"><h1>Create saving on graduates entry</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => '/saving-graduates',
                                         'role'  => 'form',

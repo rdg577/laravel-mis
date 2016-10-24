@@ -112,6 +112,19 @@ Route::group(array('middleware' => 'auth'), function () {
         $competencies = $occupation->competencies()->where('active', true)->orderBy('name', 'asc');
         return Response::make($competencies->get(['id', 'name']));
     });
+
+    Route::get('load-proposal-title-fields', function() {
+        $input = Input::get('value');
+
+        return $input;
+    });
+
+    Route::get('load-completed-title-fields', function() {
+        $input = Input::get('value');
+
+        return $input;
+    });
+
 });
 
 // RTA Admin routes...
@@ -139,45 +152,112 @@ Route::group(array('before' => 'rta', 'middleware' => 'auth'), function () {
     Route::post('rta-data-summary', 'RTA\RTAController@show_data_summary');*/
 
     // Report 1 - Government
-    Route::get('report-1/government', 'RTA\RTAController@report1_government');
-    Route::post('report-1/government', 'RTA\RTAController@show_report1_government');
-    Route::get('report-1/gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_new');
-    Route::get('report-1/gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_re');
-    Route::get('report-1/gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_trans');
-    Route::get('report-1/gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_grad');
-    Route::get('report-1/gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_short');
-    Route::get('report-1/gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_drop_trans');
-    Route::get('report-1/gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_gov_drop_grad');
+    Route::get('report-1/government', 'RTA\Report1GovController@report1_government');
+    Route::post('report-1/government', 'RTA\Report1GovController@show_report1_government');
+    Route::get('report-1/gov-new-enrollees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_new');
+    Route::get('report-1/gov-re-enrollees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_re');
+    Route::get('report-1/gov-transferees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_trans');
+    Route::get('report-1/gov-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_grad');
+    Route::get('report-1/gov-short-term-trainees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_short');
+    Route::get('report-1/gov-dropout-transferees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_drop_trans');
+    Route::get('report-1/gov-dropout-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_drop_grad');
+    Route::get('report-1/gov-dropout-short-term-trainees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_drop_short');
+    Route::get('report-1/gov-assessment-transferees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_ass_trans');
+    Route::get('report-1/gov-assessment-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_ass_grad');
+    Route::get('report-1/gov-assessment-short-term-trainees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_ass_short');
+    Route::get('report-1/gov-cooperative-training-with-industry-partners/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_coop_trng_industry_partner');
+    Route::get('report-1/gov-cooperative-training-transferees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_coop_trng_trans');
+    Route::get('report-1/gov-cooperative-training-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_coop_trng_grad');
+    Route::get('report-1/gov-cooperative-training-short-term-trainees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_coop_trng_short');
+    Route::get('report-1/gov-saving-transferees/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_saving_trans');
+    Route::get('report-1/gov-saving-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_saving_grad');
+    Route::get('report-1/gov-job-placement-graduates/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_job_placement_grad');
+    Route::get('report-1/gov-action-research/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_action_research');
+    Route::get('report-1/gov-tracer-study/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_tracer_study');
+    Route::get('report-1/gov-trainers/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_trainer');
+    Route::get('report-1/gov-industry-extension-1/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_industry_extension_1');
+    Route::get('report-1/gov-industry-extension-2/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_industry_extension_2');
+    Route::get('report-1/gov-industry-extension-3/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_industry_extension_3');
+    Route::get('report-1/gov-industry-extension-4/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_industry_extension_4');
+    Route::get('report-1/gov-industry-extension-5/print/{id}', 'RTA\Report1GovController@for_print_rpt1_gov_industry_extension_5');
+
+
 
     // Report 1 - Non-Government
-    Route::get('report-1/non-government', 'RTA\RTAController@report1_non_government');
-    Route::post('report-1/non-government', 'RTA\RTAController@show_report1_non_government');
-    Route::get('report-1/non-gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_new');
-    Route::get('report-1/non-gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_re');
-    Route::get('report-1/non-gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_trans');
-    Route::get('report-1/non-gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_grad');
-    Route::get('report-1/non-gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_short');
-    Route::get('report-1/non-gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_trans');
-    Route::get('report-1/non-gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt1_non_gov_drop_grad');
+    Route::get('report-1/non-government', 'RTA\Report1NonGovController@report1_non_government');
+    Route::post('report-1/non-government', 'RTA\Report1NonGovController@show_report1_non_government');
+    Route::get('report-1/non-gov-new-enrollees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_new');
+    Route::get('report-1/non-gov-re-enrollees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_re');
+    Route::get('report-1/non-gov-transferees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_trans');
+    Route::get('report-1/non-gov-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_grad');
+    Route::get('report-1/non-gov-short-term-trainees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_short');
+    Route::get('report-1/non-gov-dropout-transferees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_drop_trans');
+    Route::get('report-1/non-gov-dropout-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_drop_grad');
+    Route::get('report-1/non-gov-dropout-short-term-trainees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_drop_short');
+    Route::get('report-1/non-gov-assessment-transferees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_ass_trans');
+    Route::get('report-1/non-gov-assessment-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_ass_grad');
+    Route::get('report-1/non-gov-assessment-short-term-trainees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_ass_short');
+    Route::get('report-1/non-gov-cooperative-training-with-industry-partners/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_coop_trng_industry_partner');
+    Route::get('report-1/non-gov-cooperative-training-transferees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_coop_trng_trans');
+    Route::get('report-1/non-gov-cooperative-training-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_coop_trng_grad');
+    Route::get('report-1/non-gov-cooperative-training-short-term-trainees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_coop_trng_short');
+    Route::get('report-1/non-gov-saving-transferees/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_saving_trans');
+    Route::get('report-1/non-gov-saving-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_saving_grad');
+    Route::get('report-1/non-gov-job-placement-graduates/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_job_placement_grad');
+    Route::get('report-1/non-gov-action-research/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_action_research');
+    Route::get('report-1/non-gov-tracer-study/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_tracer_study');
+    Route::get('report-1/non-gov-trainers/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_trainer');
+    Route::get('report-1/non-gov-industry-extension-1/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_industry_extension_1');
+    Route::get('report-1/non-gov-industry-extension-2/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_industry_extension_2');
+    Route::get('report-1/non-gov-industry-extension-3/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_industry_extension_3');
+    Route::get('report-1/non-gov-industry-extension-4/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_industry_extension_4');
+    Route::get('report-1/non-gov-industry-extension-5/print/{id}', 'RTA\Report1NonGovController@for_print_rpt1_nongov_industry_extension_5');
 
     // Report 2 - Government
-    Route::get('report-2/government', 'RTA\RTAController@report2_government');
-    Route::post('report-2/government', 'RTA\RTAController@show_report2_government');
-    Route::get('report-2/gov-new-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_new');
-    Route::get('report-2/gov-re-enrollees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_re');
-    Route::get('report-2/gov-transferees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_trans');
-    Route::get('report-2/gov-graduates/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_grad');
-    Route::get('report-2/gov-short-term-trainees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_short');
-    Route::get('report-2/gov-dropout-transferees/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_drop_trans');
-    Route::get('report-2/gov-dropout-graduates/print/{id}', 'RTA\RTAController@for_print_rpt2_gov_drop_grad');
+    Route::get('report-2/government', 'RTA\Report2GovController@report2_government');
+    Route::post('report-2/government', 'RTA\Report2GovController@show_report2_government');
+    Route::get('report-2/gov-new-enrollees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_new');
+    Route::get('report-2/gov-re-enrollees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_re');
+    Route::get('report-2/gov-transferees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_trans');
+    Route::get('report-2/gov-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_grad');
+    Route::get('report-2/gov-short-term-trainees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_short');
+    Route::get('report-2/gov-dropout-transferees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_drop_trans');
+    Route::get('report-2/gov-dropout-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_drop_grad');
+    Route::get('report-2/gov-dropout-short-term-trainees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_drop_short');
+    Route::get('report-2/gov-assessment-transferees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_ass_trans');
+    Route::get('report-2/gov-assessment-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_ass_grad');
+    Route::get('report-2/gov-assessment-short-term-trainees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_ass_short');
+    Route::get('report-2/gov-cooperative-training-transferees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_coop_trng_trans');
+    Route::get('report-2/gov-cooperative-training-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_coop_trng_grad');
+    Route::get('report-2/gov-cooperative-training-short-term-trainees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_coop_trng_short');
+    Route::get('report-2/gov-saving-transferees/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_saving_trans');
+    Route::get('report-2/gov-saving-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_saving_grad');
+    Route::get('report-2/gov-job-placement-graduates/print/{id}', 'RTA\Report2GovController@for_print_rpt2_gov_job_placement_grad');
 
     // Report 2 - Non-Government
-    Route::get('report-2/non-government', 'RTA\RTAController@report2_non_government');
-    Route::post('report-2/non-government', 'RTA\RTAController@show_report2_non_government');
+    Route::get('report-2/non-government', 'RTA\Report2NonGovController@report2_non_government');
+    Route::post('report-2/non-government', 'RTA\Report2NonGovController@show_report2_non_government');
+    Route::get('report-2/non-gov-new-enrollees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_new');
+    Route::get('report-2/non-gov-re-enrollees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_re');
+    Route::get('report-2/non-gov-transferees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_trans');
+    Route::get('report-2/non-gov-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_grad');
+    Route::get('report-2/non-gov-short-term-trainees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_short');
+    Route::get('report-2/non-gov-dropout-transferees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_drop_trans');
+    Route::get('report-2/non-gov-dropout-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_drop_grad');
+    Route::get('report-2/non-gov-dropout-short-term-trainees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_drop_short');
+    Route::get('report-2/non-gov-assessment-transferees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_ass_trans');
+    Route::get('report-2/non-gov-assessment-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_ass_grad');
+    Route::get('report-2/non-gov-assessment-short-term-trainees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_ass_short');
+    Route::get('report-2/non-gov-cooperative-training-transferees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_coop_trng_trans');
+    Route::get('report-2/non-gov-cooperative-training-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_coop_trng_grad');
+    Route::get('report-2/non-gov-cooperative-training-short-term-trainees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_coop_trng_short');
+    Route::get('report-2/non-gov-saving-transferees/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_saving_trans');
+    Route::get('report-2/non-gov-saving-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_saving_grad');
+    Route::get('report-2/non-gov-job-placement-graduates/print/{id}', 'RTA\Report2NonGovController@for_print_rpt2_gov_job_placement_grad');
 
     // Institutional Summary Report
-    Route::get('rta-institutions/{id}/summary-report', 'RTA\RTAController@summary_report');
-    Route::post('rta-institutions/{id}/summary-report', 'RTA\RTAController@summary_report2');
+    Route::get('rta-institutions/{id}/summary-report', 'RTA\RTAController@institutional_summary_report');
+    Route::post('rta-institutions/{id}/summary-report', 'RTA\RTAController@institutional_summary_report2');
 });
 
 // TVI Admin routes...
@@ -256,6 +336,9 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     // Report Data Summary
     Route::get('report-data-summary', 'TVI\ReportController@index');
     Route::post('report-data-summary', 'TVI\ReportController@show');
+
+    Route::get('summary-report', 'TVI\ReportController@institutional_summary_report');
+    Route::post('summary-report', 'TVI\ReportController@institutional_summary_report2');
 
     // Indicators
     Route::get('indicators', 'TVI\IndicatorsController@index');
@@ -368,6 +451,9 @@ Route::group(array('before' => 'tvi', 'middleware' => 'auth'), function () {
     Route::get('action-research/{id}/delete', 'TVI\ActionResearchController@delete');
     Route::get('action-research/{id}/save-as', 'TVI\ActionResearchController@saveAsForm');
     Route::post('action-research/save-as', 'TVI\ActionResearchController@saveAs');
+    Route::get('action-research-titles/{id}', 'TVI\ActionResearchController@addTitles');
+    Route::post('action-research-titles/{id}', 'TVI\ActionResearchController@saveTitles');
+    Route::get('action-research-titles/{id}/delete', 'TVI\ActionResearchController@deleteTitles');
 
     // Tracer-Study  routes...
     Route::resource('tracer-studies', 'TVI\TracerStudyController');

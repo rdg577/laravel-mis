@@ -95,7 +95,13 @@ class IndustryExtension2Controller extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $report_dates = ReportDate::lists('petsa', 'id');
+        // determine the user_id of the Regional Administrator
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
+
         $industry_extension2 = IndustryExtension2::findOrFail($id);
         $sectors = Sector::all()->lists('name', 'id');
         $subsectors = Subsector::findOrFail($industry_extension2->subsector->id)->lists('name', 'id');

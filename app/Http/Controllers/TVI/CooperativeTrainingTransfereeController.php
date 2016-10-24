@@ -90,12 +90,18 @@ class CooperativeTrainingTransfereeController extends Controller
      */
     public function edit($id)
     {
-        $report_dates = ReportDate::lists('petsa', 'id');
+//        $report_dates = ReportDate::lists('petsa', 'id');
         $cooperative_training_transferee = CooperativeTrainingTransferee::findOrFail($id);
 
         $sectors = Sector::all()->lists('name', 'id');
         $subsectors = Subsector::findOrFail($cooperative_training_transferee->occupation->subsector->id)->lists('name', 'id');
         $occupations = Occupation::findOrFail($cooperative_training_transferee->occupation->id)->lists('name', 'id');
+
+        $user = Auth::user();
+        $region_administrator = User::where('user_type', 'Region Administrator')
+            ->where('active', true)
+            ->where('region_id', $user->region->id)->first();
+        $report_dates = ReportDate::where('user_id', $region_administrator->id)->orderBy('petsa', 'desc')->lists('petsa', 'id');
 
         return view('tviadmin.cooperative_training_transferees.edit', compact('cooperative_training_transferee', 'sectors', 'subsectors', 'occupations', 'report_dates'));
     }

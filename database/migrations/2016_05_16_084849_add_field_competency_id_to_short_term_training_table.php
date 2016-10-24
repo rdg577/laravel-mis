@@ -26,7 +26,7 @@ class AddFieldCompetencyIdToShortTermTrainingTable extends Migration
      */
     public function down()
     {
-        if(! Schema::hasColumn('short_term_trainings', 'competency_id'))
+        if(Schema::hasColumn('short_term_trainings', 'competency_id'))
             Schema::table('short_term_trainings', function (Blueprint $table) {
                 $table->dropColumn('competency_id');
             });

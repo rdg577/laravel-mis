@@ -14,7 +14,7 @@
             @endif
         @endforeach
     </div>
-    <h1>Saving on Transferees </h1>
+    <h1><a href="/saving-transferees">Saving on Transferees</a></h1>
 
     {!! $saving_transferees->render() !!}
 
@@ -25,63 +25,65 @@
     @forelse($saving_transferees as $saving_transferee)
         <div class="panel panel-default">
             <div class="panel-heading">Sub-sector : {{ $saving_transferee->subsector->name }}<br>
+                Occupation : {{ $saving_transferee->occupation->name }}<br>
                 <a href="{{ '/saving-transferees/' . $saving_transferee->id }}/edit"
                     title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>&nbsp;
                 <a href="{{ '/saving-transferees/' . $saving_transferee->id }}/delete"
                     title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></div>
             <div class="panel-body">
+
+
                 <div class="row">
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-4 col-sm-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">Regular</div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <td>From Level</td>
-                                            <td>Male</td>
-                                            <td>Female</td>
-                                            <td>Total</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1 to 2</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_male }}</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_female }}</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_male + $saving_transferee->regular_level1_to_level2_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2 to 3</td>
-                                            <td>{{ $saving_transferee->regular_level2_to_level3_male }}</td>
-                                            <td>{{ $saving_transferee->regular_level2_to_level3_female }}</td>
-                                            <td>{{ $saving_transferee->regular_level2_to_level3_male + $saving_transferee->regular_level2_to_level3_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3 to 4</td>
-                                            <td>{{ $saving_transferee->regular_level3_to_level4_male }}</td>
-                                            <td>{{ $saving_transferee->regular_level3_to_level4_female }}</td>
-                                            <td>{{ $saving_transferee->regular_level3_to_level4_male + $saving_transferee->regular_level3_to_level4_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4 to 5</td>
-                                            <td>{{ $saving_transferee->regular_level4_to_level5_male }}</td>
-                                            <td>{{ $saving_transferee->regular_level4_to_level5_female }}</td>
-                                            <td>{{ $saving_transferee->regular_level4_to_level5_male + $saving_transferee->regular_level4_to_level5_female }}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td>TOTAL</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_male +
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td>From Level</td>
+                                    <td>Male</td>
+                                    <td>Female</td>
+                                    <td>Total</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1 to 2</td>
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_male }}</td>
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_female }}</td>
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_male + $saving_transferee->regular_level1_to_level2_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>2 to 3</td>
+                                    <td>{{ $saving_transferee->regular_level2_to_level3_male }}</td>
+                                    <td>{{ $saving_transferee->regular_level2_to_level3_female }}</td>
+                                    <td>{{ $saving_transferee->regular_level2_to_level3_male + $saving_transferee->regular_level2_to_level3_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>3 to 4</td>
+                                    <td>{{ $saving_transferee->regular_level3_to_level4_male }}</td>
+                                    <td>{{ $saving_transferee->regular_level3_to_level4_female }}</td>
+                                    <td>{{ $saving_transferee->regular_level3_to_level4_male + $saving_transferee->regular_level3_to_level4_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>4 to 5</td>
+                                    <td>{{ $saving_transferee->regular_level4_to_level5_male }}</td>
+                                    <td>{{ $saving_transferee->regular_level4_to_level5_female }}</td>
+                                    <td>{{ $saving_transferee->regular_level4_to_level5_male + $saving_transferee->regular_level4_to_level5_female }}</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td>TOTAL</td>
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_male +
                                                     $saving_transferee->regular_level2_to_level3_male +
                                                     $saving_transferee->regular_level3_to_level4_male +
                                                     $saving_transferee->regular_level4_to_level5_male }}</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_female +
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_female +
                                                     $saving_transferee->regular_level2_to_level3_female +
                                                     $saving_transferee->regular_level3_to_level4_female +
                                                     $saving_transferee->regular_level4_to_level5_female }}</td>
-                                            <td>{{ $saving_transferee->regular_level1_to_level2_male +
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_male +
                                                     $saving_transferee->regular_level2_to_level3_male +
                                                     $saving_transferee->regular_level3_to_level4_male +
                                                     $saving_transferee->regular_level4_to_level5_male +
@@ -89,64 +91,62 @@
                                                     $saving_transferee->regular_level2_to_level3_female +
                                                     $saving_transferee->regular_level3_to_level4_female +
                                                     $saving_transferee->regular_level4_to_level5_female }}</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                    </div> <!-- div class="col-md-6 col-sm-6" -->
+                    </div> <!-- div class="col-md-4 col-sm-4" -->
 
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-4 col-sm-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">Extension</div>
-                            <div class="panel-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <td>From Level</td>
-                                            <td>Male</td>
-                                            <td>Female</td>
-                                            <td>Total</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1 to 2</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_male }}</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_female }}</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_male + $saving_transferee->extension_level1_to_level2_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2 to 3</td>
-                                            <td>{{ $saving_transferee->extension_level2_to_level3_male }}</td>
-                                            <td>{{ $saving_transferee->extension_level2_to_level3_female }}</td>
-                                            <td>{{ $saving_transferee->extension_level2_to_level3_male + $saving_transferee->extension_level2_to_level3_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3 to 4</td>
-                                            <td>{{ $saving_transferee->extension_level3_to_level4_male }}</td>
-                                            <td>{{ $saving_transferee->extension_level3_to_level4_female }}</td>
-                                            <td>{{ $saving_transferee->extension_level3_to_level4_male + $saving_transferee->extension_level3_to_level4_female }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4 to 5</td>
-                                            <td>{{ $saving_transferee->extension_level4_to_level5_male }}</td>
-                                            <td>{{ $saving_transferee->extension_level4_to_level5_female }}</td>
-                                            <td>{{ $saving_transferee->extension_level4_to_level5_male + $saving_transferee->extension_level4_to_level5_female }}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td>TOTAL</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_male +
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td>From Level</td>
+                                    <td>Male</td>
+                                    <td>Female</td>
+                                    <td>Total</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1 to 2</td>
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_male }}</td>
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_female }}</td>
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_male + $saving_transferee->extension_level1_to_level2_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>2 to 3</td>
+                                    <td>{{ $saving_transferee->extension_level2_to_level3_male }}</td>
+                                    <td>{{ $saving_transferee->extension_level2_to_level3_female }}</td>
+                                    <td>{{ $saving_transferee->extension_level2_to_level3_male + $saving_transferee->extension_level2_to_level3_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>3 to 4</td>
+                                    <td>{{ $saving_transferee->extension_level3_to_level4_male }}</td>
+                                    <td>{{ $saving_transferee->extension_level3_to_level4_female }}</td>
+                                    <td>{{ $saving_transferee->extension_level3_to_level4_male + $saving_transferee->extension_level3_to_level4_female }}</td>
+                                </tr>
+                                <tr>
+                                    <td>4 to 5</td>
+                                    <td>{{ $saving_transferee->extension_level4_to_level5_male }}</td>
+                                    <td>{{ $saving_transferee->extension_level4_to_level5_female }}</td>
+                                    <td>{{ $saving_transferee->extension_level4_to_level5_male + $saving_transferee->extension_level4_to_level5_female }}</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td>TOTAL</td>
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_male +
                                                     $saving_transferee->extension_level2_to_level3_male +
                                                     $saving_transferee->extension_level3_to_level4_male +
                                                     $saving_transferee->extension_level4_to_level5_male }}</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_female +
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_female +
                                                     $saving_transferee->extension_level2_to_level3_female +
                                                     $saving_transferee->extension_level3_to_level4_female +
                                                     $saving_transferee->extension_level4_to_level5_female }}</td>
-                                            <td>{{ $saving_transferee->extension_level1_to_level2_male +
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_male +
                                                     $saving_transferee->extension_level2_to_level3_male +
                                                     $saving_transferee->extension_level3_to_level4_male +
                                                     $saving_transferee->extension_level4_to_level5_male +
@@ -154,12 +154,80 @@
                                                     $saving_transferee->extension_level2_to_level3_female +
                                                     $saving_transferee->extension_level3_to_level4_female +
                                                     $saving_transferee->extension_level4_to_level5_female }}</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                    </div> <!-- div class="col-md-6 col-sm-6" -->
+                    </div> <!-- div class="col-md-4 col-sm-4" -->
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Savings</div>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td>From Level</td>
+                                    <td>Regular</td>
+                                    <td>Extension</td>
+                                    <td>Total</td>
+                                </tr>
+                                </tdead>
+                                <tbody>
+                                <tr>
+                                    <td>1 to 2</td>
+                                    <td>{{ $saving_transferee->regular_level1_to_level2_saving }}</td>
+                                    <td>{{ $saving_transferee->extension_level1_to_level2_saving }}</td>
+                                    <td>{{ ($saving_transferee->regular_level1_to_level2_saving + $saving_transferee->extension_level1_to_level2_saving) }}</td>
+                                </tr>
+                                <tr>
+                                    <td>2 to 3</td>
+                                    <td>{{ $saving_transferee->regular_level2_to_level3_saving }}</td>
+                                    <td>{{ $saving_transferee->extension_level2_to_level3_saving }}</td>
+                                    <td>{{ $saving_transferee->regular_level2_to_level3_saving + $saving_transferee->extension_level2_to_level3_saving }}</td>
+                                </tr>
+                                <tr>
+                                    <td>3 to 4</td>
+                                    <td>{{ $saving_transferee->regular_level3_to_level4_saving }}</td>
+                                    <td>{{ $saving_transferee->extension_level3_to_level4_saving }}</td>
+                                    <td>{{ $saving_transferee->regular_level3_to_level4_saving + $saving_transferee->extension_level3_to_level4_saving }}</td>
+                                </tr>
+                                <tr>
+                                    <td>4 to 5</td>
+                                    <td>{{ $saving_transferee->regular_level4_to_level5_saving }}</td>
+                                    <td>{{ $saving_transferee->extension_level4_to_level5_saving }}</td>
+                                    <td>{{ $saving_transferee->regular_level4_to_level5_saving + $saving_transferee->extension_level4_to_level5_saving }}</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td>TOTAL</td>
+                                    <td>{{
+                                $saving_transferee->regular_level1_to_level2_saving +
+                                $saving_transferee->regular_level2_to_level3_saving +
+                                $saving_transferee->regular_level3_to_level4_saving +
+                                $saving_transferee->regular_level4_to_level5_saving
+                                }}</td>
+                                    <td>{{
+                                $saving_transferee->extension_level1_to_level2_saving +
+                                $saving_transferee->extension_level2_to_level3_saving +
+                                $saving_transferee->extension_level3_to_level4_saving +
+                                $saving_transferee->extension_level4_to_level5_saving
+                                }}</td>
+                                    <td>{{
+                                $saving_transferee->regular_level1_to_level2_saving +
+                                $saving_transferee->regular_level2_to_level3_saving +
+                                $saving_transferee->regular_level3_to_level4_saving +
+                                $saving_transferee->regular_level4_to_level5_saving +
+                                $saving_transferee->extension_level1_to_level2_saving +
+                                $saving_transferee->extension_level2_to_level3_saving +
+                                $saving_transferee->extension_level3_to_level4_saving +
+                                $saving_transferee->extension_level4_to_level5_saving
+                                }}</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
                 </div> <!-- div class="row" -->
             </div>
         </div> <!-- div class="panel panel-default" -->

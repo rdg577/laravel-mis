@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
 
 @if($submitButtonText=='Update')
 
@@ -43,33 +43,40 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>List of MSE's</td>
+                        <td>Name of Company</td>
                         <td>
-                        {!! Form::input('number', 'mse_list', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('mse_list', null, ['class' => 'form-control']) !!}
                         </td>
                     </tr>
                     <tr>
                         <td>Signed MoU</td>
                         <td>
-                        {!! Form::input('number', 'mse_mou', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('mse_mou', array('0' => 'No', '1' => 'Yes'), $cooperative_training->mse_mou,
+                                                                                ['class' => 'form-control']) !!}
                         </td>
                     </tr>
                     <tr>
-                        <td>Joint Plan</td>
+                        <td>Joined Plan</td>
                         <td>
-                        {!! Form::input('number', 'mse_joint_plan', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('mse_joint_plan', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->mse_joint_plan,
+                                                                                ['class' => 'form-control']) !!}
                         </td>
                     </tr>
                     <tr>
-                        <td>No. of MSE's providing training</td>
+                        <td>MSEs provide training</td>
                         <td>
-                        {!! Form::input('number', 'mse_training', null, ['class' => 'form-control']) !!}
+                        {!! Form::select('mse_training', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->mse_training,
+                                                                                ['class' => 'form-control']) !!}
                         </td>
                     </tr>
                     <tr>
-                        <td>No. of trainers in the industry</td>
+                        <td>Provide trainers in the industry</td>
                         <td>
-                        {!! Form::input('number', 'mse_trainers', null, ['class' => 'form-control']) !!}
+                            {!! Form::select('mse_trainers', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->mse_trainers,
+                                                                                ['class' => 'form-control']) !!}
                         </td>
                     </tr>
                 </tbody>
@@ -80,40 +87,47 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th colspan="2">Medium and Large Companies</th>
+                        <th colspan="2">Medium and Large Enterprises</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>List of Medium and Large Companies</td>
-                        <td>
-                        {!! Form::input('number', 'ml_list', null, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Signed MoU</td>
-                        <td>
-                        {!! Form::input('number', 'ml_mou', null, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Form a Joint Plan</td>
-                        <td>
-                        {!! Form::input('number', 'ml_joint_plan', null, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of Medium and Large companies providing training</td>
-                        <td>
-                        {!! Form::input('number', 'ml_training', null, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of In-Company Trainers</td>
-                        <td>
-                        {!! Form::input('number', 'ml_trainers', null, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
+                <tr>
+                    <td>Name of Company</td>
+                    <td>
+                        {!! Form::text('ml_list', null, ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Signed MoU</td>
+                    <td>
+                        {!! Form::select('ml_mou', array('0' => 'No', '1' => 'Yes'), $cooperative_training->ml_mou,
+                                                                                ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Formed Joint Plan</td>
+                    <td>
+                        {!! Form::select('ml_joint_plan', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->ml_joint_plan,
+                                                                                ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>MLEs provide training</td>
+                    <td>
+                        {!! Form::select('ml_training', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->ml_training,
+                                                                                ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provide In-company trainers</td>
+                    <td>
+                        {!! Form::select('ml_trainers', array('0' => 'No', '1' => 'Yes'),
+                                                                                $cooperative_training->ml_trainers,
+                                                                                ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -162,36 +176,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>List of MSE's</td>
-                        <td>
-                        {!! Form::input('number', 'mse_list', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Signed MoU</td>
-                        <td>
-                        {!! Form::input('number', 'mse_mou', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Joint Plan</td>
-                        <td>
-                        {!! Form::input('number', 'mse_joint_plan', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of MSE's providing training</td>
-                        <td>
-                        {!! Form::input('number', 'mse_training', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of trainers in the industry</td>
-                        <td>
-                        {!! Form::input('number', 'mse_trainers', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
+                <tr>
+                    <td>Name of Company</td>
+                    <td>
+                        {!! Form::text('mse_list', null, ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Signed MoU</td>
+                    <td>
+                        {!! Form::select('mse_mou', array('0' => 'No', '1' => 'Yes'), null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Joined Plan</td>
+                    <td>
+                        {!! Form::select('mse_joint_plan', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>MSEs provide training</td>
+                    <td>
+                        {!! Form::select('mse_training', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provide trainers in the industry</td>
+                    <td>
+                        {!! Form::select('mse_trainers', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -200,40 +221,47 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th colspan="2">Medium and Large Companies</th>
+                        <th colspan="2">Medium and Large Enterprises</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>List of Medium and Large Companies</td>
-                        <td>
-                        {!! Form::input('number', 'ml_list', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Signed MoU</td>
-                        <td>
-                        {!! Form::input('number', 'ml_mou', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Form a Joint Plan</td>
-                        <td>
-                        {!! Form::input('number', 'ml_joint_plan', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of Medium and Large companies providing training</td>
-                        <td>
-                        {!! Form::input('number', 'ml_training', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>No. of In-Company Trainers</td>
-                        <td>
-                        {!! Form::input('number', 'ml_trainers', 0, ['class' => 'form-control']) !!}
-                        </td>
-                    </tr>
+                <tr>
+                    <td>Name of Company</td>
+                    <td>
+                        {!! Form::text('ml_list', null, ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Signed MoU</td>
+                    <td>
+                        {!! Form::select('ml_mou', array('0' => 'No', '1' => 'Yes'), null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Formed a Joint Plan</td>
+                    <td>
+                        {!! Form::select('ml_joint_plan', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>MLEs provide training</td>
+                    <td>
+                        {!! Form::select('ml_training', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Provide In-company trainers</td>
+                    <td>
+                        {!! Form::select('ml_trainers', array('0' => 'No', '1' => 'Yes'),
+                                                            null,
+                                                            ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

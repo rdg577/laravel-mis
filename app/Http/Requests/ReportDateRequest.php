@@ -24,7 +24,7 @@ class ReportDateRequest extends Request
     public function rules()
     {
         return [
-            'petsa' => 'required|integer|min:1900|max:2999',
+            'petsa' => 'required',
             'user_id' => 'exists:users,id'
         ];
     }

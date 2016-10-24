@@ -843,6 +843,44 @@ class RTAInstitutionalSummaryReport {
     }
     // *******************************************************************
 
+
+    // *******************************************************************
+    public function getOccupationsFromCooperativeTrainingIndustryPartners($subsector_id)
+    {
+        $result = CooperativeTraining::where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('occupation_id', Occupation::where('subsector_id', $subsector_id)
+                ->lists('id'))
+            ->get();
+
+        return $result;
+    }
+
+    public function getSubsectorsFromCooperativeTrainingIndustryPartners($sector_id)
+    {
+        $result = Subsector::where('sector_id', $sector_id)
+            ->whereIn('id', Occupation::select('subsector_id')
+                ->whereIn('id', CooperativeTraining::where('report_date_id', $this->report_date_id)
+                    ->where('institution_id', $this->institution_id)
+                    ->lists('occupation_id'))->distinct()->lists('subsector_id'))
+            ->get();
+
+        return $result;
+    }
+
+    public function getSectorsFromCooperativeTrainingIndustryPartners()
+    {
+        $result = Sector::whereIn('id', Subsector::whereIn('id', Occupation::whereIn('id', CooperativeTraining::where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->lists('occupation_id'))
+            ->distinct()->lists('subsector_id'))
+            ->distinct()->lists('sector_id'))
+            ->distinct()->get();
+
+        return $result;
+    }
+    // *******************************************************************
+
     // *******************************************************************
     public function getSumOccupationsFromCooperativeTrainingTransferees($subsector_id)
     {
@@ -1071,7 +1109,93 @@ class RTAInstitutionalSummaryReport {
     // *******************************************************************
 
     // *******************************************************************
-    public function getSumSubsectorsFromSavingTransferees($sector_id)
+    public function getSumAmountPerSubsectorFromSavingTransferees($sector_id)
+    {
+        $result = SavingTransferee::select(
+            DB::Raw('
+                    subsector_id,
+                    sum(regular_level1_to_level2_saving) as reg_l1_saving,
+                    sum(regular_level2_to_level3_saving) as reg_l2_saving,
+                    sum(regular_level3_to_level4_saving) as reg_l3_saving,
+                    sum(regular_level4_to_level5_saving) as reg_l4_saving,
+                    sum(regular_level1_to_level2_saving+regular_level2_to_level3_saving+regular_level3_to_level4_saving+regular_level4_to_level5_saving) as reg_total_saving,
+                    sum(extension_level1_to_level2_saving) as ext_l1_saving,
+                    sum(extension_level2_to_level3_saving) as ext_l2_saving,
+                    sum(extension_level3_to_level4_saving) as ext_l3_saving,
+                    sum(extension_level4_to_level5_saving) as ext_l4_saving,
+                    sum(extension_level1_to_level2_saving+extension_level2_to_level3_saving+extension_level3_to_level4_saving+extension_level4_to_level5_saving) as ext_total_saving
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->groupBy('subsector_id')
+            ->get();
+
+        return $result;
+    }
+    public function getSumAmountPerSectorFromSavingTransferees($sector_id)
+    {
+        $result = SavingTransferee::select(
+            DB::Raw('
+                    sum(regular_level1_to_level2_saving) as reg_l1_saving,
+                    sum(regular_level2_to_level3_saving) as reg_l2_saving,
+                    sum(regular_level3_to_level4_saving) as reg_l3_saving,
+                    sum(regular_level4_to_level5_saving) as reg_l4_saving,
+                    sum(regular_level1_to_level2_saving+regular_level2_to_level3_saving+regular_level3_to_level4_saving+regular_level4_to_level5_saving) as reg_total_saving,
+                    sum(extension_level1_to_level2_saving) as ext_l1_saving,
+                    sum(extension_level2_to_level3_saving) as ext_l2_saving,
+                    sum(extension_level3_to_level4_saving) as ext_l3_saving,
+                    sum(extension_level4_to_level5_saving) as ext_l4_saving,
+                    sum(extension_level1_to_level2_saving+extension_level2_to_level3_saving+extension_level3_to_level4_saving+extension_level4_to_level5_saving) as ext_total_saving
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->get();
+
+        return $result;
+    }
+    public function getSumPerSubsectorFromSavingTransferees($sector_id)
+    {
+        $result = SavingTransferee::select(
+            DB::Raw('
+                    subsector_id,
+                    sum(regular_level1_to_level2_male) as reg_l1_m,
+                    sum(regular_level1_to_level2_female) as reg_l1_f,
+                    sum(regular_level2_to_level3_male) as reg_l2_m,
+                    sum(regular_level2_to_level3_female) as reg_l2_f,
+                    sum(regular_level3_to_level4_male) as reg_l3_m,
+                    sum(regular_level3_to_level4_female) as reg_l3_f,
+                    sum(regular_level4_to_level5_male) as reg_l4_m,
+                    sum(regular_level4_to_level5_female) as reg_l4_f,
+                    sum(regular_level1_to_level2_male+regular_level2_to_level3_male+regular_level3_to_level4_male+regular_level4_to_level5_male) as reg_total_m,
+                    sum(regular_level1_to_level2_female+regular_level2_to_level3_female+regular_level3_to_level4_female+regular_level4_to_level5_female) as reg_total_f,
+                    sum(extension_level1_to_level2_male) as ext_l1_m,
+                    sum(extension_level1_to_level2_female) as ext_l1_f,
+                    sum(extension_level2_to_level3_male) as ext_l2_m,
+                    sum(extension_level2_to_level3_female) as ext_l2_f,
+                    sum(extension_level3_to_level4_male) as ext_l3_m,
+                    sum(extension_level3_to_level4_female) as ext_l3_f,
+                    sum(extension_level4_to_level5_male) as ext_l4_m,
+                    sum(extension_level4_to_level5_female) as ext_l4_f,
+                    sum(extension_level1_to_level2_male+extension_level2_to_level3_male+extension_level3_to_level4_male+extension_level4_to_level5_male) as ext_total_m,
+                    sum(extension_level1_to_level2_female+extension_level2_to_level3_female+extension_level3_to_level4_female+extension_level4_to_level5_female) as ext_total_f
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->groupBy('subsector_id')
+            ->get();
+
+        return $result;
+    }
+    public function getSumPerSectorFromSavingTransferees($sector_id)
     {
         $result = SavingTransferee::select(
             DB::Raw('
@@ -1105,7 +1229,6 @@ class RTAInstitutionalSummaryReport {
 
         return $result;
     }
-
     public function getSubsectorsFromSavingTransferees($sector_id)
     {
         $result = SavingTransferee::where('report_date_id', $this->report_date_id)
@@ -1115,7 +1238,6 @@ class RTAInstitutionalSummaryReport {
 
         return $result;
     }
-
     public function getSectorsFromSavingTransferees()
     {
         $result = Sector::whereIn('id', Subsector::whereIn('id', SavingTransferee::where('report_date_id', $this->report_date_id)
@@ -1129,10 +1251,106 @@ class RTAInstitutionalSummaryReport {
     // *******************************************************************
 
     // *******************************************************************
-    public function getSumSubsectorsFromSavingGraduates($sector_id)
+    public function getSumAmountPerSubsectorFromSavingGraduates($sector_id)
     {
         $result = SavingGraduate::select(
             DB::Raw('
+                    subsector_id,
+                    sum(regular_level1_saving) as reg_l1_saving,
+                    sum(regular_level2_saving) as reg_l2_saving,
+                    sum(regular_level3_saving) as reg_l3_saving,
+                    sum(regular_level4_saving) as reg_l4_saving,
+                    sum(regular_level5_saving) as reg_l5_saving,
+                    sum(regular_level1_saving+regular_level2_saving+regular_level3_saving+regular_level4_saving+regular_level5_saving) as reg_total_saving,
+                    sum(extension_level1_saving) as ext_l1_saving,
+                    sum(extension_level2_saving) as ext_l2_saving,
+                    sum(extension_level3_saving) as ext_l3_saving,
+                    sum(extension_level4_saving) as ext_l4_saving,
+                    sum(extension_level5_saving) as ext_l5_saving,
+                    sum(extension_level1_saving+extension_level2_saving+extension_level3_saving+extension_level4_saving+extension_level5_saving) as ext_total_saving
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->groupBy('subsector_id')
+            ->get();
+
+        return $result;
+    }
+    public function getSumAmountPerSectorFromSavingGraduates($sector_id)
+    {
+        $result = SavingGraduate::select(
+            DB::Raw('
+                    subsector_id,
+                    sum(regular_level1_saving) as reg_l1_saving,
+                    sum(regular_level2_saving) as reg_l2_saving,
+                    sum(regular_level3_saving) as reg_l3_saving,
+                    sum(regular_level4_saving) as reg_l4_saving,
+                    sum(regular_level5_saving) as reg_l5_saving,
+                    sum(regular_level1_saving+regular_level2_saving+regular_level3_saving+regular_level4_saving+regular_level5_saving) as reg_total_saving,
+                    sum(extension_level1_saving) as ext_l1_saving,
+                    sum(extension_level2_saving) as ext_l2_saving,
+                    sum(extension_level3_saving) as ext_l3_saving,
+                    sum(extension_level4_saving) as ext_l4_saving,
+                    sum(extension_level5_saving) as ext_l5_saving,
+                    sum(extension_level1_saving+extension_level2_saving+extension_level3_saving+extension_level4_saving+extension_level5_saving) as ext_total_saving
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->get();
+
+        return $result;
+    }
+    public function getSumPerSubsectorFromSavingGraduates($sector_id)
+    {
+        $result = SavingGraduate::select(
+            DB::Raw('
+                    subsector_id,
+                    sum(regular_level1_male) as reg_l1_m,
+                    sum(regular_level1_female) as reg_l1_f,
+                    sum(regular_level2_male) as reg_l2_m,
+                    sum(regular_level2_female) as reg_l2_f,
+                    sum(regular_level3_male) as reg_l3_m,
+                    sum(regular_level3_female) as reg_l3_f,
+                    sum(regular_level4_male) as reg_l4_m,
+                    sum(regular_level4_female) as reg_l4_f,
+                    sum(regular_level5_male) as reg_l5_m,
+                    sum(regular_level5_female) as reg_l5_f,
+                    sum(regular_level1_male+regular_level2_male+regular_level3_male+regular_level4_male+regular_level5_male) as reg_total_m,
+                    sum(regular_level1_female+regular_level2_female+regular_level3_female+regular_level4_female+regular_level5_female) as reg_total_f,
+                    sum(extension_level1_male) as ext_l1_m,
+                    sum(extension_level1_female) as ext_l1_f,
+                    sum(extension_level2_male) as ext_l2_m,
+                    sum(extension_level2_female) as ext_l2_f,
+                    sum(extension_level3_male) as ext_l3_m,
+                    sum(extension_level3_female) as ext_l3_f,
+                    sum(extension_level4_male) as ext_l4_m,
+                    sum(extension_level4_female) as ext_l4_f,
+                    sum(extension_level5_male) as ext_l5_m,
+                    sum(extension_level5_female) as ext_l5_f,
+                    sum(extension_level1_male+extension_level2_male+extension_level3_male+extension_level4_male+extension_level5_male) as ext_total_m,
+                    sum(extension_level1_female+extension_level2_female+extension_level3_female+extension_level4_female+extension_level5_female) as ext_total_f
+                    '
+            )
+        )
+            ->where('report_date_id', $this->report_date_id)
+            ->where('institution_id', $this->institution_id)
+            ->whereIn('subsector_id', Subsector::where('sector_id', $sector_id)->lists('id'))
+            ->groupBy('subsector_id')
+            ->get();
+
+        return $result;
+    }
+    public function getSumPerSectorFromSavingGraduates($sector_id)
+    {
+        $result = SavingGraduate::select(
+            DB::Raw('
+                    subsector_id,
                     sum(regular_level1_male) as reg_l1_m,
                     sum(regular_level1_female) as reg_l1_f,
                     sum(regular_level2_male) as reg_l2_m,
@@ -1167,7 +1385,6 @@ class RTAInstitutionalSummaryReport {
 
         return $result;
     }
-
     public function getSubsectorsFromSavingGraduates($sector_id)
     {
         $result = SavingGraduate::where('report_date_id', $this->report_date_id)
@@ -1177,7 +1394,6 @@ class RTAInstitutionalSummaryReport {
 
         return $result;
     }
-
     public function getSectorsFromSavingGraduates()
     {
         $result = Sector::whereIn('id', Subsector::whereIn('id', SavingGraduate::where('report_date_id', $this->report_date_id)

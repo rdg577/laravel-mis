@@ -27,6 +27,7 @@ class SavingTransfereeRequest extends Request
             'report_date_id'                        => 'required|exists:report_dates,id',
             'institution_id'                        => 'required|exists:institutions,id',
             'subsector_id'                          => 'required|exists:subsectors,id',
+            'occupation_id'                         => 'required|exists:occupations,id',
             'regular_level1_to_level2_male'         => 'required|integer|min:0',
             'regular_level1_to_level2_female'       => 'required|integer|min:0',
             'regular_level2_to_level3_male'         => 'required|integer|min:0',
@@ -42,7 +43,15 @@ class SavingTransfereeRequest extends Request
             'extension_level3_to_level4_male'       => 'required|integer|min:0',
             'extension_level3_to_level4_female'     => 'required|integer|min:0',
             'extension_level4_to_level5_male'       => 'required|integer|min:0',
-            'extension_level4_to_level5_female'     => 'required|integer|min:0'
+            'extension_level4_to_level5_female'     => 'required|integer|min:0',
+            'regular_level1_to_level2_saving'         => 'required|numeric',
+            'regular_level2_to_level3_saving'         => 'required|numeric',
+            'regular_level3_to_level4_saving'         => 'required|numeric',
+            'regular_level4_to_level5_saving'         => 'required|numeric',
+            'extension_level1_to_level2_saving'         => 'required|numeric',
+            'extension_level2_to_level3_saving'         => 'required|numeric',
+            'extension_level3_to_level4_saving'         => 'required|numeric',
+            'extension_level4_to_level5_saving'         => 'required|numeric',
         ];
     }
 }

@@ -25,7 +25,7 @@
         </div>
     </div>
 @empty
-
+    <p class="alert-info">...No record/s found...</p>
 @endforelse
 
 @endsection

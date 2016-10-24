@@ -22,4 +22,10 @@ class ActionResearch extends Model
     {
         return $this->belongsTo('App\Institution', 'institution_id');
     }
+
+    public function titles()
+    {
+        return $this->hasMany('App\ActionResearchTitle', 'action_research_id', 'id');
+    }
+
 }

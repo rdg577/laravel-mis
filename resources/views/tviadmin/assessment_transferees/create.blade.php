@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Create assessment on transferees entry</div>
+                    <div class="panel-heading"><h1>Create assessment on transferees entry</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => '/assessment-transferees',
                                         'role'  => 'form',

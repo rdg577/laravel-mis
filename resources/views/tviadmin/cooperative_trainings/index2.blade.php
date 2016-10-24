@@ -14,7 +14,7 @@
             @endif
         @endforeach
     </div>
-    <h1>Cooperative Trainings</h1>
+    <h1>Cooperative Trainings with Partner Industries</h1>
 
     <div class="panel panel-default">
         <div class="panel-heading"><a href="/cooperative-trainings/create?id={{ $report_date->id }}" title="Add new"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></div>
@@ -31,102 +31,67 @@
                     aria-hidden="true"></span></a>&nbsp;<a href="{{ '/cooperative-trainings/' . $cooperative_training->id }}/delete"
                 title="Remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
             </div> <!-- div class="panel-heading" -->
-            <div id="{{ 'item' . $cooperative_training->id }}" class="panel-collapse collapse">
+            <div id="{{ 'item' . $cooperative_training->id }}" class="panel-collapse ">
                 <div class="panel-body">
+
                     <div class="row">
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Micro and Small Enterprises</div>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>No.</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>List of MSE's</td>
-                                                <td>{{ $cooperative_training->mse_list }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Signed MoU</td>
-                                                <td>{{ $cooperative_training->mse_mou }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Joint Plan</td>
-                                                <td>{{ $cooperative_training->mse_joint_plan }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No. of MSE's providing training</td>
-                                                <td>{{ $cooperative_training->mse_training }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No. of trainers in the industry</td>
-                                                <td>{{ $cooperative_training->mse_trainers }}</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td>TOTAL</td>
-                                                <td>{{ $cooperative_training->mse_list +
-                                                        $cooperative_training->mse_mou +
-                                                        $cooperative_training->mse_joint_plan +
-                                                        $cooperative_training->mse_training +
-                                                        $cooperative_training->mse_trainers }}</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Name of Company</td>
+                                        <td>{{ $cooperative_training->mse_list }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signed MoU</td>
+                                        <td>{{ $cooperative_training->mse_mou ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Joined Plan</td>
+                                        <td>{{ $cooperative_training->mse_joint_plan ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MSE's providing training</td>
+                                        <td>{{ $cooperative_training->mse_training ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Provide trainers in the industry</td>
+                                        <td>{{ $cooperative_training->mse_trainers ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div> <!-- div class="col-md-4" -->
 
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading">Medium and Large Companies</div>
-                                <div class="panel-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <td>&nbsp;</td>
-                                                <td>No.</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>List of Medium and Large Companies</td>
-                                                <td>{{ $cooperative_training->ml_list }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Signed MoU</td>
-                                                <td>{{ $cooperative_training->ml_mou }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Formed a Joint Plan</td>
-                                                <td>{{ $cooperative_training->ml_joint_plan }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No. of Medium and Large companies providing training</td>
-                                                <td>{{ $cooperative_training->ml_training }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>No. of In-Company Trainers</td>
-                                                <td>{{ $cooperative_training->ml_trainers }}</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td>TOTAL</td>
-                                                <td>{{ $cooperative_training->ml_list +
-                                                        $cooperative_training->ml_mou +
-                                                        $cooperative_training->ml_joint_plan +
-                                                        $cooperative_training->ml_training +
-                                                        $cooperative_training->ml_trainers }}</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>Name of Company</td>
+                                        <td>{{ $cooperative_training->ml_list }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Signed MoU</td>
+                                        <td>{{ $cooperative_training->ml_mou ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Formed a Joint Plan</td>
+                                        <td>{{ $cooperative_training->ml_joint_plan ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medium and Large companies providing training</td>
+                                        <td>{{ $cooperative_training->ml_training ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Provide In-Company Trainers</td>
+                                        <td>{{ $cooperative_training->ml_trainers ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div> <!-- div class="col-md-4" -->
 
@@ -140,6 +105,7 @@
                         </div> <!-- div class="col-md-4" -->
 
                     </div> <!-- div class="row" -->
+
                 </div> <!-- div class="panel-body" -->
             </div>
         </div> <!-- div class="panel panel-default" -->

@@ -3,9 +3,9 @@
     @include('errors.list')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit cooperative training on transferee</div>
+                    <div class="panel-heading"><h1>Edit entry for Cooperative Training on Transferee</h1></div>
                     <div class="panel-body">
                         {!! Form::model($cooperative_training_transferee,
                             [

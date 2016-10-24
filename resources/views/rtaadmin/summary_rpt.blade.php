@@ -26,6 +26,7 @@
                    8 => 'Assessment [Transferees]',
                    9 => 'Assessment [Graduates]',
                    10 => 'Assessment [Short-Term Trainees]',
+                   19 => 'Cooperative Training [with Industry Partners]',
                    11 => 'Cooperative Training [Transferees]',
                    12 => 'Cooperative Training [Graduates]',
                    13 => 'Cooperative Training [Short-Term Trainees]',
@@ -39,11 +40,12 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h1>Institutional Summary Report Setup</h1></div>
+                    <div class="panel-heading"><h1>{{ $institution->name }} Summary Report Setup</h1></div>
                     <div class="panel-body">
                         {!! Form::open(['url'   => 'rta-institutions/'. $id .'/summary-report',
                         'role'  => 'form',
-                        'class' => 'form-horizontal'
+                        'class' => 'form-horizontal',
+                        'target' => '_blank'
                         ]
                         ) !!}
 
